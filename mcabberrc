@@ -119,11 +119,8 @@ set modules_dir = /usr/lib/mcabber/
 module load cmd
 module load pep
 module load avatar
-#module load disco
-#module load -f ping
-#module load -f streams ## unsupport by jabberES
-#module load si ## unsupport by jabberES
-#module load -f urlopen
+module load -f streams ## unsupport by some jabber servers
+module load si ## unsupport by some jabber servers
 
 # module: cmd
 set cmd_shell = /bin/bash
@@ -132,16 +129,16 @@ set cmd_header = 1
 set cmd_header_inline = 1
 
 # module: streams
-#set ibb_blocksize = 4096
-#set ibb_max_blocksize = 0
-#set ibb_min_blocksize = 64
-#set ibb_timeout = 60
-#set ibb_timeout_multiple = 1
-#set ibb_max_pps = 64
+set ibb_blocksize = 4096
+set ibb_max_blocksize = 0
+set ibb_min_blocksize = 64
+set ibb_timeout = 60
+set ibb_timeout_multiple = 1
+set ibb_max_pps = 64
 
 # module: si
-#set si_ft_save_dir = ~/.mcabber/si
-#set si_ft_autoaccept = 0
+set si_ft_save_dir = ~/.mcabber/si
+set si_ft_autoaccept = 0
 
 # module: avatar
 set avatar_directory = ~/.mcabber/avatars
