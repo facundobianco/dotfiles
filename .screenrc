@@ -1,0 +1,26 @@
+startup_message off
+shell -$SHELL
+vbell off
+screen 1
+
+escape ^Bb
+bindkey "^[z" copy
+bindkey "^[[11~" select 1
+bindkey "^[[12~" select 2
+bindkey "^[[13~" select 3
+bindkey "^[[14~" select 4
+bindkey "^[[15~" select 5
+bindkey "^[[17~" select 6
+bindkey "^[[18~" select 7
+bindkey "^[[19~" select 8
+bindkey "^[[20~" select 9
+bindkey "^[[21~" select 10
+bindkey "^[[23~" select 11
+bindkey "^[[24~" select 12
+bindkey "^[[b" screen 1
+bindkey "^[[d" prev
+bindkey "^[[c" next
+
+hardstatus on
+hardstatus alwayslastline
+hardstatus string "%{.kW}%-w%{.W}%n %t%{-}%{=b kw}%?%+w%? %=%c %d/%m/%Y"

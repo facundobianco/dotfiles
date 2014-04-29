@@ -1,0 +1,60 @@
+! Urxvt 
+! -----
+URxvt.termName:		rxvt-256color
+URxvt.title:		urxvt
+URxvt.background:	#000000
+URxvt.foreground:	#BDE090
+URxvt.cursorColor:      #BDE090
+URxvt.internalBorder:	0
+URxvt.font:		xft:dina:size=11pt:antialias=true:hinting=true
+URxvt.boldFont: 	xft:dina:size=11pt:antialias=true:hinting=true:style=bold
+URxvt.shading:    	100
+URxvt.inheritPixmap: 	False
+URxvt.cursorBlink:      False
+URxvt.scrollBar:	False
+URxvt.iconFile:		/home/vando/.icons/apps/terminal-icon.png
+URxvt.saveLines:        65535
+URxvt.print-pipe:       cat > /home/vando/`date +urxvt-dump.%s`
+URxvt.perl-ext:		default,-searchable-scrollback,clipboard,url-select
+URxvt.keysym.C-Insert:	perl:clipboard:copy
+URxvt.keysym.S-Insert:	perl:clipboard:paste
+URxvt.keysym.M-Insert:	perl:clipboard:paste_escaped
+URxvt.keysym.M-s:       perl:url-select:select_next
+URxvt.urlLauncher:	firefox
+URxvt.underlineURLs:    False
+URxvt.cutchars: 	"'()*<>[]{|}
+
+
+! terminal colors
+! ---------------
+*background: 	        #000000
+*foreground: 		#BABDB6
+! Black / Grey
+*color0:  		#000000
+*color8:  		#4A4A4A
+! Red
+*color1: 		#EB4141
+*color9: 		#D6283E
+! Green
+*color2:  		#BDE090
+*color10: 		#b4e05a
+! Yellow
+*color3:     		#ffe680
+*color11: 		#FCF259
+! Blue
+*color4:		#414171
+*color12:               #729fcf
+! Mangenta
+*color5: 		#e62e8a
+*color13: 		#c71585
+! Cyan 
+*color6:		#4B8FAB
+*color14: 		#46a4ff
+! White
+*color7:		#cdcdcd
+*color15: 		#ebeae7
+
+
+! Cursor
+! ------
+Xcursor.theme:	       Vanilla-DMZ-AA
