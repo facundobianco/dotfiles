@@ -2,6 +2,7 @@
 ! -----
 URxvt.termName:		rxvt-256color
 URxvt.title:		urxvt
+URxvt.geometry:         182x60+0-5
 URxvt.background:	#000000
 URxvt.foreground:	#BDE090
 URxvt.cursorColor:      #BDE090
@@ -12,9 +13,8 @@ URxvt.shading:    	100
 URxvt.inheritPixmap: 	False
 URxvt.cursorBlink:      False
 URxvt.scrollBar:	False
-URxvt.iconFile:		/home/vando/.icons/apps/terminal-icon.png
-URxvt.saveLines:        65535
-URxvt.print-pipe:       cat > /home/vando/`date +urxvt-dump.%s`
+URxvt.iconFile:		/home/vando/.urxvt/terminal-icon.png
+URxvt.perl-lib:         /home/vando/.urxvt
 URxvt.perl-ext:		default,-searchable-scrollback,clipboard,url-select
 URxvt.keysym.C-Insert:	perl:clipboard:copy
 URxvt.keysym.S-Insert:	perl:clipboard:paste
@@ -37,24 +37,40 @@ URxvt.cutchars: 	"'()*<>[]{|}
 *color9: 		#D6283E
 ! Green
 *color2:  		#BDE090
-*color10: 		#b4e05a
+*color10: 		#B4E05A
 ! Yellow
-*color3:     		#ffe680
+*color3:     		#FFE680
 *color11: 		#FCF259
 ! Blue
 *color4:		#414171
-*color12:               #729fcf
+*color12:               #729fCF
 ! Mangenta
-*color5: 		#e62e8a
-*color13: 		#c71585
+*color5: 		#E62E8A
+*color13: 		#C71585
 ! Cyan 
 *color6:		#4B8FAB
-*color14: 		#46a4ff
+*color14: 		#46A4FF
 ! White
-*color7:		#cdcdcd
-*color15: 		#ebeae7
+*color7:		#CDCDCD
+*color15: 		#EBEAE7
 
 
 ! Cursor
 ! ------
 Xcursor.theme:	       Vanilla-DMZ-AA
+
+
+! XLock
+! -----
+XLock.foreground:       #BDE090
+XLock.background:       black
+XLock.font:             xft:dina:size=09pt:antialias=true:hinting=true
+XLock.planfont:         xft:dina:size=09pt:antialias=true:hinting=true
+XLock.mousemotion:      False
+XLock.mode:             kumppa
+XLock.description:      False
+XLock.username:         User: 
+XLock.password:         Password:
+XLock.info:                
+XLock.validate:            
+XLock.invalid:          Invalid password.
