@@ -4,11 +4,15 @@ if (BATCH == 0)
     () = evalfile("emacs");
 }
 
+% Personal JEDLIB path
+variable Jed_Home_Library = "/home/vando/.jedlib";
+set_jed_library_path (Jed_Home_Library + "," + get_jed_library_path ());
+
 % Design
 enable_top_status_line (0);
 Startup_With_File = -1;
-Color_Scheme_Path = "/home/vando/jedlib/colors";
-set_color_scheme ("gray1");
+Color_Scheme_Path = "/home/vando/.jedlib";
+set_color_scheme ("gray");
 set_status_line ("   %f  (%m%O)    %L (%l,%c)  %p ", 1);
 HIGHLIGHT = 1;
 BLINK = 1;
@@ -17,10 +21,6 @@ IGNORE_BEEP = 2;
 
 % Backup/Autosave
 No_Backups = 1;
-
-% Personal JEDLIB path
-variable Jed_Home_Library = "/home/vando/jedlib";
-set_jed_library_path (Jed_Home_Library + "," + get_jed_library_path ());
 
 % Languge correct (aspell)
 variable Ispell_Program_Name = "aspell -a -d es";
