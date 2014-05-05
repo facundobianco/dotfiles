@@ -1,0 +1,71 @@
+# design
+fontname        "dina:size=09pt:antialias=true:hinting=true"
+color font      black
+color selfont   "#FCF259"
+color menufg    "#4A4A4A"
+color menubg    "#4A4A4A"
+borderwidth     0
+gap             17 0 0 0
+ignore          xclock
+
+# unmap
+bind C-Left     unmap
+bind C-Right    unmap
+bind C-Down     unmap
+bind C-Up       unmap
+bind M-period   unmap
+bind M-Right    unmap
+bind M-Left     unmap
+bind M-Tab      unmap
+
+# bind
+bind 4-q        delete
+bind 4S-q       quit
+bind 4-r        restart
+bind 4-k        lock
+bind M-f        maximize
+bind M-F2       exec
+
+# bind4apps
+bind 4-u        urxvt
+bind 4-l        leafpad
+bind 4-f        firefox
+
+# Group 1
+autogroup 1     "main,URxvt"
+# Group 2
+autogroup 2     "Navigator,Firefox"
+autogroup 2     "chrome,Chrome"
+# Group 3
+autogroup 3     "casa,URxvt"
+# Group 4
+autogroup 4     "VCLSalFrame,libreoffice-writer"
+autogroup 4     "VCLSalFrame.DocumentWindow,libreoffice-calc"
+autogroup 4     "zathura,Zathura"
+autogroup 4     "leafpad,Leafpad"
+# Group 5 
+autogroup 5     "urxvt,URxvt"
+autogroup 5     "xterm,XTerm"
+autogroup 5     "skype,Skype"
+# Group 6
+autogroup 6     "gtkpod,Gtkpod"
+autogroup 6     "kicad,Kicad"
+
+# select groups
+bind 4-Left     rcyclegroup
+bind 4-Right    cyclegroup
+bind 4-Up       rcycleingroup
+bind 4-Down     cycleingroup
+bind 4-1        grouponly1
+bind 4-2        grouponly2
+bind 4-3        grouponly3
+bind 4-4        grouponly4
+bind 4-5        grouponly5
+bind 4-6        grouponly6
+bind 4-0        nogroup
+
+# menu list
+command ' URxvt   ' urxvt
+command ' Firefox ' firefox
+command ' Chrome  ' chrome
+command ' Leafpad ' leafpad
