@@ -13,9 +13,11 @@ bind C-Left     unmap
 bind C-Right    unmap
 bind C-Down     unmap
 bind C-Up       unmap
-bind M-period   unmap
-bind M-Right    unmap
 bind M-Left     unmap
+bind M-Right    unmap
+bind M-Down     unmap
+bind M-Up       unmap
+bind M-Period   unmap
 bind M-Tab      unmap
 
 # bind
