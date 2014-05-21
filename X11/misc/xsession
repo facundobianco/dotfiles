@@ -1,0 +1,9 @@
+xbacklight -set 100 &
+xsetroot -solid black &
+conky -dc /home/vando/.config/conky/conkyrc
+urxvt -name main -e sh -c "tmux new -s 0 -A" &
+
+export LANG="en_US.UTF-8" \
+       LC_CTYPE="en_US.UTF-8"
+
+exec /usr/X11R6/bin/cwm
