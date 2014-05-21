@@ -1,0 +1,60 @@
+min_peers          = 20
+max_peers          = 200
+max_uploads        = 50
+max_uploads_global = 200
+
+# Global upload and download rate in KiB. 
+# "0" for unlimited.
+download_rate      = 700
+upload_rate        = 45
+
+# Scheduling upload rate (for private trackers)
+schedule           = throttle_high,01:01:00,09:00:00,upload_rate=100
+schedule           = throttle_low,09:01:00,01:00:00,upload_rate=45
+
+# Default directory to save the downloaded torrents.
+directory          = /mnt/torrents
+# Default session directory.
+session            = /home/vando/.rtorrent
+log.execute        = /home/vando/.rtorrent/rtorrent.log
+# Watch a directory for new torrents, and stop those 
+# that have been deleted.
+schedule           = watch_directory_1,5,5,"load=/home/vando/trwatch/*.torrent"
+schedule           = watch_directory_2,5,5,"load=/home/vando/pr0nwatch/*.torrent,d.set_directory=/mnt/pr0n"
+schedule           = untied_directory,5,5,stop_untied=
+
+# Close torrents when diskspace is low.
+schedule = low_diskspace,5,60,close_low_diskspace=100M
+
+# Ports and connections
+port_random        = no
+port_range         = 6890-6890
+dht                = on
+dht_port           = 6895
+use_udp_trackers   = yes
+peer_exchange      = yes
+encryption         = allow_incoming,try_outgoing,enable_retry,prefer_plaintext
+
+# Check hash for finished torrents. Might be usefull until the bug is
+# fixed that causes lack of diskspace not to be properly reported.
+check_hash         = yes
+
+# Send an email for completed downloads
+system.method.set_key = event.download.finished,notify_me,"execute=/home/vando/.rtorrent/rtorrent_mail.sh,$d.get_name=,$d.get_directory="
+
+# Sort the seeding view by the upload rate and only show torrents with peers
+view.sort_current = seeding,greater=d.get_up_rate=
+view.filter = seeding,"and=d.get_complete=,d.get_peers_connected="
+view.sort_new = seeding,less=d.get_up_rate=
+view.sort = seeding
+
+# Sort the leeching view by name
+view.sort_current = leeching,greater=d.get_name=
+view.sort_new = leeching,greater=d.get_name=
+view.sort = leeching
+
+# Filter the active view by connected peers
+view.sort_current = active,less=d.get_name=
+view.sort_new = leeching,less=d.get_name=
+view.filter = active,d.get_peers_connected=
+view.sort = active
