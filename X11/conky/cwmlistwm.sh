@@ -1,4 +1,5 @@
 #!/bin/bash
+# export DISPLAY=0:0
 
 getCLASS() { xprop -id "$1" | sed '/WM_CLASS/!d;s/.*"\(.*\)",.*/\1/' ; }
 
@@ -29,18 +30,9 @@ do
     esac
 done
 
-[ -n "$GROUP1" ] || GROUP1="1"
-[ -n "$GROUP2" ] || GROUP2="2"
-[ -n "$GROUP3" ] || GROUP3="3"
-[ -n "$GROUP4" ] || GROUP4="4"
-[ -n "$GROUP5" ] || GROUP5="5"
-[ -n "$GROUP6" ] || GROUP6="6"
-[ -n "$GROUP0" ] || GROUP0="0"
+# ID=`xprop -root | sed '/^_NET_ACTIVE/!d;s/.*# //'`
+# [ "$ID" = "0x0" ] || ACTIVE=`getCLASS "$ID"`
+# [ "$ACTIVE" = "Navigator" ] && ACTIVE="firefox"
 
-ID=`xprop -root | sed '/^_NET_ACTIVE/!d;s/.*# //'`
-[ "$ID" = "0x0" ] || ACTIVE=`getCLASS "$ID"`
+echo "${GROUP1:-1} ${GROUP2:-2} ${GROUP3:-3} ${GROUP4:-4} ${GROUP5-5} ${GROUP6:-6} ${GROUP0:-0}"
 
-[ "$ACTIVE" = "Navigator" ] && ACTIVE="firefox"
-[ "$ACTIVE" = "xv" ] && ACTIVE="mplayer"
-
-echo "$GROUP1 $GROUP2 $GROUP3 $GROUP4 $GROUP5 $GROUP6 $GROUP0 | $ACTIVE"

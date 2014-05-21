@@ -6,7 +6,6 @@ color menufg    "#4A4A4A"
 color menubg    "#4A4A4A"
 borderwidth     0
 gap             17 0 0 0
-ignore          xclock
 
 # unmap
 bind C-Left     unmap
@@ -25,13 +24,17 @@ bind 4-q        delete
 bind 4S-q       quit
 bind 4-r        restart
 bind 4-k        lock
-bind M-f        maximize
+bind 4S-m       maximize
 bind M-F2       exec
 
 # bind4apps
 bind 4-u        urxvt
 bind 4-l        leafpad
 bind 4-f        firefox
+bind 4-c        "urxvt -name casa -e ssh casa"
+bind XF86AudioLowerVolume "mixerctl outputs.master=-5"
+bind XF86AudioRaiseVolume "mixerctl outputs.master=+5"
+bind XF86AudioMute        "mixerctl outputs.master=0"
 
 # Group 1
 autogroup 1     "main,URxvt"
@@ -41,14 +44,16 @@ autogroup 2     "chrome,Chrome"
 # Group 3
 autogroup 3     "casa,URxvt"
 # Group 4
-autogroup 4     "VCLSalFrame,libreoffice-writer"
-autogroup 4     "VCLSalFrame.DocumentWindow,libreoffice-calc"
-autogroup 4     "zathura,Zathura"
-autogroup 4     "leafpad,Leafpad"
+autogroup 4     "urxvt,URxvt"
+autogroup 4     "xterm,XTerm"
+autogroup 4     "skype,Skype"
 # Group 5 
-autogroup 5     "urxvt,URxvt"
-autogroup 5     "xterm,XTerm"
-autogroup 5     "skype,Skype"
+autogroup 5     "VCLSalFrame,libreoffice-writer"
+autogroup 5     "VCLSalFrame.DocumentWindow,libreoffice-calc"
+autogroup 5     "VCLSalFrame.DocumentWindow,libreoffice-draw"
+autogroup 5     "zathura,Zathura"
+autogroup 5     "leafpad,Leafpad"
+autogroup 5     "feh,feh"
 # Group 6
 autogroup 6     "gtkpod,Gtkpod"
 autogroup 6     "kicad,Kicad"
@@ -65,9 +70,3 @@ bind 4-4        grouponly4
 bind 4-5        grouponly5
 bind 4-6        grouponly6
 bind 4-0        nogroup
-
-# menu list
-command ' URxvt   ' urxvt
-command ' Firefox ' firefox
-command ' Chrome  ' chrome
-command ' Leafpad ' leafpad
