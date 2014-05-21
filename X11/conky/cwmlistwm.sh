@@ -1,5 +1,4 @@
-#!/bin/bash
-# export DISPLAY=0:0
+#!/bin/sh
 
 getCLASS() { xprop -id "$1" | sed '/WM_CLASS/!d;s/.*"\(.*\)",.*/\1/' ; }
 
@@ -30,9 +29,4 @@ do
     esac
 done
 
-# ID=`xprop -root | sed '/^_NET_ACTIVE/!d;s/.*# //'`
-# [ "$ID" = "0x0" ] || ACTIVE=`getCLASS "$ID"`
-# [ "$ACTIVE" = "Navigator" ] && ACTIVE="firefox"
-
 echo "${GROUP1:-1} ${GROUP2:-2} ${GROUP3:-3} ${GROUP4:-4} ${GROUP5-5} ${GROUP6:-6} ${GROUP0:-0}"
-
