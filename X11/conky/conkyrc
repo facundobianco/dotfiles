@@ -20,8 +20,6 @@ default_color black
 own_window_colour 4a4a4a
 color0 CDCDCD
 uppercase no
-#pad_percents 2
-
 
 # core
 display :0.0
@@ -30,8 +28,6 @@ short_units yes
 double_buffer yes
 update_interval 0.5
 update_interval_on_battery 1
-
-
 
 TEXT
 X11 ${execp /home/vando/.config/conky/cwmlistwm.sh}\
