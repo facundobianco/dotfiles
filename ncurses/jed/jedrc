@@ -5,13 +5,13 @@ if (BATCH == 0)
 }
 
 % Personal JEDLIB path
-variable Jed_Home_Library = "/home/vando/.jedlib";
+variable Jed_Home_Library = "/home/vando/jedlib";
 set_jed_library_path (Jed_Home_Library + "," + get_jed_library_path ());
 
 % Design
 enable_top_status_line (0);
 Startup_With_File = -1;
-Color_Scheme_Path = "/home/vando/.jedlib";
+Color_Scheme_Path = "/home/vando/jedlib";
 set_color_scheme ("gray");
 set_status_line ("   %f  (%m%O)    %L (%l,%c)  %p ", 1);
 HIGHLIGHT = 1;
@@ -117,7 +117,8 @@ setkey ("yp_bkill_word_or_region", "^w");
 
 % -- MODES
 % mutt
-autoload("muttrc_mode", "muttrc");
+% muttrc_mode: http://www.davep.org/mutt/muttrc.sl
+autoload("muttrc_mode", "muttrc"); 
 autoload("mail_mode", "email.sl");
 add_completion("mail_mode");
 
@@ -128,10 +129,6 @@ add_mode_for_extension ("rst_mode", "rst");
 
 % filelist (patched)
 % https://bugs.launchpad.net/ubuntu/+source/jed-extra/+bug/882208
-%"filelist_list_dir", "filelist.sl";
-%"filelist_mode", "filelist.sl";
-%"locate", "filelist.sl";
-%_autoload(3);
 _autoload("filelist_list_dir", "filelist.sl",
 "filelist_mode", "filelist.sl",
 "locate", "filelist.sl", 3);
