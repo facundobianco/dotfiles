@@ -8,7 +8,7 @@ do
         main) 
             GROUP1="\${color0}1\${color}" 
 	    ;;
-        Navigator|chrome) 
+        Navigator|Places|chrome) 
             GROUP2="\${color0}2\${color}" 
 	    ;;
         casa)

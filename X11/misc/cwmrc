@@ -24,7 +24,6 @@ bind 4-q        delete
 bind 4S-q       quit
 bind 4-r        restart
 bind 4-k        lock
-bind 4S-m       maximize
 bind M-F2       exec
 
 # bind4apps
@@ -40,6 +39,7 @@ bind XF86AudioMute        "mixerctl outputs.master=0"
 autogroup 1     "main,URxvt"
 # Group 2
 autogroup 2     "Navigator,Firefox"
+autogroup 2     "Places,Firefox"
 autogroup 2     "chrome,Chrome"
 # Group 3
 autogroup 3     "casa,URxvt"
