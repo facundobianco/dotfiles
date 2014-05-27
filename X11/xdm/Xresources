@@ -1,0 +1,33 @@
+xlogin.Login.allowRootLogin: false
+
+xlogin*login.translations:   #override \
+	                     Ctrl<Key>R: restart-session()\n\
+	                     <Key>Left: move-backward-character()\n\
+	                     <Key>Right: move-forward-character()\n\
+	                     <Key>Return: set-session-argument() finish-field()
+
+xlogin*greeting:             OpenBSD @ CLIENTHOST
+xlogin*namePrompt:           \040\040\040Login:
+xlogin*passwdPrompt:         Password:
+xlogin*fail:                 Login incorrect
+xlogin*greetFace:            dina-17:bold:dpi=75
+xlogin*face:                 dina-11:dpi=75
+xlogin*promptFace:           dina-11:dpi=75
+xlogin*failFace:             dina-11:dpi=75
+
+xlogin*hiColor:              black
+xlogin*shdColor:             black
+xlogin*background:           black
+xlogin*foreground:           #BDE090
+xlogin*greetColor:           #BDE090
+xlogin*promptColor:          #BDE090
+xlogin*failColor:            #EB4141
+
+xlogin*failTimeout:          2
+
+xlogin*borderWidth:          0
+xlogin*frameWidth:           0
+xlogin*innerFramesWidth:     0
+
+xlogin*logoFileName:         /etc/X11/xdm/pixmaps/puffy200x172.xpm
+xlogin*logoPadding:          15
