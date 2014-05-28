@@ -1,9 +1,7 @@
 # Minimal Grey theme: based on
 #   _ MyTheme http://pbrisbin.com/posts/irssi/
 #   _ ColorLess: /usr/share/irssi/themes 
-#   _ XChate: http://www.irssi.org/themefiles/xchat.theme
-#
-# http://van.do/dotconfig
+#   _ XChat: http://www.irssi.org/themefiles/xchat.theme
 
 default_color = "-1";
 info_eol = "false";
