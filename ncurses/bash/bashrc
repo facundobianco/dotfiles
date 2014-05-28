@@ -1,0 +1,41 @@
+if [ `id -un` != "root"  ]; then
+    PS1='\[\e[0;36m\]\W\$\[\e[0m\] '
+else
+    PS1='\[\e[0;35m\]\W\$\[\e[0m\] '
+fi
+PS2=' '
+PS3=' '
+PS4=' '
+export PS1 PS2 PS3 PS4
+
+export LANG=en_US.UTF-8 
+export LC_CTYPE=en_US.UTF-8
+export EDITOR=jed
+export HISTIGNORE="&:clear:exit:halt:ls:pwd:reboot:reset:resource:shutdown'
+export HISTSIZE=20000
+export HISTFILESIZE=20000
+
+set completion-ignore-case on 
+shopt -s cdspell
+shopt -s checkhash
+shopt -s no_empty_cmd_completion
+shopt -s hostcomplete
+
+complete -cf man
+complete -cf alias
+complete -cf info
+complete -cf which
+
+# Less Colors for Man Pages
+export PAGER=less
+export LESSOPEN="|lesspipe.sh %s"
+export LESS_TERMCAP_mb=$'\E[0;31m'
+export LESS_TERMCAP_md=$'\E[0;38;5;74m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[38;5;246m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[04;38;5;146m'
+
+alias dff='df -h'
+alias ls='colorls -AGq'
