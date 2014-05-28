@@ -1,0 +1,30 @@
+macro index       <esc>m       'T.\n;WN^T.\n" "mark all messages as read'
+macro index,pager S            '<enter-command>source ~/.mutt/alias<enter>'
+
+# unmap
+bind  index,pager p             noop
+
+# bind
+bind  index,pager B             bounce-message
+bind  pager       /             search
+bind  pager       \177          previous-line
+bind  index,pager R             group-reply
+bind  index       g             first-entry
+bind  index       G             last-entry
+bind  pager       g             top
+bind  pager       G             bottom
+bind  index       \177          previous-page
+bind  index,pager <space>       next-page
+bind  index       <right>       collapse-thread
+bind  index       .             collapse-all
+bind  editor      <tab>         complete-query
+bind  editor      \ct           complete
+bind  index,pager M             recall-message
+
+# sidebar
+macro index,pager b             '<enter-command>toggle sidebar_visible<enter>'
+bind  index,pager <Esc><Left>   sidebar-scroll-up
+bind  index,pager <Esc><Right>  sidebar-scroll-down
+bind  index,pager <Esc><Up>     sidebar-prev
+bind  index,pager <Esc><Down>   sidebar-next
+bind  index,pager <Esc><Return> sidebar-open

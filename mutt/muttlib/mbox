@@ -1,0 +1,8 @@
+mailboxes \
++mail/inbox \
++mail/e-commerce \
++mail/bal \
++feed/reddit \
++feed/reddit/nsfw \
++feed/reddit/messages \
++mail/jed 

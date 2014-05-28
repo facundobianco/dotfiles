@@ -1,0 +1,3 @@
+fcc-hook listas\.buenosaireslibre\.org         =mail/bal
+fcc-hook jed-users\@jedsoft\.org               =mail/jed
+fcc-hook .*                                    =mail/inbox

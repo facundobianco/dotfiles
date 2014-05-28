@@ -1,0 +1,22 @@
+color normal      default       default
+
+color hdrdefault  color8        default
+color status      color0        color8
+color indicator   color3        color8
+color tree        color3        default
+color error       color8        default
+color message     color8        default
+color sidebar_new color3        default
+
+color   index     color3        default "~N"
+color   index     color4        default "~T"
+color   index     color1        default "~D"
+
+color body        color8  	default "^gpg: .*"
+color body        color8  	default "^Primary key fingerprint: .*"
+color body        brightdefault default "(^| )\\*[^*]+\\*( |$)"
+color body        brightdefault default "(^| )_[^_]+_( |$)"
+color body        brightdefault default "(^| )/[^/]+/( |$)"
+color quoted      color7        default
+color signature   color8        default
+color attachment  color8        default

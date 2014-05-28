@@ -1,0 +1,104 @@
+# main options
+set   from              = "Your Name <yourname@domain.com>"
+set   use_from
+set   use_envelope_from
+set   delete
+set   hostname          = "mail.domain.com"
+set   hidden_host
+set   charset           = "utf-8"
+set   mail_check        = 3
+unset reverse_name
+unset quit
+unset move
+unset confirmappend
+unset mark_old
+unset user_agent
+unset use_ipv6
+
+# maildir
+set   mbox_type          = Maildir
+set   folder             = /var/spool
+set   spoolfile          = "+mail/inbox"
+set   postponed          = "+drafts"
+set   editor             = "~/muttlib/killsig.pl %s ; jed %s -tmp --mail-mode"
+unset sig_dashes                           # Because I include "\n\n--\n"
+set   signature          = ~/muttlib/sign  # in my singnature file
+source                   ~/muttlib/mbox
+
+# send options
+source                   ~/muttlib/fcc-hook
+alternates               your_other_name\@ nickname
+reply-hook               '~t your_other_name\@anotherdomain\.com' 'my_hdr From: Your Other Name <your_other_name@anotherdomain.com>'
+set   reply_to
+set   copy
+unset record
+unset postpone
+unset recall
+set   sendmail           = "/usr/local/bin/esmtp -d 5 -v -X /tmp/esmtp"
+set   reverse_name
+
+# composing email
+set   fcc_attach
+set   attribution	 = "%F wrote:"
+set   forward_format     = "Fwd: %s"
+set   fast_reply
+set   include
+set   forward_quote
+unset mime_forward
+unset abort_nosubject
+
+# thread options
+set   sort               = threads
+set   sort_aux           = reverse-last-date-received
+set   sort_re
+set   thorough_search
+set   thread_received
+set   collapse_unread
+set   uncollapse_jump
+
+# pager
+auto_view                text/html
+unalternative_order      *
+alternative_order        text/plain text/html  
+set   pager_index_lines  = 5
+set   pager_context      = 5
+set   pager_stop
+set   menu_scroll
+set   smart_wrap
+folder-hook              . 'push "<limit>~d <1m<enter><collapse-all>"'
+unset markers
+
+# gnupg
+source                   ~/.muttlib/gpg
+set   pgp_sign_as        = 0x000000
+set   pgp_timeout        = 60
+
+# cache
+set   header_cache       = ~/muttlib/cache/headers
+set   message_cachedir   = ~/muttlib/cache/bodies
+
+# alias
+source                   ~/muttlib/alias
+set   alias_file         = ~/muttlib/alias 
+
+# bind
+set   meta_key
+unset wait_key
+source                   ~/muttlib/bind
+
+
+# -- design
+source                   ~/.mutt/color
+unset help
+ignore                   *
+unignore                 Date From: To: Cc: Subject: X-RSS-ID:
+unhdr_order              *
+hdr_order                Date: From: To: Cc: Subject: X-RSS-ID:
+set   reverse_alias
+set   sidebar_visible    = yes
+set   sidebar_width      = 40
+set   status_format      = "-------+    %f   Size: %l   (%P)   +--%|-"
+set   index_format       = "%4C  %Z  %{%b %d}  %-20.18F %3M  %s"
+set   folder_format      = "%4C %N %d  %f"
+set   alias_format       = "%4C %n  %a"
+set   query_format       = "%4c  %n %a"
