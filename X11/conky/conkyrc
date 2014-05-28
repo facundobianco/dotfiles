@@ -31,11 +31,11 @@ update_interval_on_battery 1
 
 TEXT
 X11 ${execp /home/vando/.config/conky/cwmlistwm.sh}\
-${goto 574}\
+${goto 568}\
 CPU ${color0}${if_match ${cpu cpu0} < 100}${offset 7}${endif}${if_match ${cpu cpu0} < 10}${offset 7}${endif}${cpu cpu0}%\
  ${if_match ${cpu cpu1} < 100}${offset 7}${endif}${if_match ${cpu cpu1} < 10}${offset 7}${endif}${cpu cpu1}%\
  ${exec TEMP=`sysctl hw.sensors.cpu0.temp0 | sed 's/.*=\(.*\)\..*/\1/'` ; [ "$TEMP" -lt 100 ] && TEMP=" $TEMP" ; [ "$TEMP" -lt  10 ] && TEMP=" $TEMP" ; echo "$TEMP"}C${color} | \
-RAM ${color0}${mem}${color} | \
+RAM ${color0}${execp /home/vando/.config/conky/mem.sh}${color} | \
 ${if_up bwi0}LAN ${if_match ${upspeedf bwi0} < 100}${offset 7}${endif}${if_match ${upspeedf bwi0} < 10}${offset 7}${endif}${color0}${upspeedf bwi0}k/s${color} ${if_match ${downspeedf bwi0} < 100}${offset 7}${endif}${if_match ${downspeedf bwi0} < 10}${offset 7}${endif}${color0}${downspeedf bwi0}k/s${color} | ${endif}\
 BAT ${color0}${if_match ${exec apm -b} == 4}OFF${else}${if_match ${exec apm -l} < 100}${offset 7}${endif}${if_match ${exec apm -l} < 10}${offset 7}${endif}${exec apm -l}%${endif}${color} | \
 VOL ${if_match ${mixer} == 0}${color0}off${color}${else}${if_match ${mixer} < 100 }${offset 7}${endif}${if_match ${mixer} < 10}${offset 7}${endif}${color0}${mixer}${color}${endif} | \

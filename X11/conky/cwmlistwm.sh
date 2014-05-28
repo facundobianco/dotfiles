@@ -20,7 +20,7 @@ do
         VCLSalFrame*|zathura|leafpad)
             GROUP5="\${color0}5\${color}" 
 	    ;;
-        gtkpod|kicad|linphone)
+        gtkpod|kicad|linphone|gimp)
             GROUP6="\${color0}6\${color}" 
 	    ;;
 	*)
