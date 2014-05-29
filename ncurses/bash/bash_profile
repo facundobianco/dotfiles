@@ -2,5 +2,9 @@
 
 mkmaildir() { /bin/mkdir -p $1/{cur,new,tmp} ; }
 checkspell() { echo "$1" | aspell -a -d es ; }
+wmclass() { xprop | sed '/WM_CLASS/!d;s/.*= //;s/", "/,/' ; } 
 longurl() { wget -qO - "http://api.longurl.org/v2/expand?url=$1&all-redirects=0&title=0&format=php" | sed 's/.*"\(.*\)";}/\1\'$'\n/' ; }
-rtorrent(){ screen -rmS rtorrent 2> /dev/null ; [[ "$?" -gt 0 ]] && screen -mS rtorrent /usr/bin/rtorrent -o http_capath=/etc/ssl/certs ; }
+rtorrent() { screen -rmS rtorrent 2> /dev/null ; [[ "$?" -gt 0 ]] && screen -mS rtorrent /usr/bin/rtorrent -o http_capath=/etc/ssl/certs ; }
+
+alias halt='shutdown -hp now'
+alias reboot='shutdown -r now'
