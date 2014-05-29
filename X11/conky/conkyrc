@@ -17,10 +17,10 @@ border_inner_margin 0
 use_xft yes
 xftfont dina:size=09
 default_color black 
-own_window_colour 4a4a4a
+own_window_colour 494949
 color0 CDCDCD
 uppercase no
-pad_percents 4
+pad_percents 3
 use_spacer left
 
 # core
@@ -34,9 +34,9 @@ update_interval_on_battery 1
 TEXT
 X11 ${execp /home/vando/.config/conky/cwmlistwm.sh}\
 ${alignr}\
-CPU ${color0}${cpu cpu0}% ${cpu cpu1}% ${exec sysctl -n hw.sensors.cpu0.temp0 | sed 's/\..*deg//'}${color} | \
+CPU ${color0}${cpu cpu0}% ${cpu cpu1}% ${exec TEMP=`sysctl -n hw.sensors.cpu0.temp0 | sed 's/\..*//'` ; [ "$TEMP" -lt 100 ] && TEMP=" $TEMP" ; [ "$TEMP" -lt  10 ] && TEMP=" $TEMP" ; echo "$TEMP"}C${color} | \
 RAM ${color0}${mem}${color} | \
-${if_up bwi0}LAN ${color0}${upspeedf bwi0}k/s ${downspeedf bwi0}k/s${color} | ${endif}\
-${if_match ${exec apm -b} <= 3}BAT ${color0}${exec apm -l}%${endif}${color} | ${endif}\
-VOL ${color0}${if_match ${mixer} == 0}off${else}${mixer}${endif}${color} | \
+LAN ${color0}${upspeedf bwi0}k ${downspeedf bwi0}k${color} | \
+BAT ${color0}${exec BAT=`apm -l` ; [ "$BAT" -lt 100 ] && BAT=" $BAT" ; [ "$BAT" -lt 10 ] && BAT=" $BAT" ; echo "$BAT"}%${color} | \
+VOL ${color0}${mixer}${color} | \
 DATE ${color0}${time %a %d %b %H:%M:%S}

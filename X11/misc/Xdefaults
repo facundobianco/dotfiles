@@ -31,7 +31,7 @@ URxvt.cutchars: 	"'()*<>[]{|}
 *foreground: 		#BABDB6
 ! Black / Grey
 *color0:  		#000000
-*color8:  		#4A4A4A
+*color8:  		#494949
 ! Red
 *color1: 		#EB4141
 *color9: 		#D6283E
