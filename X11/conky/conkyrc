@@ -39,4 +39,4 @@ RAM ${color0}${mem}${color} | \
 LAN ${color0}${upspeedf bwi0}k ${downspeedf bwi0}k${color} | \
 BAT ${color0}${exec BAT=`apm -l` ; [ "$BAT" -lt 100 ] && BAT=" $BAT" ; [ "$BAT" -lt 10 ] && BAT=" $BAT" ; echo "$BAT"}%${color} | \
 VOL ${color0}${mixer}${color} | \
-DATE ${color0}${time %a %d %b %H:%M:%S}
+CLK ${color0}${time %a %d %b %H:%M:%S}
