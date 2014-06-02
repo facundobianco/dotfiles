@@ -26,33 +26,8 @@ complete -cf alias
 complete -cf info
 complete -cf which
 
-lesspipe() {
-    case "$1" in
-    *.tar)
-        tar tvvf "$1" ;;
-    *.tgz | *.tar.gz | *.tar.Z | *.tar.z | *.tar.bz2 | *.tbz )
-        tar tvvf "$1" ;;
-    *.tlz | *.tar.lzma )
-        lzma -dc "$1" | tar tvvf - ;;
-    *.txz | *.tar.xz )
-        tar tJtf "$1" ;;
-    *.zip)
-        unzip -l "$1" ;;
-    *.rar)
-        urar t "$1" ;;
-    *.gz)
-        gzip -dc "$1" ;;
-    *.bz2)
-        bzip2 -dc "$1" ;;
-    *.lzma)
-        lzma -dc "$1" ;;
-    *.xz)
-        xz -dc "$1" ;;
-  esac
-}
-
 export PAGER=less
-export LESSOPEN="|lesspipe"
+export LESSOPEN="|lesspipe.sh %s"
 export LESS_TERMCAP_mb=$'\E[0;31m'
 export LESS_TERMCAP_md=$'\E[0;38;5;74m'
 export LESS_TERMCAP_me=$'\E[0m'
