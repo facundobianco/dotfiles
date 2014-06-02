@@ -1,31 +1,4 @@
-! Urxvt 
-! -----
-URxvt.termName:		rxvt-256color
-URxvt.title:		urxvt
-URxvt.geometry:         182x60+0-5
-URxvt.background:	#000000
-URxvt.foreground:	#BDE090
-URxvt.cursorColor:      #BDE090
-URxvt.internalBorder:	0
-URxvt.font:		xft:dina:size=11pt:antialias=true:hinting=true
-URxvt.boldFont: 	xft:dina:size=11pt:antialias=true:hinting=true:style=bold
-URxvt.shading:    	100
-URxvt.inheritPixmap: 	False
-URxvt.cursorBlink:      False
-URxvt.scrollBar:	False
-URxvt.perl-lib:         /home/vando/.urxvt
-URxvt.perl-ext:		default,-searchable-scrollback,clipboard,url-select
-URxvt.keysym.C-Insert:	perl:clipboard:copy
-URxvt.keysym.S-Insert:	perl:clipboard:paste
-URxvt.keysym.M-Insert:	perl:clipboard:paste_escaped
-URxvt.keysym.M-s:       perl:url-select:select_next
-URxvt.urlLauncher:	firefox
-URxvt.underlineURLs:    False
-URxvt.cutchars: 	"'()*<>[]{|}
-
-
-! terminal colors
-! ---------------
+! Terminal colors
 *background: 	        #000000
 *foreground: 		#BDE090
 ! Black / Grey
@@ -53,14 +26,31 @@ URxvt.cutchars: 	"'()*<>[]{|}
 *color7:		#CDCDCD
 *color15: 		#EBEAE7
 
-
-! Cursor
-! ------
-Xcursor.theme:	       Vanilla-DMZ-AA
-
+! URxvt 
+URxvt.termName:		rxvt-256color
+URxvt.title:		urxvt
+URxvt.geometry:         182x60+0-5
+URxvt.background:	#000000
+URxvt.foreground:	#BDE090
+URxvt.cursorColor:      #BDE090
+URxvt.internalBorder:	0
+URxvt.font:		xft:dina:size=11pt:antialias=true:hinting=true
+URxvt.boldFont: 	xft:dina:size=11pt:antialias=true:hinting=true:style=bold
+URxvt.shading:    	100
+URxvt.inheritPixmap: 	False
+URxvt.cursorBlink:      False
+URxvt.scrollBar:	False
+URxvt.perl-lib:         /home/vando/.urxvt
+URxvt.perl-ext:		default,-searchable-scrollback,clipboard,url-select
+URxvt.keysym.C-Insert:	perl:clipboard:copy
+URxvt.keysym.S-Insert:	perl:clipboard:paste
+URxvt.keysym.M-Insert:	perl:clipboard:paste_escaped
+URxvt.keysym.M-s:       perl:url-select:select_next
+URxvt.urlLauncher:	firefox
+URxvt.underlineURLs:    False
+URxvt.cutchars: 	"'()*<>[]{|}
 
 ! XLock
-! -----
 XLock.foreground:       #BDE090
 XLock.background:       black
 XLock.font:             xft:dina:size=09pt:antialias=true:hinting=true
@@ -73,3 +63,6 @@ XLock.password:         Password:
 XLock.info:                
 XLock.validate:            
 XLock.invalid:          Invalid password.
+
+! XCursor
+Xcursor.theme:	        Vanilla-DMZ-AA
