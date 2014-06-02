@@ -52,7 +52,7 @@ lesspipe() {
 }
 
 export PAGER=less
-export LESSOPEN="|lesspipe.sh %s"
+export LESSOPEN="|lesspipe"
 export LESS_TERMCAP_mb=$'\E[0;31m'
 export LESS_TERMCAP_md=$'\E[0;38;5;74m'
 export LESS_TERMCAP_me=$'\E[0m'
