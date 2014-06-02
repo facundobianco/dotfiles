@@ -13,7 +13,6 @@ URxvt.shading:    	100
 URxvt.inheritPixmap: 	False
 URxvt.cursorBlink:      False
 URxvt.scrollBar:	False
-URxvt.iconFile:		/home/vando/.urxvt/terminal-icon.png
 URxvt.perl-lib:         /home/vando/.urxvt
 URxvt.perl-ext:		default,-searchable-scrollback,clipboard,url-select
 URxvt.keysym.C-Insert:	perl:clipboard:copy
@@ -28,7 +27,7 @@ URxvt.cutchars: 	"'()*<>[]{|}
 ! terminal colors
 ! ---------------
 *background: 	        #000000
-*foreground: 		#BABDB6
+*foreground: 		#BDE090
 ! Black / Grey
 *color0:  		#000000
 *color8:  		#494949
@@ -67,7 +66,7 @@ XLock.background:       black
 XLock.font:             xft:dina:size=09pt:antialias=true:hinting=true
 XLock.planfont:         xft:dina:size=09pt:antialias=true:hinting=true
 XLock.mousemotion:      False
-XLock.mode:             kumppa
+XLock.mode:             blank
 XLock.description:      False
 XLock.username:         User: 
 XLock.password:         Password:
