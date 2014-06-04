@@ -30,6 +30,7 @@ bind 4S-q       quit
 bind 4-r        restart
 bind 4-k        lock
 bind M-F2       exec
+mousebind C-1   window_resize
 
 # bind4apps
 bind 4-u        urxvt
