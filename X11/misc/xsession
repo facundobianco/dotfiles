@@ -1,4 +1,5 @@
 xbacklight -set 100
+unclutter -root -idle 1 &
 conky -dc /home/vando/.config/conky/conkyrc
 urxvt -name main -e sh -c "tmux new -s 0 -A" &
 
