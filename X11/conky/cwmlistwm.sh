@@ -29,4 +29,4 @@ do
     esac
 done
 
-echo "${GROUP1:-1} ${GROUP2:-2} ${GROUP3:-3} ${GROUP4:-4} ${GROUP5-5} ${GROUP6:-6} ${GROUP0:-0}"
+echo "${GROUP1:- } ${GROUP2:- } ${GROUP3:- } ${GROUP4:- } ${GROUP5- } ${GROUP6:- } ${GROUP0:- }"
