@@ -1,32 +1,27 @@
 # html
 text/html; lynx -display-charset=UTF-8 -assume_charset=%{charset} -short_url -justify -hiddenlinks=ignore -nomargins -dont_wrap_pre -dump %s | sed -e '/INLINE/d' ; nametemplate=%s.html ; copiousoutput
 
+# office
+text/calendar; ~/muttlib/vcal.sed %s ;  copiousoutput
+application/rtf; catdoc %s ; copiousoutput
+application/pdf; pdftotext -enc Latin1 -nopgbrk %s - ; copiousoutput
+
+# msoffice
+application/word; antiword -w 0 %s ; copiousoutput
+application/msword; antiword %s ; copiousoutput
+application/vnd.ms-word; antiword -w 0 %s ; copiousoutput
+application/vnd.openxmlformats-officedocument.wordprocessingml.document; docx2txt %s - ; copiousoutput
+application/excel; xls2csv '%s' ; copiousoutput
+application/msexcel; xls2csv '%s' ; copiousoutput
+application/vnd.ms-excel; xls2csv '%s' ; copiousoutput
+application/powerpoint; catppt '%s' ; copiousoutput
+application/mspowerpoint; catppt '%s' ; copiousoutput
+application/vnd.ms-powerpoint; catppt '%s' ; copiousoutput
+
 # compressed
-application/x-gunzip; gzcat; copiousoutput
+application/x-gunzip; gzcat ; copiousoutput
 application/x-tar-gz; tar tzf %s ; copiousoutput
 application/x-gtar; tar tzf %s ; copiousoutput
 application/x-gzip; tar tzf %s ; copiousoutput
 application/x-bzip2; tar tjf %s ; copiousoutput
 application/zip; unzip -l '%s'; copiousoutput
-
-# imgs
-# image/*; tiv %s
-
-# office
-# rtf
-application/rtf; catdoc %s; copiousoutpu
-# pdf
-application/pdf; pdftotext -enc Latin1 -nopgbrk %s - ; copiousoutput
-# msword
-application/word; antiword -w 0 %s; copiousoutput
-application/msword; antiword %s; copiousoutput
-application/vnd.ms-word; antiword -w 0 %s; copiousoutput
-# msexcel
-application/excel; xls2csv '%s'; copiousoutput
-application/msexcel; xls2csv '%s'; copiousoutput
-application/vnd.ms-excel; xls2csv '%s'; copiousoutput
-# mspowerpoint
-application/powerpoint; catppt '%s'; copiousoutput
-application/mspowerpoint; catppt '%s'; copiousoutput
-application/vnd.ms-powerpoint; catppt '%s'; copiousoutput
-
