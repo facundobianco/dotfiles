@@ -1,23 +1,21 @@
 #!/bin/sh
 
-getCLASS() { xprop -id "$1" | sed '/WM_CLASS/!d;s/.*"\(.*\)",.*/\1/' ; }
-
-for ID in `xprop -root | sed '/_LIST(WINDOW)/!d;s/.*# //;s/,//g'`
+for ID in `xlsclients -l | sed -n '/.*Class:  /s///p' | uniq -u`
 do
-    case `getCLASS "$ID"` in
-        main) 
+    case "$ID" in
+        main*) 
             GROUP1="\${color0}1\${color}" 
 	    ;;
-        Navigator|Places|chrome) 
+        *Firefox|*Chrome) 
             GROUP2="\${color0}2\${color}" 
 	    ;;
-        casa)
+        casa*)
             GROUP3="\${color0}3\${color}" 
 	    ;;
-        urxvt|xterm|skype|rdesktop)
+        urxvt*|xterm*|skype*|rdesktop*)
             GROUP4="\${color0}4\${color}" 
 	    ;;
-        VCLSalFrame*|zathura|leafpad)
+        VCLSalFrame*|soffie*|zathura*|leafpad*|feh*|)
             GROUP5="\${color0}5\${color}" 
 	    ;;
         gtkpod|kicad|linphone|gimp)
