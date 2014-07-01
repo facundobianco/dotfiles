@@ -36,7 +36,8 @@ X11 ${execp /home/vando/.config/conky/cwmlistwm.sh}\
 ${alignr}\
 CPU ${color0}${cpu cpu0}% ${cpu cpu1}% ${exec TEMP=`sysctl -n hw.sensors.cpu0.temp0 | sed 's/\..*//'` ; [ "$TEMP" -lt 100 ] && TEMP=" $TEMP" ; [ "$TEMP" -lt  10 ] && TEMP=" $TEMP" ; echo "$TEMP"}C${color} | \
 RAM ${color0}${mem}${color} | \
-LAN ${color0}${upspeedf bwi0}k ${downspeedf bwi0}k${color} | \
+LAN ${color0}${upspeedf iwn0}k ${downspeedf iwn0}k${color} | \
 BAT ${color0}${exec BAT=`apm -l` ; [ "$BAT" -lt 100 ] && BAT=" $BAT" ; [ "$BAT" -lt 10 ] && BAT=" $BAT" ; echo "$BAT"}%${color} | \
 VOL ${color0}${mixer}${color} | \
+WEA ${color0}${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ SABE temperature 5}C ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ SABE humidity 5}%${color} ${color1}|${color} \
 CLK ${color0}${time %a %d %b %H:%M:%S}
