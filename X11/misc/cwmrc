@@ -20,6 +20,7 @@ bind M-Up       unmap
 bind M-period   unmap
 bind M-Tab      unmap
 bind M-slash    unmap
+bind M-Return   unmap
 mousebind "1"   unmap
 mousebind "2"   unmap
 mousebind "3"   unmap
