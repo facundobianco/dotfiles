@@ -15,7 +15,7 @@ do
         urxvt*|xterm*|skype*|rdesktop*)
             GROUP4="\${color0}4\${color}" 
 	    ;;
-        VCLSalFrame*|soffie*|zathura*|leafpad*|feh*|)
+        VCLSalFrame*|soffie*|zathura*|leafpad*|feh*)
             GROUP5="\${color0}5\${color}" 
 	    ;;
         gtkpod|kicad|linphone|gimp)
