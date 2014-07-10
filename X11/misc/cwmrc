@@ -1,7 +1,7 @@
 # windows
 fontname        "dina:size=09pt"
 borderwidth     0
-gap             17 0 0 0
+gap             16 0 0 0
 
 # unmap
 bind C-Left     unmap
@@ -30,7 +30,8 @@ bind 4S-q       quit
 bind 4-r        restart
 bind 4-k        lock
 bind M-F2       exec
-mousebind C-1   window_resize
+bind 4-slash    search
+mousebind 4-1   window_resize
 
 # bind4apps
 bind 4-u        urxvt
