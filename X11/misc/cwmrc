@@ -30,7 +30,7 @@ bind 4-q        delete
 bind 4S-q       quit
 bind 4-r        restart
 bind 4-k        lock
-bind M-F2       exec
+bind M-F2       "urxvt -geometry 80x1 -fg black -bg grey -name bashrun -e sh -c '/bin/bash -i -t'"
 bind 4-slash    search
 mousebind 4-1   window_resize
 
@@ -46,25 +46,26 @@ bind XF86AudioMute        "mixerctl outputs.master=0"
 # Group 1
 autogroup 1     "main,URxvt"
 # Group 2
-autogroup 2     "Navigator,Firefox"
-autogroup 2     "Places,Firefox"
-autogroup 2     "chrome,Chrome"
+autogroup 2     Firefox
 # Group 3
 autogroup 3     "casa,URxvt"
 # Group 4
 autogroup 4     "urxvt,URxvt"
-autogroup 4     "xterm,XTerm"
-autogroup 4     "skype,Skype"
+autogroup 4     XTerm
 # Group 5 
-autogroup 5     "VCLSalFrame,libreoffice-writer"
-autogroup 5     "VCLSalFrame.DocumentWindow,libreoffice-calc"
-autogroup 5     "VCLSalFrame.DocumentWindow,libreoffice-draw"
-autogroup 5     "zathura,Zathura"
-autogroup 5     "leafpad,Leafpad"
-autogroup 5     "feh,feh"
+autogroup 5     libreoffice-writer
+autogroup 5     libreoffice-calc
+autogroup 5     libreoffice-draw
+autogroup 5     Soffice
+autogroup 5     Zathura
+autogroup 5     Leafpad
+autogroup 5     feh
 # Group 6
-autogroup 6     "gtkpod,Gtkpod"
-autogroup 6     "kicad,Kicad"
+autogroup 6     Gtkpod
+autogroup 6     Kicad
+autogroup 6     Gimp
+# Group 7
+autogroup 7     rdesktop
 
 # select groups
 bind 4-Left     rcyclegroup
