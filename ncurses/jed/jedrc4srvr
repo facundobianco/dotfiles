@@ -1,0 +1,109 @@
+if (BATCH == 0)
+{
+    % Emacs-like bindings
+    () = evalfile("emacs");
+}
+
+% Design
+enable_top_status_line (0);
+Startup_With_File = -1;
+set_status_line ("   %f  (%m%O)    %L (%l,%c)  %p ", 1);
+HIGHLIGHT = 1;
+BLINK = 1;
+WANT_EOB = 0;
+IGNORE_BEEP = 2;
+
+% Backup/Autosave
+No_Backups = 1;
+
+% Tabs 
+Tab_Always_Inserts_Tab = 0;
+USE_TABS = 1;
+TAB_DEFAULT = 8;
+
+define global_mode_hook (mode)
+{
+    variable flags, name;
+    (name, flags) = what_mode ();
+    set_mode (name, flags & ~1);
+   
+    local_unsetkey("\t");
+    local_setkey("insert_spaces(4)", "\t");
+}
+
+% Navigate on buffers
+require("keydefs");
+define ide_next_buffer (previous)
+{
+    variable n, buf;
+    n = buffer_list ();
+    if (previous)
+        _stk_reverse (n-1);
+    loop (n)
+    {
+        buf = ();
+        n--;
+        if (buf[0] == ' ') continue;
+        sw2buf (buf);
+        _pop_n (n);
+        return;
+    }
+}
+
+setkey ("ide_next_buffer (0)",  Key_Alt_Right);
+setkey ("ide_next_buffer (1)",  Key_Alt_Left);
+
+% Navigate on windows
+setkey("other_window", Key_Alt_Up);
+setkey("other_window", Key_Alt_Down);
+
+% Press the backtick once, not twice
+% http://mailman.jtan.com/pipermail/jed-users-l/2011-September/000274.html
+local_unsetkey("`");
+local_setkey("self_insert_cmd", "`");
+
+% Avoid autoformating when paste
+% http://mailman.jtan.com/pipermail/jed-users-l/2011-December/000288.html
+setkey("paste", "^P");
+add_completion("paste");
+
+% emulates bash keyboard shortcuts
+% http://mailman.jtan.com/pipermail/jed-users-l/2012-February/000312.html
+define yp_kill_to_bol ()
+{
+    push_mark ();
+    bol ();
+    yp_kill_region ();
+}
+
+define yp_bkill_word_or_region ()
+{
+    if (is_visible_mark ())
+        yp_kill_region ();
+    else
+        yp_bkill_word ();
+}
+
+setkey ("yp_kill_to_bol", "^u");
+setkey ("yp_bkill_word_or_region", "^w");
+
+% filelist (patched)
+% https://bugs.launchpad.net/ubuntu/+source/jed-extra/+bug/882208
+_autoload("filelist_list_dir", "filelist.sl",
+"filelist_mode", "filelist.sl",
+"locate", "filelist.sl", 3);
+_add_completion("locate", "filelist_mode", 2);
+
+define filelist_find_file_hook(filename)
+{
+    if (file_status(filename) == 2)
+    {
+        filelist_list_dir(filename);
+        return 1; % abort hook chain, 
+                  % do not use the function actually called
+    }
+    return 0;  % try other hooks or use opening function
+}
+append_to_hook("_jed_find_file_before_hooks", &filelist_find_file_hook);
+
+setkey("filelist_list_dir", "^XF");
