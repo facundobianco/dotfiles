@@ -8,7 +8,6 @@ set   hidden_host
 set   charset           = "utf-8"
 set   mail_check        = 3
 unset reverse_name
-unset quit
 unset move
 unset confirmappend
 unset mark_old
