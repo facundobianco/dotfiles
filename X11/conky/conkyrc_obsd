@@ -16,9 +16,11 @@ draw_shades no
 border_inner_margin 0
 use_xft yes
 xftfont dina:size=09
-default_color black 
-own_window_colour 494949
-color0 CDCDCD
+default_color 8A8A8A
+own_window_colour 333333
+color0 B7B7B7
+color1 black
+color2 red
 uppercase no
 pad_percents 3
 use_spacer left
@@ -31,13 +33,14 @@ double_buffer yes
 update_interval 0.5
 update_interval_on_battery 1
 
+
 TEXT
 X11 ${execp /home/vando/.config/conky/cwmlistwm.sh}\
 ${alignr}\
-CPU ${color0}${cpu cpu0}% ${cpu cpu1}% ${exec TEMP=`sysctl -n hw.sensors.cpu0.temp0 | sed 's/\..*//'` ; [ "$TEMP" -lt 100 ] && TEMP=" $TEMP" ; [ "$TEMP" -lt  10 ] && TEMP=" $TEMP" ; echo "$TEMP"}C${color} | \
-RAM ${color0}${mem}${color} | \
-LAN ${color0}${upspeedf iwn0}k ${downspeedf iwn0}k${color} | \
-VOL ${color0}${mixer}${color} | \
+CPU ${color0}${cpu cpu0}% ${cpu cpu1}% ${exec TEMP=`sysctl -n hw.sensors.cpu0.temp0 | sed 's/\..*//'` ; [ "$TEMP" -lt 100 ] && TEMP=" $TEMP" ; [ "$TEMP" -lt  10 ] && TEMP=" $TEMP" ; echo "$TEMP"}C${color} ${color1}|${color} \
+RAM ${color0}${mem}${color} ${color1}|${color} \
+LAN ${color0}${upspeedf iwn0}k ${downspeedf iwn0}k${color} ${color1}|${color} \
+VOL ${color0}${mixer}${color} ${color1}|${color} \
 BAT ${color0}${apm_battery_life}${color} ${color1}|${color} \
 WEA ${color0}${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ SABE temperature 5}C ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ SABE humidity 5}%${color} ${color1}|${color} \
 CLK ${color0}${time %a %d %b %H:%M:%S}

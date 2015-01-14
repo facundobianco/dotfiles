@@ -40,15 +40,17 @@ URxvt.shading:    	100
 URxvt.inheritPixmap: 	False
 URxvt.cursorBlink:      False
 URxvt.scrollBar:	False
-URxvt.perl-lib:         /home/vando/.urxvt
+! Only OpenBSD: Uncomment line above
+! URxvt.perl-lib:        /home/vando/.urxvt
 URxvt.perl-ext:		default,-searchable-scrollback,clipboard,url-select
+! See http://www.github.com/muennich/urxvt-perls
 URxvt.keysym.C-Insert:	perl:clipboard:copy
 URxvt.keysym.S-Insert:	perl:clipboard:paste
 URxvt.keysym.M-Insert:	perl:clipboard:paste_escaped
 URxvt.keysym.M-s:       perl:url-select:select_next
 URxvt.urlLauncher:	firefox
 URxvt.underlineURLs:    False
-URxvt.cutchars: 	"'()*<>[]{|}
+URxvt.cutchars: 	\"'`()*<>[]{|}
 
 ! XLock
 XLock.foreground:       #BDE090

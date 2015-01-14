@@ -1,0 +1,5 @@
+# I just have one vt and next the GUI: edit file /etc/inittab keeping
+# this line below "login getties" option:
+# c1:12345:respawn:/sbin/agetty --noclear 38400 tty1 linux
+#
+:0 local /usr/bin/X :0

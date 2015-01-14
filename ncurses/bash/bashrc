@@ -21,7 +21,6 @@ complete -cf alias
 complete -cf info
 complete -cf which
 
-export PAGER=less
 export LESSOPEN="|lesspipe.sh %s"
 export LESS_TERMCAP_mb=$'\E[0;31m'
 export LESS_TERMCAP_md=$'\E[0;38;5;74m'
@@ -31,7 +30,14 @@ export LESS_TERMCAP_so=$'\E[38;5;246m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[04;38;5;146m'
 
-alias halt='shutdown -hp now'
 alias reboot='shutdown -r now'
-alias dff='df -h'
-alias ls='colorls -1AGq'
+
+# OpenBSD's aliases
+# alias halt='shutdown -hp now'
+# alias dff='df -h'
+# alias ls='colorls -1AGq'
+
+# Slackware's aliases
+# alias halt='sudo /sbin/shutdown -hP now'
+# alias dff='df -h / /home | column -t'
+# alias ls='ls -1Aq --color=always --file-type --group-directories-first'

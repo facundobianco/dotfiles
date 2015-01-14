@@ -1,0 +1,4 @@
+# I just have one vt and next the GUI: edit file /etc/ttys just allowing ttyC0:
+# ttyC0   "/usr/libexec/getty std.9600"   vt220   on  secure
+# 
+:0 local /usr/X11R6/bin/X :0 vt02

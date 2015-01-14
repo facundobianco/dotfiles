@@ -19,29 +19,38 @@ bind M-Down     unmap
 bind M-Up       unmap
 bind M-period   unmap
 bind M-Tab      unmap
-bind M-slash    unmap
 bind M-Return   unmap
+bind M-slash    unmap
+bind C-slash    unmap
 mousebind "1"   unmap
 mousebind "2"   unmap
 mousebind "3"   unmap
+mousebind M-2   unmap
 
 # bind
 bind 4-q        delete
 bind 4S-q       quit
 bind 4-r        restart
 bind 4-k        lock
-bind M-F2       "urxvt -geometry 80x1 -fg black -bg grey -name bashrun -e sh -c '/bin/bash -i -t'"
+bind M-F2       exec
 bind 4-slash    search
 mousebind 4-1   window_resize
+# Uncomment if you use
+# OpenBSD:
+# bind XF86AudioLowerVolume "mixerctl outputs.master=-5"
+# bind XF86AudioRaiseVolume "mixerctl outputs.master=+5"
+# bind XF86AudioMute        "mixerctl outputs.master=0"
+# Slackware:
+# bind XF86AudioLowerVolume "amixer --quiet set PCM 1+"
+# bind XF86AudioRaiseVolume "amixer --quiet set PCM 1-"
+# bind XF86AudioMute        "amixer --quiet set PCM toggle"
+
 
 # bind4apps
 bind 4-u        urxvt
 bind 4-l        leafpad
 bind 4-f        firefox
 bind 4-c        "urxvt -name casa -e ssh casa"
-bind XF86AudioLowerVolume "mixerctl outputs.master=-5"
-bind XF86AudioRaiseVolume "mixerctl outputs.master=+5"
-bind XF86AudioMute        "mixerctl outputs.master=0"
 
 # Group 1
 autogroup 1     "main,URxvt"
@@ -52,6 +61,8 @@ autogroup 3     "casa,URxvt"
 # Group 4
 autogroup 4     "urxvt,URxvt"
 autogroup 4     XTerm
+autogroup 4     Skype
+autogroup 4     Linphone
 # Group 5 
 autogroup 5     libreoffice-writer
 autogroup 5     libreoffice-calc
@@ -63,7 +74,13 @@ autogroup 5     feh
 # Group 6
 autogroup 6     Gtkpod
 autogroup 6     Kicad
+autogroup 6     Eeschema
+autogroup 6     Cvpcb
+autogroup 6     Pcbnew
+autogroup 6     Gerbview
 autogroup 6     Gimp
+autogroup 6     MPlayer
+autogroup 6     Chirpw
 # Group 7
 autogroup 7     rdesktop
 
