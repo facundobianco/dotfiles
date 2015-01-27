@@ -30,7 +30,7 @@ bind M-period   unmap
 bind M-Tab      unmap
 bind M-Return   unmap
 bind M-slash    unmap
-bind c-slash    unmap
+bind C-slash    unmap
 mousebind "1"   unmap
 mousebind "2"   unmap
 mousebind "3"   unmap
