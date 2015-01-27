@@ -1,5 +1,12 @@
-macro index       <esc>m       'T.\n;WN^T.\n" "mark all messages as read'
-macro index,pager S            '<enter-command>source ~/.mutt/alias<enter>'
+# macro
+macro index <Esc>m "<collapse-all>T.\n;WN^T.\n<collapse-all>" "mark all messages as read"
+macro attach  s '<save-entry><bol>~/down/'
+
+# manage different accounts
+macro generic <Esc>1 '<enter-command>my_hdr From: Bob <bob@mx.com><Enter>'
+macro compose <Esc>1 '<edit-from><kill-line>Bob <bob@mx.com><Enter>'
+macro generic <Esc>1 '<enter-command>my_hdr From: Alice <alice@mx.com><Enter>'
+macro compose <Esc>1 '<edit-from><kill-line>Alice <alice@mx.com><Enter>'
 
 # unmap
 bind  index,pager p             noop

@@ -2,6 +2,7 @@
 fontname        "dina:size=09pt"
 borderwidth     0
 gap             16 0 0 0
+ignore          Xfce4-notifyd
 
 # unmap
 bind C-Left     unmap
@@ -17,11 +18,19 @@ bind M-Left     unmap
 bind M-Right    unmap
 bind M-Down     unmap
 bind M-Up       unmap
+bind M-h        unmap
+bind M-j        unmap
+bind M-k        unmap
+bind M-l        unmap
+bind M-H        unmap
+bind M-J        unmap
+bind M-K        unmap
+bind M-L        unmap
 bind M-period   unmap
 bind M-Tab      unmap
 bind M-Return   unmap
 bind M-slash    unmap
-bind C-slash    unmap
+bind c-slash    unmap
 mousebind "1"   unmap
 mousebind "2"   unmap
 mousebind "3"   unmap
@@ -41,9 +50,9 @@ mousebind 4-1   window_resize
 # bind XF86AudioRaiseVolume "mixerctl outputs.master=+5"
 # bind XF86AudioMute        "mixerctl outputs.master=0"
 # Slackware:
-# bind XF86AudioLowerVolume "amixer --quiet set PCM 1+"
-# bind XF86AudioRaiseVolume "amixer --quiet set PCM 1-"
-# bind XF86AudioMute        "amixer --quiet set PCM toggle"
+# bind XF86AudioLowerVolume "amixer --quiet set Master 3-"
+# bind XF86AudioRaiseVolume "amixer --quiet set Master 3+"
+# bind XF86AudioMute        "amixer --quiet set Master toggle"
 
 
 # bind4apps
@@ -64,6 +73,7 @@ autogroup 4     XTerm
 autogroup 4     Skype
 autogroup 4     Linphone
 # Group 5 
+autogroup 5     libreoffice-startcenter
 autogroup 5     libreoffice-writer
 autogroup 5     libreoffice-calc
 autogroup 5     libreoffice-draw

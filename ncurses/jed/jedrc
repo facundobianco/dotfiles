@@ -30,6 +30,9 @@ Tab_Always_Inserts_Tab = 0;
 USE_TABS = 1;
 TAB_DEFAULT = 8;
 
+% How to display the key codes returned for a particular keystroke:
+% jed -n -l keycode -f keycode
+
 define global_mode_hook (mode)
 {
     variable flags, name;
@@ -59,7 +62,6 @@ setkey_reserved ("format_paragraphs", "q");
 
 % Navigate on buffers
 require("keydefs");
-require("numbuf/numbuf");
 
 define ide_next_buffer (previous)
 {
@@ -115,19 +117,72 @@ define yp_bkill_word_or_region ()
 setkey ("yp_kill_to_bol", "^u");
 setkey ("yp_bkill_word_or_region", "^w");
 
+% Underline (adorn) a title (Docutils style).
+% https://web.archive.org/web/20140701221544/rexx.com/~dkuhlman/jed_macros.html
+define txt_adorn_title()
+{
+    variable loc1;
+    variable loc2;
+    variable idx;
+    variable char_count;
+    variable adornment_char;
+    variable arg;
+    arg = prefix_argument(-1);
+    adornment_char = read_mini("Enter adornment character:", "=", "");
+    bol();
+    loc1 = what_column();
+    eol();
+    loc2 = what_column();
+    char_count = loc2 - loc1;
+
+    if (arg != -1)
+    {
+        bol();
+        for (idx = 0; idx < char_count; idx++)
+        {
+            insert(adornment_char);
+        }
+        insert("\n");
+        eol();
+    }
+    insert("\n");
+    for (idx = 0; idx < char_count; idx++)
+    {
+        insert(adornment_char);
+    }
+    insert("\n\n");
+}
+
+setkey("txt_adorn_title", "\e-");
+
+% If the cursor is on a path/file this macro will load that file into a buffer.
+% https://web.archive.org/web/20140701221544/rexx.com/~dkuhlman/jed_macros.html
+define load_file_under_cursor()
+{
+   variable s1;
+   variable wordchars1;
+   push_spot();
+   wordchars1 = "-_A-Za-z0-9./";
+   mark_word(wordchars1);
+   %() = dupmark();
+   s1 = bufsubstr();
+   %yp_copy_region_as_kill();
+   pop_spot();
+   find_file(s1);
+   message("\"" + s1 + "\" opened");
+}
+
+setkey("load_file_under_cursor", "\eo");
+
+
 % -- MODES
-% mutt
-% muttrc_mode: http://www.davep.org/mutt/muttrc.sl
+% A simple highlighting scheme for your ~/.muttrc file
+% http://www.davep.org/mutt/muttrc.sl
 autoload("muttrc_mode", "muttrc"); 
 autoload("mail_mode", "email.sl");
 add_completion("mail_mode");
 
-% rST
-autoload("rst_mode", "rst");
-autoload("push_defaults", "sl_utils");
-add_mode_for_extension ("rst_mode", "rst");
-
-% filelist (patched)
+% A special mode for file listings (ls, ls -a, locate), patched version
 % https://bugs.launchpad.net/ubuntu/+source/jed-extra/+bug/882208
 _autoload("filelist_list_dir", "filelist.sl",
 "filelist_mode", "filelist.sl",

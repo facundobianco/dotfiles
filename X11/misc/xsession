@@ -1,3 +1,5 @@
+#!/bin/sh
+
 xbacklight -set 100
 conky -qdc /home/vando/.config/conky/conkyrc
 
@@ -6,4 +8,9 @@ export LANG="en_US.UTF-8" \
 
 urxvt -name main -e sh -c "tmux new -s 0 -A" &
 
-exec /usr/X11R6/bin/cwm
+if [ -z "$DESKTOP_SESSION" -a -x /usr/bin/ck-launch-session ]
+then
+    ck-launch-session dbus-launch --exit-with-session cwm
+else
+    exec /usr/X11R6/bin/cwm
+fi

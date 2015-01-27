@@ -22,21 +22,19 @@ chatnets = {
 };
 
 channels = (
+  { name = "&bitlbee"; chatnet = "bitlbee"; autojoin = "yes"; },
+  { name = "#twitter_vando"; chatnet = "bitlbee"; autojoin = "yes"; }
   { name = "#buenosaireslibre"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#openbsderos"; chatnet = "freenode"; autojoin = "yes"; }
-  { name = "##cwm"; chatnet = "freenode"; autojoin = "yes"; }
 );
 
 aliases = {
   last         = "lastlog";
   sb           = "scrollback";
   wm           = "window move";
-  calc         = "exec - printf '%s = ' '$*'\\; echo '$*' | bc -l";
   cmd          = "exec - -out";
-  down4me      = "exec - /usr/bin/wget -qO - http://www.downforeveryoneorjustme.com/$0 | sed '/just you/!d\\;s/<[^>]*>//g'";
   nick_recover = "msg NickServ GHOST $0 $1; wait 2000; msg NickServ RELEASE $0 $1; wait 2000; nick $0; wait 2000; msg NickServ IDENTIFY $1";
-  x            = "echo Where is your head? Use /quit";
-  cuptime      = "script exec \\$a=`date +%s` - Irssi::active_win->{'active_server'}->{'connect_time'}\\; Irssi::print( int(\\$a/3600/24).\"d \".int(\\$a/3600%24).\"h \". int(\\$a/60%60).\"m \". int(\\$a%60).\"s\")\\;";
+  x            = "echo noop";
 };
 
 statusbar = {
@@ -149,6 +147,7 @@ settings = {
     show_nickmode = "yes";
     show_nickmode_empty = "yes";
     show_names_on_join = "no";
+    windows_auto_renumber = "no";
   };
 
   "perl/core/scripts" = {
@@ -181,13 +180,14 @@ settings = {
 };
 
 ignores = (
-  { level = "ACTIONS"; pattern = "is ((a|A)way|(g|G)one|(b|B)ack|(r|R)eturned)"; regexp = "yes"; },
+  { level = "ACTIONS"; pattern = "is ([Aa]way|[Gg]one|[Bb]ack|[Rr]eturned)"; regexp = "yes"; },
   { level = "ACTIONS"; pattern = "is listening"; regexp = "yes"; },
   { level = "MODES"; channels = ( "&bitlbee" ); }
 );
 
 hilights = (
   { text = "vando"; nick = "no"; word = "no"; fullword = "yes"; },
+  { text = "New request"; nick = "no"; word = "no"; fullword = "yes"; channels = ( "&bitlbee" ); }
 );
 
 logs = { };
@@ -200,10 +200,21 @@ completions = {
   ll = { value = "<3"; auto = "yes"; };
   uu = { value = "URL?"; auto = "yes"; };
   mm = { value = "/query"; auto = "yes"; };
-  rr = { value = "reply"; auto = "yes"; };
   tl = { value = "tl;dr"; auto = "yes"; };
   tb = { value = "también"; auto = "yes"; };
   dp = { value = "después"; auto = "yes"; };
   hh = { value = "o/"; auto = "yes"; };
+  # For tw
   fv = { value = "favourite"; auto = "yes"; };
+  rr = { value = "reply"; auto = "yes"; };
 };
+
+windows = {
+  1 = { immortal = "yes"; name = "(status)"; level = "ALL"; };
+  2 = { items = ( { type = "CHANNEL"; chat_type = "IRC"; immortal = "yes"; name = "&bitlbee"; tag = "bitlbee"; } ); };
+  3 = { items = ( { type = "CHANNEL"; chat_type = "IRC"; immortal = "yes"; name = "#twitter_vando"; tag = "bitlbee"; } ); };
+  4 = { items = ( { type = "CHANNEL"; chat_type = "IRC"; immortal = "yes"; name = "#buenosaireslibre"; tag = "freenode"; } ); };
+  5 = { items = ( { type = "CHANNEL"; chat_type = "IRC"; immortal = "yes"; name = "#openbsderos"; tag = "freenode"; } ); }; 
+};
+
+mainwindows = { 1 = { first_line = "0"; lines = "63"; }; };

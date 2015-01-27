@@ -40,10 +40,9 @@ URxvt.shading:    	100
 URxvt.inheritPixmap: 	False
 URxvt.cursorBlink:      False
 URxvt.scrollBar:	False
-! Only OpenBSD: Uncomment line above
-! URxvt.perl-lib:        /home/vando/.urxvt
-URxvt.perl-ext:		default,-searchable-scrollback,clipboard,url-select
 ! See http://www.github.com/muennich/urxvt-perls
+URxvt.perl-lib:         /home/vando/.urxvt
+URxvt.perl-ext:		default,-searchable-scrollback,clipboard,url-select
 URxvt.keysym.C-Insert:	perl:clipboard:copy
 URxvt.keysym.S-Insert:	perl:clipboard:paste
 URxvt.keysym.M-Insert:	perl:clipboard:paste_escaped

@@ -18,6 +18,26 @@ application/powerpoint; catppt '%s' ; copiousoutput
 application/mspowerpoint; catppt '%s' ; copiousoutput
 application/vnd.ms-powerpoint; catppt '%s' ; copiousoutput
 
+# office (X11)
+# application/rtf; libreoffice --writer %s
+# application/pdf; zathura %s
+
+# msoffice (X11)
+# application/msword; libreoffice --writer %s
+# application/vnd.openxmlformats-officedocument.wordprocessingml.document; libreoffice --writer %s
+# application/vnd.openxmlformats-officedocument.wordprocessingml.template; libreoffice --writer %s
+# application/ms-excel; libreoffice --calc %s
+# application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; libreoffice --calc %s
+# application/vnd.openxmlformats-officedocument.spreadsheetml.template; libreoffice --calc %s
+# application/vnd.ms-powerpoint; libreoffice --show %s
+# application/vnd.openxmlformats-officedocument.presentationml.presentation; libreoffice --show %s
+# application/vnd.openxmlformats-officedocument.presentationml.template; libreoffice --show %s
+# application/vnd.openxmlformats-officedocument.presentationml.slideshow; libreoffice --show %s
+
+# images
+# image/*; feh -. %s
+# image/*; tiv %s
+
 # compressed
 application/x-gunzip; gzcat ; copiousoutput
 application/x-tar-gz; tar tzf %s ; copiousoutput
@@ -25,3 +45,4 @@ application/x-gtar; tar tzf %s ; copiousoutput
 application/x-gzip; tar tzf %s ; copiousoutput
 application/x-bzip2; tar tjf %s ; copiousoutput
 application/zip; unzip -l '%s'; copiousoutput
+application/x-zip-compressed; unzip -l %s ; copiousoutput

@@ -1,5 +1,14 @@
 #!/bin/sh
 
+# Another way to get WMs' class
+# -----------------------------
+#
+# getCLASS() { xprop -id "$1" |  sed '/WM_CLASS/!d;s/.*= //;s/[^a-zA-Z,-]//g' ; }
+#
+# for ID in `xprop -root | sed '/_LIST(WINDOW)/!d;s/.*# //;s/,//g'`
+# do
+#     ...
+
 for ID in `xlsclients -l | sed -n '/.*Class:  /s///p' | uniq -u`
 do
     case "$ID" in
