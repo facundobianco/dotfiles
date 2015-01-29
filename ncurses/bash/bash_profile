@@ -3,8 +3,16 @@
 mkmaildir() { /bin/mkdir -p $1/{cur,new,tmp} ; }
 wmclass() { xprop | sed '/WM_CLASS/!d;s/.*= //;s/", "/,/' ; } 
 
-rtorrent()
-{
-    screen -rmS rtorrent 2> /dev/null
-    [[ "$?" -gt 0 ]] && screen -mS rtorrent /usr/bin/rtorrent -o http_capath=/etc/ssl/certs
-}
+# On main home-srvr:
+# alias rtorrent='tmux rename-window rtorrent ; export RTORRENT=1 ; ssh -o SendEnv=RTORRENT rtorrent'
+#
+# On rtorrent's server configure sshd_config with
+#    PermitUserEnvironment yes
+#    AcceptEnv RTORRENT
+# and uncomment this
+# rtorrent()
+# {
+#     screen -rmS rtorrent 2> /dev/null
+#     [[ "$?" -gt 0 ]] && screen -mS rtorrent /usr/bin/rtorrent -o http_capath=/etc/ssl/certs
+# }
+# [[ "$RTORRENT" ]] && rtorrent

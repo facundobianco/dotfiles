@@ -1,69 +1,69 @@
 ! Terminal colors
-*background: 	        #000000
-*foreground: 		#BDE090
+*background: 	            #000000
+*foreground: 		    #BDE090
 ! Black / Grey
-*color0:  		#000000
-*color8:  		#494949
+*color0:  		    #000000
+*color8:  		    #494949
 ! Red
-*color1: 		#EB4141
-*color9: 		#D6283E
+*color1: 		    #EB4141
+*color9: 		    #D6283E
 ! Green
-*color2:  		#BDE090
-*color10: 		#B4E05A
+*color2:  		    #BDE090
+*color10: 		    #B4E05A
 ! Yellow
-*color3:     		#FFE680
-*color11: 		#FCF259
+*color3:     		    #FFE680
+*color11: 		    #FCF259
 ! Blue
-*color4:		#414171
-*color12:               #729fCF
+*color4:	            #414171
+*color12:                   #729fCF
 ! Mangenta
-*color5: 		#E62E8A
-*color13: 		#C71585
+*color5:                    #E62E8A
+*color13:                   #C71585
 ! Cyan 
-*color6:		#4B8FAB
-*color14: 		#46A4FF
+*color6:		    #4B8FAB
+*color14: 		    #46A4FF
 ! White
-*color7:		#CDCDCD
-*color15: 		#EBEAE7
+*color7:		    #CDCDCD
+*color15: 		    #EBEAE7
 
 ! URxvt 
-URxvt.termName:		rxvt-256color
-URxvt.title:		urxvt
-URxvt.geometry:         182x60+0-5
-URxvt.background:	#000000
-URxvt.foreground:	#BDE090
-URxvt.cursorColor:      #BDE090
-URxvt.internalBorder:	0
-URxvt.font:		xft:dina:size=11pt:antialias=true:hinting=true
-URxvt.boldFont: 	xft:dina:size=11pt:antialias=true:hinting=true:style=bold
-URxvt.shading:    	100
-URxvt.inheritPixmap: 	False
-URxvt.cursorBlink:      False
-URxvt.scrollBar:	False
-! See http://www.github.com/muennich/urxvt-perls
-URxvt.perl-lib:         /home/vando/.urxvt
-URxvt.perl-ext:		default,-searchable-scrollback,clipboard,url-select
-URxvt.keysym.C-Insert:	perl:clipboard:copy
-URxvt.keysym.S-Insert:	perl:clipboard:paste
-URxvt.keysym.M-Insert:	perl:clipboard:paste_escaped
-URxvt.keysym.M-s:       perl:url-select:select_next
-URxvt.urlLauncher:	firefox
-URxvt.underlineURLs:    False
-URxvt.cutchars: 	\"'`()*<>[]{|}
+! I use urxvt's ext from http://www.github.com/muennich/urxvt-perls
+URxvt.termName:		    rxvt-256color
+URxvt.title:		    urxvt
+URxvt.geometry:             182x60+0-5
+URxvt.background:	    #000000
+URxvt.foreground:	    #BDE090
+URxvt.cursorColor:          #BDE090
+URxvt.internalBorder:	    0
+URxvt.font:		    xft:dina:size=11pt:antialias=true:hinting=true
+URxvt.boldFont: 	    xft:dina:size=11pt:antialias=true:hinting=true:style=bold
+URxvt.shading:    	    100
+URxvt.inheritPixmap: 	    False
+URxvt.cursorBlink:          False
+URxvt.scrollBar:	    False
+URxvt.perl-lib:             /home/vando/.urxvt
+URxvt.perl-ext:		    default,-searchable-scrollback,clipboard,url-select
+URxvt.keysym.C-Insert:	    perl:clipboard:copy
+URxvt.keysym.S-Insert:	    perl:clipboard:paste
+URxvt.keysym.M-Insert:	    perl:clipboard:paste_escaped
+URxvt.keysym.M-s:           perl:url-select:select_next
+URxvt.url-select.launcher:  /usr/local/bin/firefox
+URxvt.url-select.underline: False
+URxvt.cutchars: 	    \"'`()*<>[]{|}
 
 ! XLock
-XLock.foreground:       #BDE090
-XLock.background:       black
-XLock.font:             xft:dina:size=09pt:antialias=true:hinting=true
-XLock.planfont:         xft:dina:size=09pt:antialias=true:hinting=true
-XLock.mousemotion:      False
-XLock.mode:             blank
-XLock.description:      False
-XLock.username:         User: 
-XLock.password:         Password:
+XLock.foreground:           #BDE090
+XLock.background:           black
+XLock.font:                 xft:dina:size=09pt:antialias=true:hinting=true
+XLock.planfont:             xft:dina:size=09pt:antialias=true:hinting=true
+XLock.mousemotion:          False
+XLock.mode:                 blank
+XLock.description:          False
+XLock.username:             User: 
+XLock.password:             Password:
 XLock.info:                
 XLock.validate:            
-XLock.invalid:          Invalid password.
+XLock.invalid:              Invalid password.
 
 ! XCursor
-Xcursor.theme:	        Vanilla-DMZ-AA
+Xcursor.theme:	            Vanilla-DMZ-AA
