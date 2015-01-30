@@ -64,4 +64,3 @@ view.sort_current = active,less=d.get_name=
 view.sort_new = leeching,less=d.get_name=
 view.filter = active,d.get_peers_connected=
 view.sort = active
-
