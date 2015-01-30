@@ -11,4 +11,5 @@ wmclass() { xprop | sed '/WM_CLASS/!d;s/.*= //;s/", "/,/' ; }
 #    AcceptEnv RTORRENT
 # 
 # and uncomment this
-# [[ "$RTORRENT" ]] && tmux new -s rtorrent -A "/usr/bin/rtorrent -o http_capath=/etc/ssl/certs"
+# rtorrent() { tmux new -s rtorrent -A "/usr/bin/rtorrent -o http_capath=/etc/ssl/certs" ; }
+# [[ "$RTORRENT" ]] && rtorrent
