@@ -1,0 +1,8 @@
+#!/bin/bash
+
+echo "From: rtorrent-srvr <rtorrent@darkstar.lan>
+Content-Type: text/plain; charset=utf-8
+Subject: $1
+Date: `date -R`
+
+Path to torrent: $2" | ssh mac "cat > /home/vando/spool/mail/torrents/new/`date +%s.%y%m%d_1.mac`"

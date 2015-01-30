@@ -40,7 +40,13 @@ encryption         = allow_incoming,try_outgoing,enable_retry,prefer_plaintext
 check_hash         = yes
 
 # Send an email for completed downloads
-system.method.set_key = event.download.finished,notify_me,"execute=/home/vando/.rtorrent/rtorrent_mail.sh,$d.get_name=,$d.get_directory="
+system.method.set_key = event.download.finished,notify_me,"execute=/home/vando/bin/torrent_notify,$d.get_name=,$d.get_directory="
+
+# canvas patch
+color_dead_fg     = 1
+color_inactive_fg = 7
+color_active_fg   = 3
+color_finished_fg = 5
 
 # Sort the seeding view by the upload rate and only show torrents with peers
 view.sort_current = seeding,greater=d.get_up_rate=
@@ -58,3 +64,4 @@ view.sort_current = active,less=d.get_name=
 view.sort_new = leeching,less=d.get_name=
 view.filter = active,d.get_peers_connected=
 view.sort = active
+
