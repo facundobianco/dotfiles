@@ -9,10 +9,6 @@ wmclass() { xprop | sed '/WM_CLASS/!d;s/.*= //;s/", "/,/' ; }
 # On rtorrent's server configure sshd_config with
 #    PermitUserEnvironment yes
 #    AcceptEnv RTORRENT
+# 
 # and uncomment this
-# rtorrent()
-# {
-#     screen -rmS rtorrent 2> /dev/null
-#     [[ "$?" -gt 0 ]] && screen -mS rtorrent /usr/bin/rtorrent -o http_capath=/etc/ssl/certs
-# }
-# [[ "$RTORRENT" ]] && rtorrent
+# [[ "$RTORRENT" ]] && tmux new -s rtorrent -A "/usr/bin/rtorrent -o http_capath=/etc/ssl/certs"

@@ -1,0 +1,40 @@
+# env
+setenv -g LANG                        'en_US.UTF-8'
+setenv -g LC_CTYPE                    'en_US.UTF-8'
+
+# tmux
+set  -g  default-terminal             screen-256color
+set  -g  history-limit                5000
+set  -g  display-panes-time           2000
+set  -g  visual-content               off
+set  -g  bell-on-alert                off
+set  -g  monitor-activity             off
+set  -g  mouse-select-pane            off
+set  -g  prefix                       C-a
+setw -g  mode-keys                    emacs
+setw -g  mode-mouse                   copy-mode
+
+# Statusbar
+set  -g  status                       off
+
+# Panes
+set  -g  pane-border-fg               colour8
+set  -g  pane-active-border-fg        colour8
+set  -g  display-panes-colour         colour8
+set  -g  display-panes-active-colour  colour3
+
+# Redefined bind prefix like screen
+bind     C-a                          send-prefix
+
+# unbind
+unbind   C-b
+unbind   C-e
+unbind   M-f
+unbind   M-b
+unbind   C-t
+unbind   M-t
+unbind   C-u
+unbind   C-w
+unbind   C-y
+unbind   C-d
+unbind   M-d
