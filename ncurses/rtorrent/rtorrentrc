@@ -17,8 +17,7 @@ directory          = /mnt/torrents
 # Default session directory.
 session            = /home/vando/.rtorrent
 log.execute        = /home/vando/.rtorrent/rtorrent.log
-# Watch a directory for new torrents, and stop those 
-# that have been deleted.
+# Watch a directory for new torrents, and stop those that have been deleted.
 schedule           = watch_directory_1,5,5,"load=/home/vando/trwatch/*.torrent"
 schedule           = watch_directory_2,5,5,"load=/home/vando/pr0nwatch/*.torrent,d.set_directory=/mnt/pr0n"
 schedule           = untied_directory,5,5,stop_untied=
@@ -43,24 +42,24 @@ check_hash         = yes
 system.method.set_key = event.download.finished,notify_me,"execute=/home/vando/bin/torrent_notify,$d.get_name=,$d.get_directory="
 
 # canvas patch
-color_dead_fg     = 1
-color_inactive_fg = 7
-color_active_fg   = 3
-color_finished_fg = 5
+color_dead_fg      = 1
+color_inactive_fg  = 7
+color_active_fg    = 3
+color_finished_fg  = 5
 
 # Sort the seeding view by the upload rate and only show torrents with peers
-view.sort_current = seeding,greater=d.get_up_rate=
-view.filter = seeding,"and=d.get_complete=,d.get_peers_connected="
-view.sort_new = seeding,less=d.get_up_rate=
-view.sort = seeding
+view.sort_current  = seeding,greater=d.get_up_rate=
+view.filter        = seeding,"and=d.get_complete=,d.get_peers_connected="
+view.sort_new      = seeding,less=d.get_up_rate=
+view.sort          = seeding
 
 # Sort the leeching view by name
-view.sort_current = leeching,greater=d.get_name=
-view.sort_new = leeching,greater=d.get_name=
-view.sort = leeching
+view.sort_current  = leeching,greater=d.get_name=
+view.sort_new      = leeching,greater=d.get_name=
+view.sort          = leeching
 
 # Filter the active view by connected peers
-view.sort_current = active,less=d.get_name=
-view.sort_new = leeching,less=d.get_name=
-view.filter = active,d.get_peers_connected=
-view.sort = active
+view.sort_current  = active,less=d.get_name=
+view.sort_new      = leeching,less=d.get_name=
+view.filter        = active,d.get_peers_connected=
+view.sort          = active

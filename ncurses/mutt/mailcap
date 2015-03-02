@@ -1,5 +1,5 @@
 # html
-text/html; lynx -display-charset=UTF-8 -assume_charset=%{charset} -short_url -justify -hiddenlinks=ignore -nomargins -dont_wrap_pre -dump %s | sed -e '/INLINE/d' ; nametemplate=%s.html ; copiousoutput
+text/html; lynx -assume_charset=%{charset} -dump -force_html -restrictions=all %s ; nametemplate=%s ; copiousoutput
 
 # office
 text/calendar; ~/muttlib/vcal.sed %s ;  copiousoutput

@@ -31,6 +31,7 @@ bind M-Tab      unmap
 bind M-Return   unmap
 bind M-slash    unmap
 bind C-slash    unmap
+bind 4-m        unmap
 mousebind "1"   unmap
 mousebind "2"   unmap
 mousebind "3"   unmap
@@ -44,7 +45,6 @@ bind 4-k        lock
 bind M-F2       exec
 bind 4-slash    search
 mousebind 4-1   window_resize
-# Uncomment if you use
 # OpenBSD:
 # bind XF86AudioLowerVolume "mixerctl outputs.master=-5"
 # bind XF86AudioRaiseVolume "mixerctl outputs.master=+5"
@@ -57,7 +57,7 @@ mousebind 4-1   window_resize
 
 # bind4apps
 bind 4-u        urxvt
-bind 4-l        leafpad
+bind 4-e        sublime_text
 bind 4-f        firefox
 bind 4-c        "urxvt -name casa -e ssh casa"
 
@@ -80,6 +80,8 @@ autogroup 5     libreoffice-draw
 autogroup 5     Soffice
 autogroup 5     Zathura
 autogroup 5     Leafpad
+autogroup 5     Sublime
+autogroup 5     Gpicview
 autogroup 5     feh
 # Group 6
 autogroup 6     Gtkpod
@@ -91,6 +93,8 @@ autogroup 6     Gerbview
 autogroup 6     Gimp
 autogroup 6     MPlayer
 autogroup 6     Chirpw
+autogroup 6     VirtualBox
+autogroup 6     Spotify
 # Group 7
 autogroup 7     rdesktop
 

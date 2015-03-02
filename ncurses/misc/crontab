@@ -1,0 +1,5 @@
+# slackpkg update 
+40 0 * * * /usr/sbin/slackpkg update -batch=on -default_answer=no 1> /dev/null
+
+# slackbuilds' local repo update
+30 * * mon /usr/sbin/sport 1> /dev/null
