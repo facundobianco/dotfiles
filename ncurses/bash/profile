@@ -3,6 +3,14 @@
 mkmaildir() { /bin/mkdir -p $1/{cur,new,tmp} ; }
 wmclass() { xprop | sed '/WM_CLASS/!d;s/.*= //;s/", "/,/' ; } 
 
+rdesktop()
+{
+    cat /home/vando/.credential/rdesktop | \
+    /usr/bin/X11/rdesktop -mDPz -k en-us -g 1920x1064 \
+                          -r clipboard:PRIMARYCLIPBOARD -r sound:off \
+                          -d DOMAIN -u USER -p - "$1"
+}
+
 # ## home-srvr:
 # tt()
 # {
