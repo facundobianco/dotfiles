@@ -41,6 +41,9 @@ URxvt.shading:              100
 URxvt.inheritPixmap:        False
 URxvt.cursorBlink:          False
 URxvt.scrollBar:            False
+URxvt.iso14755:             False
+URxvt.iso14755_52:          False
+URxvt.cutchars:             `"'()<>[]{}
 URxvt.perl-lib:             /home/vando/.urxvt
 URxvt.perl-ext:             default,-searchable-scrollback,clipboard,url-select
 URxvt.keysym.C-Insert:      perl:clipboard:copy
@@ -49,7 +52,6 @@ URxvt.keysym.M-Insert:      perl:clipboard:paste_escaped
 URxvt.keysym.M-s:           perl:url-select:select_next
 URxvt.url-select.launcher:  /usr/local/bin/firefox
 URxvt.url-select.underline: False
-URxvt.cutchars:             \"'`()*<>[]{|}
 
 ! XLock
 XLock.foreground:           #BDE090
