@@ -1,34 +1,28 @@
 #!/bin/sh
 
-# Another way to get WMs' class
-# -----------------------------
-#
-# getCLASS() { xprop -id "$1" |  sed '/WM_CLASS/!d;s/.*= //;s/[^a-zA-Z,-]//g' ; }
-#
-# for ID in `xprop -root | sed '/_LIST(WINDOW)/!d;s/.*# //;s/,//g'`
-# do
-#     ...
-
-for ID in `xlsclients -l | sed -n '/.*Class:  /s///p' | uniq -u`
+for ID in `xprop -root | sed '/_LIST(WINDOW)/!d;s/.*# //;s/,//g'`
 do
-    case "$ID" in
-        main*) 
+    case `xprop -id "$ID" | sed -n '/WM_CLASS/s/.*= "\([^"]*\)".*/\1/p'` in
+        main) 
             GROUP1="\${color0}1\${color}" 
 	    ;;
-        *Firefox|*Chrome) 
+        Navigator) 
             GROUP2="\${color0}2\${color}" 
 	    ;;
-        casa*)
+        casa)
             GROUP3="\${color0}3\${color}" 
 	    ;;
-        urxvt*|xterm*|skype*|rdesktop*)
+        urxvt|xterm|skype)
             GROUP4="\${color0}4\${color}" 
 	    ;;
-        VCLSalFrame*|soffie*|zathura*|leafpad*|feh*)
+        VCLSalFrame|soffie|zathura|leafpad|feh)
             GROUP5="\${color0}5\${color}" 
 	    ;;
-        gtkpod|kicad|linphone|gimp)
+        gtkpod|kicad|linphone|gimp|mplayer)
             GROUP6="\${color0}6\${color}" 
+	    ;;
+	rdesktop)
+	    GROUP7="\${color0}7\${color}" 
 	    ;;
 	*)
 	    GROUP0="\${color0}0\${color}" 
@@ -36,4 +30,4 @@ do
     esac
 done
 
-echo "${GROUP1:- } ${GROUP2:- } ${GROUP3:- } ${GROUP4:- } ${GROUP5- } ${GROUP6:- } ${GROUP0:- }"
+echo "${GROUP1:- } ${GROUP2:- } ${GROUP3:- } ${GROUP4:- } ${GROUP5- } ${GROUP6:- } ${GROUP7:- } ${GROUP0:- }"
