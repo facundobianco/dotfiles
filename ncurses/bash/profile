@@ -1,7 +1,7 @@
 . /etc/bashrc
 
-export PATH=$PATH:/home/vando/bin
-export MYSQL_PS1='\u@\h \d> '
+export PATH=$PATH:/home/vando/bin \
+       MYSQL_PS1='\u@\h \d> '
 
 mkmaildir() { /bin/mkdir -p $1/{cur,new,tmp} ; }
 wmclass() { xprop | sed '/WM_CLASS/!d;s/.*= //;s/", "/,/' ; } 
