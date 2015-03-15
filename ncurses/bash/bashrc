@@ -30,14 +30,12 @@ export LESS_TERMCAP_so=$'\E[38;5;246m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[04;38;5;146m'
 
-alias reboot='shutdown -r now'
-
 # OpenBSD's aliases
-# alias halt='shutdown -hp now'
-# alias dff='df -h'
-# alias ls='colorls -1AGq'
+#alias reboot='shutdown -r now'
+#alias halt='shutdown -hp now'
+#alias dff='df -h'
+#alias ls='colorls -1AGq'
 
 # Slackware's aliases
-# alias halt='sudo /sbin/shutdown -hP now'
-# alias dff='df -h / /home | column -t'
-# alias ls='ls -1Aq --color=always --file-type --group-directories-first'
+#alias dff='df -h / /home | column -t'
+#alias ls='ls -1Aq --color=always --file-type --group-directories-first'

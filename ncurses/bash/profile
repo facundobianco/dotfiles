@@ -3,6 +3,10 @@
 export PATH=$PATH:/home/vando/bin \
        MYSQL_PS1='\u@\h \d> '
 
+# Slackware alias
+#alias pm-hibernate='xlock & sleep 5 ; sudo /usr/sbin/pm-hibernate'
+#alias poweroff='sudo /sbin/poweroff'
+
 mkmaildir() { /bin/mkdir -p $1/{cur,new,tmp} ; }
 wmclass() { xprop | sed '/WM_CLASS/!d;s/.*= //;s/", "/,/' ; } 
 
