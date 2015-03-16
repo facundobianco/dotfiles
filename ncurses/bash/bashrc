@@ -37,5 +37,5 @@ export LESS_TERMCAP_us=$'\E[04;38;5;146m'
 #alias ls='colorls -1AGq'
 
 # Slackware's aliases
-#alias dff='df -h / /home | column -t'
+#alias dff='df -hx tmpfs | column -t'
 #alias ls='ls -1Aq --color=always --file-type --group-directories-first'
