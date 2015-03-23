@@ -6,7 +6,7 @@ do
         main) 
             GROUP1="\${color0}1\${color}" 
 	    ;;
-        Navigato|Places) 
+        Navigato|Browser|Places) 
             GROUP2="\${color0}2\${color}" 
 	    ;;
         casa)
