@@ -31,7 +31,6 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[04;38;5;146m'
 
 # OpenBSD's aliases
-#alias reboot='shutdown -r now'
 #alias halt='shutdown -hp now'
 #alias dff='df -h'
 #alias ls='colorls -1AGq'
