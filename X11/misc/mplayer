@@ -1,4 +1,6 @@
 # Write your default config options here!
 name=MPlayer
+msglevel=all=3
+ao=alsa
 prefer-ipv4=true
 fs=true
