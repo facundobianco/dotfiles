@@ -1,0 +1,4 @@
+# Write your default config options here!
+name=MPlayer
+prefer-ipv4=true
+fs=true
