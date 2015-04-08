@@ -21,7 +21,7 @@ do
         gtkpod|kicad|linphone|gimp|mplayer)
             GROUP6="\${color0}6\${color}" 
 	    ;;
-	rdesktop)
+	rdesktop|Qt-subapplication)
 	    GROUP7="\${color0}7\${color}" 
 	    ;;
 	*)

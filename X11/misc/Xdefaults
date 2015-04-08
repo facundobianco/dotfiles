@@ -27,7 +27,7 @@
 *color15:                   #EBEAE7
 
 ! URxvt 
-! I use urxvt's ext from http://www.github.com/muennich/urxvt-perls
+! I use urxvt's ext from https://www.github.com/muennich/urxvt-perls
 URxvt.termName:             rxvt-256color
 URxvt.title:                urxvt
 URxvt.geometry:             182x60+0-5
@@ -43,7 +43,7 @@ URxvt.cursorBlink:          False
 URxvt.scrollBar:            False
 URxvt.iso14755:             False
 URxvt.iso14755_52:          False
-URxvt.cutchars:             `"'()<>[]{}
+URxvt.cutchars:             `"'()<>[]{}|
 URxvt.perl-lib:             /home/vando/.urxvt
 URxvt.perl-ext:             default,-searchable-scrollback,clipboard,url-select
 URxvt.keysym.C-Insert:      perl:clipboard:copy
