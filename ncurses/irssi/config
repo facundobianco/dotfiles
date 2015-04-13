@@ -94,7 +94,6 @@ statusbar = {
         barend     = { priority = "100"; alignment = "right"; };
       };
     };
-  };
 };
 
 keyboard = (

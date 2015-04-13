@@ -93,10 +93,10 @@ autogroup 6     Gerbview
 autogroup 6     Gimp
 autogroup 6     MPlayer
 autogroup 6     Chirpw
-autogroup 6     VirtualBox
 autogroup 6     Spotify
 # Group 7
 autogroup 7     rdesktop
+autogroup 7     VirtualBox
 
 # select groups
 bind 4-Left     rcyclegroup
@@ -110,9 +110,11 @@ bind 4-3        grouponly3
 bind 4-4        grouponly4
 bind 4-5        grouponly5
 bind 4-6        grouponly6
+bind 4-7        grouponly7
 bind 4S-1       movetogroup1
 bind 4S-2       movetogroup2
 bind 4S-3       movetogroup3
 bind 4S-4       movetogroup4
 bind 4S-5       movetogroup5
 bind 4S-6       movetogroup6
+bind 4S-7       movetogroup7
