@@ -1,0 +1,38 @@
+#!/bin/sh
+
+# redirect errors to a file in user's home directory if we can
+errfile="$HOME/.xsession-errors"     
+if [ -r $errfile ]
+then
+    exec > "$errfile" 2>&1
+fi
+
+# Set the $PATH through the user's preferred shell.
+case `basename "$SHELL"` in
+    bash|sh|ash)
+	PATH="`( echo 'echo $PATH' | bash --login ) | tail -1`"
+	;;
+    csh|tcsh)
+	PATH="`( echo 'echo $PATH' | tcsh -l ) | tail -1`"
+	;;
+    ksh)
+	PATH="`( cat /etc/profile ; echo 'echo $PATH' ) | ksh | tail -1`"
+	;;
+    zsh)
+	PATH="`( echo 'echo $PATH' | zsh -l ) | tail -1`"
+    	;;
+    *)
+	# We don't know your shell, so we'll set up reasonable defaults.
+     	if [ "`whoami`" = "root" ]
+	then
+	    PATH=$PATH:/usr/local/sbin:/sbin:/usr/sbin:/usr/local/bin:/bin:/usr/bin
+     	else
+	    PATH=$PATH:/usr/local/bin:/bin:/usr/bin
+        fi
+     	;;
+esac
+
+if [ -x $HOME/.xsession ]
+then
+    exec $HOME/.xsession $@
+fi

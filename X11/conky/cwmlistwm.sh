@@ -6,7 +6,7 @@ do
         main) 
             GROUP1="\${color0}1\${color}" 
 	    ;;
-        Navigato|Browser|Places) 
+        Navigator|Browser|Places|netsurf) 
             GROUP2="\${color0}2\${color}" 
 	    ;;
         casa)
@@ -23,6 +23,8 @@ do
 	    ;;
 	rdesktop)
 	    GROUP7="\${color0}7\${color}" 
+	    ;;
+	"") # This prevents when all windows are closed
 	    ;;
 	*)
 	    GROUP0="\${color0}0\${color}" 
