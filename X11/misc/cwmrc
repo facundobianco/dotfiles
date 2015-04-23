@@ -60,8 +60,8 @@ bind 4-m                   "volumen mute"
 bind XF86Sleep             zzz 
 bind 4S-z                  zzz
 # screen select
-bind XF86Display           "" # in process..
-bind 4-d                   "" # in process..
+bind XF86Display           86display
+bind 4-d                   86display
 # SSH to home
 bind 4-s                   casa
 
