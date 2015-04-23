@@ -1,5 +1,5 @@
 [[ `id -u` -gt 0 ]] && COLOR='\[\e[0;36m\]' || COLOR='\[\e[0;35m\]'
-PS1="$COLOR\h:\W \$>\[\e[0m\] "
+PS1="$COLOR\h:\W \\$>\[\e[0m\] "
 PS2='> '
 export PS1 PS2
 
@@ -30,11 +30,12 @@ export LESS_TERMCAP_so=$'\E[38;5;246m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[04;38;5;146m'
 
-# OpenBSD's aliases
-#alias halt='shutdown -hp now'
-#alias dff='df -h'
-#alias ls='colorls -1AGq'
-
-# Slackware's aliases
-#alias dff='df -hx tmpfs | column -t'
-#alias ls='ls -1Aq --color=always --file-type --group-directories-first'
+if [ `uname -s` = "Linux" ]
+then
+    alias dff='df -hx tmpfs | column -t'
+    alias ls='ls -1Aq --color=always --file-type --group-directories-first'
+else
+    alias halt='shutdown -hp now'
+    alias dff='df -h'
+    alias ls='colorls -1AGq'
+fi

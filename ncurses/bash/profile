@@ -1,17 +1,21 @@
 . /etc/bashrc
 
-export PATH=$PATH:/home/vando/bin \
-       MYSQL_PS1='\u@\h \d> '
+[[ -d ${HOME}/bin ]] && export PATH=$PATH:$HOME/bin
+export MYSQL_PS1='\u@\h \d> '
 
 # Slackware's aliases
-#alias zzz='xlock & sleep 3 ; sudo /usr/sbin/pm-hibernate'
 #alias poweroff='sudo /sbin/poweroff'
-
-# OpenBSD's aliases
-#alias zzz='xlock & sleep 3 ; /usr/sbin/zzz -Z'
 
 mkmaildir() { /bin/mkdir -p $1/{cur,new,tmp} ; }
 wmclass() { xprop | sed -n '/WM_CLASS/s/.*= //p' ; } 
+
+wmlist()
+{
+for ID in `xprop -root | sed '/_LIST(WINDOW)/!d;s/.*# //;s/,//g'`
+do
+    xprop -id "$ID" | sed -n '/WM_CLASS/s/.*= "\([^"]*\)".*/\1/p'
+done
+}
 
 rdesktop()
 {

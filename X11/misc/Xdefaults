@@ -30,7 +30,6 @@
 ! I use urxvt's ext from https://www.github.com/muennich/urxvt-perls
 URxvt.termName:             rxvt-256color
 URxvt.title:                urxvt
-URxvt.geometry:             182x60+0-5
 URxvt.background:           #000000
 URxvt.foreground:           #BDE090
 URxvt.cursorColor:          #BDE090
@@ -50,14 +49,12 @@ URxvt.keysym.C-Insert:      perl:clipboard:copy
 URxvt.keysym.S-Insert:      perl:clipboard:paste
 URxvt.keysym.M-Insert:      perl:clipboard:paste_escaped
 URxvt.keysym.M-s:           perl:url-select:select_next
-URxvt.url-select.launcher:  /usr/local/bin/firefox
+URxvt.url-select.launcher:  firefox
 URxvt.url-select.underline: False
 
 ! XLock
 XLock.foreground:           #BDE090
 XLock.background:           black
-XLock.font:                 xft:dina:size=09pt:antialias=true:hinting=true
-XLock.planfont:             xft:dina:size=09pt:antialias=true:hinting=true
 XLock.mousemotion:          False
 XLock.mode:                 blank
 XLock.description:          False

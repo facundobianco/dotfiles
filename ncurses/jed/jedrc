@@ -157,6 +157,7 @@ setkey("txt_adorn_title", "\e-");
 
 % If the cursor is on a path/file this macro will load that file into a buffer.
 % https://web.archive.org/web/20140701221544/rexx.com/~dkuhlman/jed_macros.html
+autoload("mark_word", "txtutils");
 define load_file_under_cursor()
 {
    variable s1;
