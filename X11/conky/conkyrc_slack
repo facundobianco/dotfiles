@@ -32,7 +32,7 @@ double_buffer yes
 update_interval 0.5
 
 TEXT
-X11 ${execp /home/vando/.config/conky/cwmlistwm.sh} ${color1}\
+X11 ${execp /home/vando/.config/conky/cwmlistwm.sh}\
 ${alignr}\
 CPU ${color0}${cpu cpu0}% ${cpu cpu1}%${color} ${color1}|${color} \
 RAM ${color0}${mem}${color} ${color1}|${color} \

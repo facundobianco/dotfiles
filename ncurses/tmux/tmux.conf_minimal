@@ -16,6 +16,7 @@ setw -g  mode-mouse                   copy-mode
 
 # Statusbar
 set  -g  status                       off
+set  -g  base-index                   1
 
 # Panes
 set  -g  pane-border-fg               colour8

@@ -47,8 +47,9 @@ bind 4-slash               search
 mousebind 4-1              window_resize
 
 # bind4tasks
-# This section uses my personal scripts, see
+# This section uses my personal scripts, take a look at
 # https://github.com/vando/scripts/tree/master/cwm
+#
 # audio
 bind XF86AudioLowerVolume  "volumen down"
 bind XF86AudioRaiseVolume  "volumen up"
@@ -70,6 +71,7 @@ bind 4-u                   urxvt
 bind 4-e                   sublime_text
 bind 4-l                   leafpad
 bind 4-f                   firefox
+bind 4-v                   virtualbox
 
 # Group 1
 autogroup 1                "main,URxvt"
@@ -105,6 +107,7 @@ autogroup 6                Gimp
 autogroup 6                MPlayer
 autogroup 6                Chirpw
 autogroup 6                Spotify
+autogroup 6                Dia
 # Group 7
 autogroup 7                rdesktop
 autogroup 7                VirtualBox

@@ -18,7 +18,7 @@ do
         VCLSalFrame|soffie|zathura|leafpad|feh)
             GROUP5="\${color0}5\${color}" 
 	    ;;
-        gtkpod|kicad|linphone|gimp|mplayer)
+        gtkpod|kicad|linphone|gimp|mplayer|dia)
             GROUP6="\${color0}6\${color}" 
 	    ;;
 	rdesktop|Qt-subapplication)

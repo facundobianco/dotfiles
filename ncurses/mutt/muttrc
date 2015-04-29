@@ -33,13 +33,14 @@ set   copy
 unset record
 unset postpone
 unset recall
-set   sendmail           = "/usr/local/bin/esmtp -d 5 -v -X /tmp/esmtp"
+set sendmail              = "/usr/sbin/ssmtp -4C /home/vando/.ssmtprc"
+set sendmail_wait         = -1
 set   reverse_name
 
 # composing email
 set   fcc_attach
 set   attribution	 = "%F wrote:"
-set   forward_format     = "Fwd: %s"
+ set   forward_format     = "Fwd: %s"
 set   fast_reply
 set   include
 set   forward_quote
@@ -87,7 +88,7 @@ source                   ~/muttlib/bind
 
 
 # -- design
-source                   ~/.mutt/color
+source                   ~/muttlib/color
 unset help
 ignore                   *
 unignore                 Date From: To: Cc: Subject: X-RSS-ID:
