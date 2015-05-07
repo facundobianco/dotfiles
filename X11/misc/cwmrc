@@ -77,7 +77,7 @@ bind 4-v                   virtualbox
 autogroup 1                "main,URxvt"
 # Group 2
 autogroup 2                Firefox
-autogroup 2                Google-chrome-stable
+autogroup 2                "Google-chrome-stable"
 # Group 3
 autogroup 3                "casa,URxvt"
 # Group 4
@@ -86,10 +86,10 @@ autogroup 4                XTerm
 autogroup 4                Skype
 autogroup 4                Linphone
 # Group 5 
-autogroup 5                libreoffice-startcenter
-autogroup 5                libreoffice-writer
-autogroup 5                libreoffice-calc
-autogroup 5                libreoffice-draw
+autogroup 5                "libreoffice-startcenter"
+autogroup 5                "libreoffice-writer"
+autogroup 5                "libreoffice-calc"
+autogroup 5                "libreoffice-draw"
 autogroup 5                Soffice
 autogroup 5                Zathura
 autogroup 5                Leafpad
@@ -108,9 +108,11 @@ autogroup 6                MPlayer
 autogroup 6                Chirpw
 autogroup 6                Spotify
 autogroup 6                Dia
+autogroup 6                Globaltime
 # Group 7
 autogroup 7                rdesktop
 autogroup 7                VirtualBox
+autogroup 7                "com-sun-javaws-Main"
 
 # select groups
 bind 4-Left                rcyclegroup

@@ -1,42 +1,66 @@
 . /etc/bashrc
 
 [[ -d ${HOME}/bin ]] && export PATH=$PATH:$HOME/bin
-export MYSQL_PS1='\u@\h \d> '
 
-# Slackware's aliases
-#alias poweroff='sudo /sbin/poweroff'
+if [ `uname -s` = "Linux" ]
+then
+    alias poweroff='sudo /sbin/poweroff'
+fi
+
+if [ "`hostname`" == "mac" ]
+then
+    alias rtorrent='RTORRENT=1 ssh -o SendEnv=RTORRENT rtorrent'
+    
+    tt()
+    {
+        tmux -q has 2> /dev/null && tmux a || \
+        tmux new \; neww -d \; neww -d \; \
+             renamew -t 3 rtorrent \; \
+             send -t 1 mutt C-m \; \
+             send -t 2 irssi C-m \; \
+             send -t 3 'RTORRENT=1 ssh -o SendEnv=RTORRENT rtorrent' C-m
+    }
+elif [ "`hostname`" == "rt" ]
+then
+    rtorrent() { tmux new -s rtorrent -A "/usr/bin/rtorrent -o http_capath=/etc/ssl/certs" ; }
+else
+    wmclass() { xprop | sed -n '/WM_CLASS/s/.*= //p' ; } 
+
+    wmlist()
+    {
+        for ID in `xprop -root | sed '/_LIST(WINDOW)/!d;s/.*# //;s/,//g'`
+        do
+            xprop -id "$ID" | sed -n '/WM_CLASS/s/.*= "\([^"]*\)".*/\1/p'
+        done
+    }
+
+    rdesktop()
+    {
+        cat /home/vando/.credential/rdesktop | \
+        /usr/bin/X11/rdesktop -mDPz -k en-us -g 1920x1064 \
+                              -r clipboard:PRIMARYCLIPBOARD -r sound:off \
+                              -d DOMAIN -u USER -p - "$1"
+    }
+    
+    export MYSQL_PS1='\u@\h \d> '
+fi
 
 mkmaildir() { /bin/mkdir -p $1/{cur,new,tmp} ; }
-wmclass() { xprop | sed -n '/WM_CLASS/s/.*= //p' ; } 
 
-wmlist()
+ssh()
 {
-for ID in `xprop -root | sed '/_LIST(WINDOW)/!d;s/.*# //;s/,//g'`
-do
-    xprop -id "$ID" | sed -n '/WM_CLASS/s/.*= "\([^"]*\)".*/\1/p'
-done
+    SSH_PRVKEY=/home/vando/.ssh/id_rsa_allaccess
+
+    if [ "`ssh-add -l`" == "The agent has no identities." ]
+    then
+        echo "ssh-agent has no identities"
+        ssh-add -t 12h ${SSH_PRVKEY} && echo ""
+    fi
+    
+    if [ "$?" -eq 0 ]
+    then
+        /usr/bin/ssh ${@}
+    fi
 }
 
-rdesktop()
-{
-    cat /home/vando/.credential/rdesktop | \
-    /usr/bin/X11/rdesktop -mDPz -k en-us -g 1920x1064 \
-                          -r clipboard:PRIMARYCLIPBOARD -r sound:off \
-                          -d DOMAIN -u USER -p - "$1"
-}
-
-# ## home-srvr:
-#tt()
-#{
-#    tmux -q has 2> /dev/null && tmux a || \
-#    tmux new \; neww -d \; neww -d \; \
-#         renamew -t 3 rtorrent \; \
-#         send -t 1 mutt C-m \; \
-#         send -t 2 irssi C-m \; \
-#         send -t 3 'RTORRENT=1 ssh -o SendEnv=RTORRENT rtorrent' C-m
-#}
-#alias rtorrent='RTORRENT=1 ssh -o SendEnv=RTORRENT rtorrent'
-#
-# ## rtorrent's server:
-#rtorrent() { tmux new -s rtorrent -A "/usr/bin/rtorrent -o http_capath=/etc/ssl/certs" ; }
-#[[ "$RTORRENT" ]] && rtorrent
+[[ "$RTORRENT" ]] && rtorrent

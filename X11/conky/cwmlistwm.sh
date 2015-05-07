@@ -6,7 +6,7 @@ do
         main) 
             GROUP1="\${color0}1\${color}" 
 	    ;;
-        Navigator|Browser|Places|netsurf) 
+        Navigator|Browser|Places|Dialog|Google*|netsurf) 
             GROUP2="\${color0}2\${color}" 
 	    ;;
         casa)
@@ -15,13 +15,13 @@ do
         urxvt|xterm|skype)
             GROUP4="\${color0}4\${color}" 
 	    ;;
-        VCLSalFrame|soffie|zathura|leafpad|feh)
+        VCLSalFrame|soffie|libreoffice|zathura|leafpad|feh)
             GROUP5="\${color0}5\${color}" 
 	    ;;
-        gtkpod|kicad|linphone|gimp|mplayer|dia)
+        gtkpod|kicad|linphone|gimp|mplayer|dia|globaltime|spotify)
             GROUP6="\${color0}6\${color}" 
 	    ;;
-	rdesktop|Qt-subapplication)
+	rdesktop|Qt-subapplication|sun-awt-X11-XFramePeer)
 	    GROUP7="\${color0}7\${color}" 
 	    ;;
 	"") # This prevents when all windows are closed

@@ -1,0 +1,129 @@
+if (BATCH == 0)
+{
+    % Emacs-like bindings
+    () = evalfile("emacs");
+}
+
+% Design
+enable_top_status_line (0);
+Startup_With_File = -1;
+set_status_line ("   %f  (%m%O)    %L (%l,%c)  %p ", 1);
+HIGHLIGHT = 1;
+BLINK = 1;
+WANT_EOB = 0;
+IGNORE_BEEP = 2;
+
+% Backup/Autosave
+No_Backups = 1;
+
+% Tabs 
+Tab_Always_Inserts_Tab = 0;
+USE_TABS = 1;
+TAB_DEFAULT = 8;
+
+% How to display the key codes returned for a particular keystroke:
+% jed -n -l keycode -f keycode
+
+define global_mode_hook (mode)
+{
+    variable flags, name;
+    (name, flags) = what_mode ();
+    set_mode (name, flags & ~1);
+   
+    local_unsetkey("\t");
+    local_setkey("insert_spaces(4)", "\t");
+}
+
+% Turning off auto-wrap
+% http://mailman.jtan.com/pipermail/jed-users-l/2011-June/000213.html
+define format_paragraphs ()
+{
+    push_spot_bob ();
+    do
+    {
+        go_right_1 ();
+        ifnot (looking_at ("\n"))
+        call ("format_paragraph");
+    }
+    while (bol_fsearch ("\n"));
+    pop_spot ();
+}
+
+setkey_reserved ("format_paragraphs", "q");
+
+% Navigate on buffers
+require("keydefs");
+
+define ide_next_buffer (previous)
+{
+    variable n, buf;
+    n = buffer_list ();
+    if (previous)
+        _stk_reverse (n-1);
+    loop (n)
+    {
+        buf = ();
+        n--;
+        if (buf[0] == ' ') continue;
+        sw2buf (buf);
+        _pop_n (n);
+        return;
+    }
+}
+
+setkey ("ide_next_buffer (0)",  Key_Alt_Right);
+setkey ("ide_next_buffer (1)",  Key_Alt_Left);
+
+% Navigate on windows
+setkey("other_window", Key_Alt_Up);
+setkey("other_window", Key_Alt_Down);
+
+% Press the backtick once, not twice
+% http://mailman.jtan.com/pipermail/jed-users-l/2011-September/000274.html
+local_unsetkey("`");
+local_setkey("self_insert_cmd", "`");
+
+% Avoid autoformating when paste
+% http://mailman.jtan.com/pipermail/jed-users-l/2011-December/000288.html
+setkey("paste", "^P");
+add_completion("paste");
+
+% emulates bash keyboard shortcuts
+% http://mailman.jtan.com/pipermail/jed-users-l/2012-February/000312.html
+define yp_kill_to_bol ()
+{
+    push_mark ();
+    bol ();
+    yp_kill_region ();
+}
+
+define yp_bkill_word_or_region ()
+{
+    if (is_visible_mark ())
+        yp_kill_region ();
+    else
+        yp_bkill_word ();
+}
+
+setkey ("yp_kill_to_bol", "^u");
+setkey ("yp_bkill_word_or_region", "^w");
+
+% If the cursor is on a path/file this macro will load that file into a buffer.
+% https://web.archive.org/web/20140701221544/rexx.com/~dkuhlman/jed_macros.html
+autoload("mark_word", "txtutils");
+define load_file_under_cursor()
+{
+   variable s1;
+   variable wordchars1;
+   push_spot();
+   wordchars1 = "-_A-Za-z0-9./";
+   mark_word(wordchars1);
+   %() = dupmark();
+   s1 = bufsubstr();
+   %yp_copy_region_as_kill();
+   pop_spot();
+   find_file(s1);
+   message("\"" + s1 + "\" opened");
+}
+
+setkey("load_file_under_cursor", "\eo");
