@@ -12,7 +12,7 @@ set  -g  monitor-activity             off
 set  -g  mouse-select-pane            off
 set  -g  prefix                       C-a
 setw -g  mode-keys                    emacs
-setw -g  mode-mouse                   copy-mode
+setw -g  mode-mouse                   off
 
 # Statusbar
 set  -g  status                       off
@@ -24,18 +24,30 @@ set  -g  pane-active-border-fg        colour8
 set  -g  display-panes-colour         colour8
 set  -g  display-panes-active-colour  colour3
 
-# Redefined bind prefix like screen
-bind     C-a                          send-prefix
+# unbind all
+unbind -a
 
-# unbind
-unbind   C-b
-unbind   C-e
-unbind   M-f
-unbind   M-b
-unbind   C-t
-unbind   M-t
-unbind   C-u
-unbind   C-w
-unbind   C-y
-unbind   C-d
-unbind   M-d
+# Keybind for windows
+bind     -                            split-window -vc '~'
+bind     |                            split-window -hc '~'
+bind     !                            break-pane
+bind     c                            new-window -c '~
+bind     g                            command-prompt -p 'select window:' 'selectw -t %%''
+bind     z                            resizep -Z
+bind     1                            selectw -t 1
+bind     2                            selectw -t 2
+bind     3                            selectw -t 3
+bind     4                            selectw -t 4
+bind     5                            selectw -t 5
+bind     6                            selectw -t 6
+bind     7                            selectw -t 7
+bind     8                            selectw -t 8
+bind     9                            selectw -t 9
+bind     0                            selectw -t 10
+
+# Misc keybind
+bind     :                            command-prompt -p '>'
+bind     ?                            list-keys
+bind     D                            choose-client
+bind     d                            detach-client
+bind     r                            source-file ~/.tmux.conf \; display 'Config reloaded'

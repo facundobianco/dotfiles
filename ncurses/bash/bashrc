@@ -1,41 +1,13 @@
-if [ `id -u` -gt 0 ]
-then
-    COLOR='\[\e[0;36m\]'
-else
-    COLOR='\[\e[0;35m\]'
-fi
+# .bashrc for single user
 
-PS1="$COLOR\h:\W \\$>\[\e[0m\] "
-PS2='> '
-export PS1 PS2
+. /etc/bash.bashrc
 
-export LANG=en_US.UTF-8 
-export LC_CTYPE=en_US.UTF-8
-export EDITOR=jed
-export HISTIGNORE="clear:exit:halt:ls:pwd:reboot:reset:resource:shutdown"
-export HISTCONTROL="ignorespace:ignoredups:erasedups"
-export HISTFILESIZE="999999"
+# own vars
+SSH_PRVKEY=/home/vando/.ssh/id_rsa_allaccess
+MYSQL_PS1='\u@\h \d> '
 
-set completion-ignore-case on 
-shopt -s cdspell checkhash no_empty_cmd_completion hostcomplete
+# functions
+[ -f ${HOME}/.bash_func ] && source ${HOME}/.bash_func
 
-complete -cf alias info man whereis which
-
-export LESSOPEN="|lesspipe.sh %s"
-export LESS_TERMCAP_mb=$'\E[0;31m'
-export LESS_TERMCAP_md=$'\E[0;38;5;74m'
-export LESS_TERMCAP_me=$'\E[0m'
-export LESS_TERMCAP_se=$'\E[0m'
-export LESS_TERMCAP_so=$'\E[38;5;246m'
-export LESS_TERMCAP_ue=$'\E[0m'
-export LESS_TERMCAP_us=$'\E[04;38;5;146m'
-
-if [ `uname -s` = "Linux" ]
-then
-    alias dff='df -hx tmpfs | column -t'
-    alias ls='ls -1Aq --color=always --file-type --group-directories-first'
-else
-    alias halt='shutdown -hp now'
-    alias dff='df -h'
-    alias ls='colorls -1AGq'
-fi
+# servers at home
+[ -f ${HOME}/.bash_homesrvr ] && source ${HOME}/.bash_homesrvr

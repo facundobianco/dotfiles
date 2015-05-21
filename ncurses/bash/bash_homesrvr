@@ -1,0 +1,20 @@
+if [ "`hostname`" == "mac" ]
+then
+    alias rtorrent='RTORRENT=1 ssh -o SendEnv=RTORRENT rtorrent'
+    
+    tt()
+    {
+        tmux -q has 2> /dev/null && tmux a || \
+        tmux new \; neww -d \; neww -d \; \
+             renamew -t 3 rtorrent \; \
+             send -t 1 mutt C-m \; \
+             send -t 2 irssi C-m \; \
+             send -t 3 'RTORRENT=1 ssh -o SendEnv=RTORRENT rtorrent' C-m
+    }
+fi
+
+if [ "`hostname`" == "rt" ]
+then
+    rtorrent() { tmux new -s rtorrent -A "/usr/bin/rtorrent -o http_capath=/etc/ssl/certs" ; }
+    [[ "$RTORRENT" ]] && rtorrent
+fi
