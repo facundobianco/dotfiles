@@ -10,7 +10,7 @@
         aa = add -A
         br = branch
 	co = checkout
-	ci = commit -a --allow-empty-message -m ''
+	ci = commit -a --allow-empty-message --no-edit
         go = !git ci && git push
 	ls = ls-files
 	st = status -s
