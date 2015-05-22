@@ -2,5 +2,6 @@
 name=MPlayer
 msglevel=all=3
 ao=alsa
+cache=8192
 prefer-ipv4=true
 fs=true

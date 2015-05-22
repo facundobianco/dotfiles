@@ -1,9 +1,10 @@
 [user]
-       	name = Facundo Bianco
-	email = vando at van dot do
+	email = vando@van.do
+	name = Facundo Bianco
 [core]
 	editor = jed
 	excludesfile = .gitignore
+	pager = less -R
 [push]
 	default = matching
 [alias]
@@ -11,7 +12,10 @@
         br = branch
 	co = checkout
 	ci = commit -a --allow-empty-message --no-edit
-        go = !git ci && git push
+        go = !git ci && git push 
 	ls = ls-files
 	st = status -s
 	up = pull
+[color]
+	ui = false
+	status = true
