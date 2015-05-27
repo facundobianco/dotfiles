@@ -4,12 +4,11 @@
 
 dhcp()
 {
-    help_dhcp(){ echo "dhcp <up|down> iface" ; }
- 
     case ${1} in
         up)           dhcpcd -t 10 ${2} ;;
         down)         dhcpcd -k ${2} ;;
-        -h|--help|"") help_dhcp ;;
-        *)            echo "Wrong option: \"$1\"" ;;
+	st|status)    pgrep -fl dhcpcd ;;
+        -h|--help|"") echo "dhcp <up|down> iface" ;;
+        *)            echo -e "dhcp: invalid option '$1'\ndhcp -h for help" ;;
     esac
 }

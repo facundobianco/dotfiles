@@ -28,11 +28,13 @@ set  -g  display-panes-active-colour  colour3
 unbind -a
 
 # Keybind for windows
+bind     Space                        next-layaout
 bind     -                            split-window -vc '~'
 bind     |                            split-window -hc '~'
 bind     !                            break-pane
 bind     c                            new-window -c '~
 bind     g                            command-prompt -p 'select window:' 'selectw -t %%''
+bind     o                            selectp -t .+
 bind     z                            resizep -Z
 bind     1                            selectw -t 1
 bind     2                            selectw -t 2
