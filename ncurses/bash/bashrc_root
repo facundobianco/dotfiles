@@ -1,0 +1,15 @@
+# .bashrc for root
+
+. /etc/bash.bashrc
+
+dhcp()
+{
+    help_dhcp(){ echo "dhcp <up|down> iface" ; }
+ 
+    case ${1} in
+        up)           dhcpcd -t 10 ${2} ;;
+        down)         dhcpcd -k ${2} ;;
+        -h|--help|"") help_dhcp ;;
+        *)            echo "Wrong option: \"$1\"" ;;
+    esac
+}

@@ -3,15 +3,6 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-if [ `id -u` -gt 0 ]
-then
-    COLOR="\[\e[0;36m\]"
-fi
-
-PS1="${COLOR:-\[\e[0;35m\]}\h:\W \$>\[\e[0m\] "
-PS2="> "
-export PS1 PS2
-
 export LANG=en_US.UTF-8 
 export LC_CTYPE=en_US.UTF-8
 export EDITOR=jed
@@ -47,22 +38,20 @@ fi
 
 alias lsw='tmux lsw -F "#{window_index}#{window_flags}#{window_name}"'
 
-if [ `id -u` -eq 0 ]
+if [ `id -u` -gt 0 ]
 then
-    dhcp()
-    {
-        if [ "$#" -lt 1 ]
-        then
-            echo -e "Usage:\n\tdhcp <up|down> iface"
-	    exit 1
-	 fi
-	 
-	 case ${1} in
-	     up)   dhcpcd -t 10 ${2} ;;
-	     down) dhcpcd -k ${2} ;;
-	     *) echo "Wrong option: \"$1\"" && exit 1 ;;
-	 esac
-    }
+    COLOR="\[\e[0;36m\]"
+    
+    if [ `uname -s` = "Linux" ]
+    then
+        source /etc/bash_linux_func
+    else
+        source /etc/bash_bsd_func
+    fi
 fi
+
+PS1="${COLOR:-\[\e[0;35m\]}\h:\W \$>\[\e[0m\] "
+PS2="> "
+export PS1 PS2
 
 [ -d ${HOME}/bin ] && export PATH=$PATH:$HOME/bin
