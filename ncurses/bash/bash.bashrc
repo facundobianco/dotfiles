@@ -27,13 +27,13 @@ export LESS_TERMCAP_us=$'\E[04;38;5;146m'
 if [ `uname -s` = "Linux" ]
 then    
     alias dff='df -hx tmpfs | column -t'
-    alias ls='ls -1Aq --color=always --file-type --group-directories-first'
+    alias ls='ls -1Ahq --color=always --file-type --group-directories-first'
     alias poweroff='sudo /sbin/poweroff'
     alias bc='bc -q'
 else
     alias halt='shutdown -hp now'
     alias dff='df -h'
-    alias ls='colorls -1AGq'
+    alias ls='colorls -1AGhq'
 fi
 
 alias lsw='tmux lsw -F "#{window_index}#{window_flags}#{window_name}"'
