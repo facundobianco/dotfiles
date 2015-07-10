@@ -63,6 +63,8 @@ bind 4S-z                  zzz
 # screen select
 bind XF86Display           86display
 bind 4-d                   86display
+# screenshot
+bind Print                 "capture all"
 # SSH to home
 bind 4-s                   casa
 
