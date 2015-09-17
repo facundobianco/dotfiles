@@ -42,7 +42,7 @@ URxvt.cursorBlink:          False
 URxvt.scrollBar:            False
 URxvt.iso14755:             False
 URxvt.iso14755_52:          False
-URxvt.cutchars:             `"'()<>[]{}|
+URxvt.cutchars:             `"'()<>[]{}|│
 URxvt.perl-lib:             /home/vando/.urxvt
 URxvt.perl-ext:             default,-searchable-scrollback,clipboard,url-select
 URxvt.keysym.C-Insert:      perl:clipboard:copy
