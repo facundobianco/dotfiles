@@ -38,6 +38,6 @@ CPU ${color0}${cpu cpu0}% ${cpu cpu1}%${color} ${color1}|${color} \
 RAM ${color0}${mem}${color} ${color1}|${color} \
 LAN ${color0}${upspeedf wlan0} ${downspeedf wlan0}${color} ${color1}|${color} \
 BAT ${color0}${battery_percent BAT1}%${color} ${color1}|${color} \
-VOL ${color0}${mixer Master}${color} ${color1}|${color} \
+VOL ${color0}${mixer Vol}${color} ${color1}|${color} \
 WEA ${color0}${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ SABE temperature 5}C ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ SABE humidity 5}%${color} ${color1}|${color} \
 CLK ${color0}${time %a %d %b %H:%M:%S}
