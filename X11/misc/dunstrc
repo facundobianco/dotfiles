@@ -1,0 +1,53 @@
+# Author: microfracture / https://linuxious.com
+# Updated: 2015-03-13
+
+
+[global]
+    alignment = left
+    allow_markup = yes
+    bounce_freq = 0
+    follow = none
+    font = Dina 8
+    format = "<span foreground="#8A8A8A">%s</span> %b"
+    # geometry [{width}]x{height}][+/-{x}+/-{y}]
+    geometry = "335x0-0+0"
+    history_length = 20
+    horizontal_padding = 0
+    idle_threshold = 120
+    ignore_newline = yes
+    indicate_hidden = yes
+    line_height = 0
+    monitor = 0
+    padding = 1
+    separator_color = "#333333"
+    separator_height = 1
+    show_age_threshold = 60
+    show_indicators = yes
+    shrink = no
+    sort = yes
+    startup_notification = false
+    sticky_history = yes
+    transparency = 0
+    word_wrap = no
+
+[frame]
+    width = 0
+
+[shortcuts]
+    close_all = mod4+space
+    history = mod1+Tab
+
+[urgency_low]
+    background = "#333333"
+    foreground = "#B7B7B7"
+    timeout = 3
+
+[urgency_normal]
+    background = "#333333"
+    foreground = "#B7B7B7"
+    timeout = 3
+
+[urgency_critical]
+    background = "#333333"
+    foreground = "#D46A6A"
+    timeout = 0
