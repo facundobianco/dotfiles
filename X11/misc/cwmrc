@@ -2,7 +2,7 @@
 fontname                   "dina:size=09pt"
 borderwidth                0
 gap                        16 0 0 0
-ignore                     Xfce4-notifyd
+ignore                     "notify-send"
 
 # unmap
 bind C-Left                unmap
@@ -36,20 +36,21 @@ mousebind "1"              unmap
 mousebind "2"              unmap
 mousebind "3"              unmap
 mousebind M-2              unmap
+bind C-1                   unmap
+bind C-2                   unmap
 
 # bind
 bind 4-q                   delete
 bind 4S-q                  quit
 bind 4-r                   restart
-bind 4-k                   lock
+bind 4-k                   xlock
 bind M-F2                  exec
 bind 4-slash               search
 mousebind 4-1              window_resize
 
 # bind4tasks
-# This section uses my personal scripts, take a look at
+# This section uses my personal scripts, see
 # https://github.com/vando/scripts/tree/master/cwm
-#
 # audio
 bind XF86AudioLowerVolume  "volumen down"
 bind XF86AudioRaiseVolume  "volumen up"
@@ -63,35 +64,37 @@ bind 4S-z                  zzz
 # screen select
 bind XF86Display           86display
 bind 4-d                   86display
-# screenshot
-bind Print                 "capture all"
 # SSH to home
 bind 4-s                   casa
+# screenshot
+bind Print                 "capture all"
 
 # bind4apps
 bind 4-u                   urxvt
-bind 4-e                   sublime_text
+bind 4-e                   "getmail --quiet"
+bind 4-a                   "urxvt -geometry 94x25 -e alsamixer"
 bind 4-l                   leafpad
 bind 4-f                   firefox
 bind 4-v                   virtualbox
+bind 4-t                   roxterm
 
-# Group 1
+# groups
 autogroup 1                "main,URxvt"
-# Group 2
-autogroup 2                Firefox
+autogroup 2                Firefox 
+autogroup 2                Iceweasel
 autogroup 2                "Google-chrome-stable"
-# Group 3
+autogroup 2                "google-chrome"
 autogroup 3                "casa,URxvt"
-# Group 4
 autogroup 4                "urxvt,URxvt"
 autogroup 4                XTerm
-autogroup 4                Skype
-autogroup 4                Linphone
-# Group 5 
+autogroup 4                Roxterm
+autogroup 4        	   Skype
+autogroup 4                yakyak
+# Group 5
 autogroup 5                "libreoffice-startcenter"
 autogroup 5                "libreoffice-writer"
-autogroup 5                "libreoffice-calc"
-autogroup 5                "libreoffice-draw"
+autogroup 5		   "libreoffice-calc"
+autogroup 5		   "libreoffice-draw"
 autogroup 5                Soffice
 autogroup 5                Zathura
 autogroup 5                Leafpad
@@ -99,6 +102,12 @@ autogroup 5                Sublime
 autogroup 5                Gpicview
 autogroup 5                feh
 autogroup 5                SciTE
+autogroup 5                Scite
+autogroup 5                Mirage
+autogroup 5                Cr3
+autogroup 5                Diffuse
+autogroup 5                Mcomix
+autogroup 5                Mtpaint
 # Group 6
 autogroup 6                Gtkpod
 autogroup 6                Kicad
@@ -111,11 +120,17 @@ autogroup 6                MPlayer
 autogroup 6                Chirpw
 autogroup 6                Spotify
 autogroup 6                Dia
+autogroup 6                Dia-normal
 autogroup 6                Globaltime
+autogroup 6                Xfburn
+autogroup 6                Linphone
+autogruop 6                Arandr
 # Group 7
+# This group requires `wmname LG3D`
 autogroup 7                rdesktop
 autogroup 7                VirtualBox
 autogroup 7                "com-sun-javaws-Main"
+autogroup 7                "com-mathworks-util-PostVMInit"
 
 # select groups
 bind 4-Left                rcyclegroup
