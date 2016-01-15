@@ -1,0 +1,43 @@
+# place
+alignment tm
+gap_x 0
+gap_y 1
+minimum_size 1920
+own_window_hints undecorated,above,skip_taskbar,skip_pager,sticky
+own_window_transparent no
+own_window_type override
+own_window yes
+
+# design
+draw_borders no
+draw_outline no
+draw_shades no
+border_inner_margin 0
+use_xft yes
+xftfont dina:size=08
+default_color 8A8A8A
+own_window_colour 333333
+color0 B7B7B7
+color1 black
+uppercase no
+pad_percents 3
+use_spacer left
+
+# core
+display :0.0
+format_human_readable yes
+short_units yes
+double_buffer yes
+update_interval 0.5
+
+TEXT
+X11 ${execp /home/facundo/.config/conky/cwmlistwm.sh} ${color1}|${color} \
+${execp /home/facundo/.config/conky/mbox.sh}\
+${alignr}\
+CPU ${color0}${cpu cpu0}% ${cpu cpu1}% ${cpu cpu2}% ${cpu cpu3}% ${cpu cpu4}%${color} ${color1}|${color} \
+RAM ${color0}${mem}${color} ${color1}|${color} \
+LAN ${color0}${upspeedf eth0} ${downspeedf eth0}${color} ${color1}|${color} \
+BAT ${color0}${battery_percent BAT1}%${color} ${color1}|${color} \
+VOL ${color0}${mixer}${color} ${color1}|${color} \
+WEA ${color0}${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ SABE temperature 5}C ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ SABE humidity 5}%${color} ${color1}|${color} \
+CLK ${color0}${time %a %d %b %H:%M:%S}
