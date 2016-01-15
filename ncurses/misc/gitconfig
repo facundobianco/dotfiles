@@ -1,5 +1,5 @@
 [user]
-	email = vando@van.do
+	email = xxx
 	name = Facundo Bianco
 [core]
 	editor = jed
@@ -10,12 +10,19 @@
 [alias]
         aa = add -A
         br = branch
+        ca = commit -a
+	ci = commit
+	cl = clone
 	co = checkout
-	ci = commit -a --allow-empty-message --no-edit
-        go = !git ci && git push 
+        go = !git ca && git push 
 	ls = ls-files
+	mm = merge
 	st = status -s
-	up = pull
+        up = pull
+	
+	dev = checkout dev
+	master = checkout master
 [color]
 	ui = false
 	status = true
+	diff = false
