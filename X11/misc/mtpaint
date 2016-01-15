@@ -1,0 +1,7 @@
+# Actions
+fact1Name    = Save captured screen
+fact1Command = cat %f > /tmp/captures/`date +%s`.png && kill `pgrep -f "mtpaint -s"`
+fact2Name    = Send an email (image attached)
+fact2Command = urxvt -e sh -c "mutt -e 'set sidebar_visible = no' -s Image -a %f"
+fact3Name    = View EXIF data (leafpad)
+fact3Command = exif %f | leafpad
