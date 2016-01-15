@@ -7,4 +7,4 @@ doubt, I explain about them in my blog at [van.do](http://van.do)
 
 ## Screenshots
 
-See [screenshots file](SCREENSHOTS.md).
+See [screenshots file](screenshots/README.md).
