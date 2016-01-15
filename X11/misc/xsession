@@ -1,16 +1,28 @@
 #!/bin/sh
 
+WORK=1
+
 xbacklight -set 100
 conky -qdc /home/vando/.config/conky/conkyrc
 
 export LANG="en_US.UTF-8" \
        LC_CTYPE="en_US.UTF-8"
 
-urxvt -name main -e sh -c "tmux new -s 0 -A" &
-
-if [ -z "$DESKTOP_SESSION" -a -x /usr/bin/ck-launch-session ]
+if [ -n "$WORK" ]
 then
-    ck-launch-session dbus-launch --exit-with-session cwm
+    urxvt -name main -geometry 170x47+0-0 -e sh -c \
+        "tmux -q has && tmux a || \
+         tmux new \; neww -d \; \
+         send -t 1 mutt  C-m \; \
+         send -t 2 irssi C-m" &
+else
+    urxvt -name main -geometry 170x47+0-0 -e sh -c \
+        "tmux new -s 0 -A" &
+fi
+
+if [ -s /etc/debian_version ]
+then
+    exec /usr/bin/openbsd-cwm
 else
     exec /usr/X11R6/bin/cwm
 fi
