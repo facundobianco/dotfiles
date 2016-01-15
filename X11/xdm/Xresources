@@ -1,4 +1,3 @@
-! Uncomment according your *nix
 xlogin.Login.allowRootLogin: false
 
 xlogin*login.translations:   #override \
@@ -7,8 +6,7 @@ xlogin*login.translations:   #override \
 	                     <Key>Right: move-forward-character()\n\
 	                     <Key>Return: set-session-argument() finish-field()
 
-! xlogin*greeting:             OpenBSD @ CLIENTHOST
-! xlogin*greeting:             Slackware @ CLIENTHOST
+xlogin*greeting:             CLIENTHOST
 xlogin*namePrompt:           \040\040\040Login:
 xlogin*passwdPrompt:         Password:
 xlogin*fail:                 Login incorrect
@@ -31,6 +29,5 @@ xlogin*borderWidth:          0
 xlogin*frameWidth:           0
 xlogin*innerFramesWidth:     0
 
-! xlogin*logoFileName:         /etc/X11/xdm/pixmaps/puffy200x172.xpm
-! xlogin*logoFileName:         /etc/X11/xdm/pixmaps/tux200x235.xpm
+xlogin*logoFileName:         /etc/X11/xdm/pixmaps/logo.xpm
 xlogin*logoPadding:          15
