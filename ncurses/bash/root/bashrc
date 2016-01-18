@@ -1,0 +1,27 @@
+. /etc/bash.bashrc
+
+dhcp()
+{
+    case ${1} in
+        up)           dhcpcd -t 10 ${2} ;;
+        down)         dhcpcd -k ${2} ;;
+	st|status)    pgrep -fl dhcpcd ;;
+        -h|--help|"") echo "dhcp <up|down> iface" ;;
+        *)            echo -e "dhcp: invalid option '$1'\ndhcp -h for help" ;;
+    esac
+}
+
+ifswitch()
+{
+    if ifquery --state wlan0 > /dev/null
+    then
+        ifdown wlan0
+        ifup eth0
+    else
+        ifdown eth0
+        ifup wlan0
+    fi
+}
+
+alias apt-upgrade='echo -n "Updating package list... " ; apt-get -qq update && echo "Done" || echo "Failed" ; apt-get -y upgrade'
+alias flash-upgrade='update-flashplugin-nonfree --install'

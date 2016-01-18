@@ -1,4 +1,4 @@
-# bash functions for single user
+SSH_PRVKEY=/home/vando/.ssh/id_rsa
 
 mkmaildir() { /bin/mkdir -p ${1}/{cur,new,tmp} ; }
 
@@ -27,19 +27,42 @@ rdesktop()
                               -r clipboard:PRIMARYCLIPBOARD -r sound:off \
                               -d DOMAIN -u USER -p - "$1"
 }
-    
-ssh()
+
+ssh-copy-id() { cat ${SSH_PRVKEY}.pub | xsel -b ; }
+
+addkey()
 {
     if [ `ssh-add -l > /dev/null 2>&1 ; echo $?` -eq 1 ]
     then
         echo "ssh-agent has no identities"
-        ssh-add -t 12h ${SSH_PRVKEY} && echo ""
+        ssh-add -t 0 ${SSH_PRVKEY} && echo ""
     fi
-    
+}
+
+ssh()
+{
+    addkey
+
     if [ "$?" -eq 0 ]
     then
         /usr/bin/ssh ${@}
     fi
 }
 
-ssh-copy-id() { cat ${SSH_PRVKEY}.pub | xsel -b ; }
+scp()
+{
+    addkey
+
+    if [ "$?" -eq 0 ]
+    then
+        /usr/bin/scp ${@}
+    fi
+}
+
+getmail()
+{
+    if [ -z "`pgrep -d, -x getmail`" ]
+    then
+        /usr/bin/getmail ${@} 2> /tmp/getmail-err.log
+    fi
+}

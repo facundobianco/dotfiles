@@ -3,6 +3,20 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+if [ "$EUID" -ne 0 ]
+then
+    if [ -s /etc/debian_version ]
+    then
+        PS1='\[\e[0;33m\]\h:\W\[\e[0;31m\]$(__git_ps1 " (%s)")\[\e[0;33m\] \\$>\[\e[0m\] '
+    else
+        PS1='\[\e[0;33m\]\h:\W \\$>\[\e[0m\] '
+    fi
+else
+     PS1='\[\e[0;31m\]\h:\W #>\[\e[0m\] '
+fi
+PS2='> '
+export PS1 PS2
+
 export LANG=en_US.UTF-8 
 export LC_CTYPE=en_US.UTF-8
 export EDITOR=jed
@@ -28,7 +42,6 @@ if [ `uname -s` = "Linux" ]
 then    
     alias dff='df -hx tmpfs | column -t'
     alias ls='ls -1Ahq --color=always --file-type --group-directories-first'
-    alias poweroff='sudo /sbin/poweroff'
     alias bc='bc -q'
 else
     alias halt='shutdown -hp now'
@@ -36,22 +49,7 @@ else
     alias ls='colorls -1AGhq'
 fi
 
-alias lsw='tmux lsw -F "#{window_index}#{window_flags}#{window_name}"'
-
-if [ `id -u` -gt 0 ]
-then
-    COLOR="\[\e[0;36m\]"
-    
-    if [ `uname -s` = "Linux" ]
-    then
-        source /etc/bash_linux_func
-    else
-        source /etc/bash_bsd_func
-    fi
-fi
-
-PS1="${COLOR:-\[\e[0;35m\]}\h:\W \$>\[\e[0m\] "
-PS2="> "
-export PS1 PS2
+alias lst='tmux lsw -F "#{window_index}#{window_flags}#{window_name}"'
+mkcd(){ mkdir -p -- ${1} && cd -P -- ${1} ; }
 
 [ -d ${HOME}/bin ] && export PATH=$PATH:$HOME/bin

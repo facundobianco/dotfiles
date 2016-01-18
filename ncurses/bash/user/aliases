@@ -1,0 +1,19 @@
+# cmd
+alias poweroff='sudo /sbin/poweroff'
+alias lpr='lpr -P hp'
+alias passgen='openssl rand -base64 11'
+alias pysrvr='python -m SimpleHTTPServer 8080'
+alias lsgrep='ls|grep' 
+alias psc='ps aux --sort=-vsz,-rss|less -S'
+alias conkyup='conky -qdc ${HOME}/.config/conky/conkyrc'
+
+# apps
+alias stm32='make clean && make && make erase && make flash'
+alias matlab='wmname LG3D ; /opt/MATLAB/R2013a/bin/matlab'
+alias yakyak='/opt/yakyak/linux-x64/yakyak'
+
+# Docker
+alias dps='docker ps'
+alias di='docker images'
+alias drm='docker rm `docker ps -aq`'
+alias drmi=$'docker rmi -f `docker images | awk \'/^<none>/{print $3}\'`'
