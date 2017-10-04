@@ -1,28 +1,25 @@
 #!/bin/sh
 
-WORK=1
-
-xbacklight -set 100
-conky -qdc /home/vando/.config/conky/conkyrc
+eval `/usr/bin/ssh-agent`
 
 export LANG="en_US.UTF-8" \
        LC_CTYPE="en_US.UTF-8"
 
-if [ -n "$WORK" ]
+# https://raspberrypi.stackexchange.com/a/753/38064
+xset s noblank
+xset s off
+xset -dpms
+
+# https://wiki.archlinux.org/index.php/Touchpad_Synaptics#Using_syndaemon
+syndaemon -i 0.5 -t -K -R -d
+
+pulseaudio --start
+
+if [ `xrandr | sed -n '/HDMI1/s/HDMI1 \([^ ]*\) .*/\1/p'` == "connected"  ]
 then
-    urxvt -name main -geometry 170x47+0-0 -e sh -c \
-        "tmux -q has && tmux a || \
-         tmux new \; neww -d \; \
-         send -t 1 mutt  C-m \; \
-         send -t 2 irssi C-m" &
-else
-    urxvt -name main -geometry 170x47+0-0 -e sh -c \
-        "tmux new -s 0 -A" &
+    xrandr --output eDP1  --mode 1920x1080 --pos 0x1080 --rotate normal \
+           --output HDMI1 --mode 1920x1080 --pos 0x0    --rotate normal
 fi
 
-if [ -s /etc/debian_version ]
-then
-    exec /usr/bin/openbsd-cwm
-else
-    exec /usr/X11R6/bin/cwm
-fi
+# All startup applications are in $HOME/.i3/config
+exec /usr/bin/i3
