@@ -3,3 +3,13 @@ syntax enable                                                   " Syntax highlig
 set mouse=n                                                     " 
 set pastetoggle=<F3>                                            " Turn off autoindent to paste code
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab     " https://stackoverflow.com/a/1878983
+
+set nocompatible                                                " Vundle begin
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'                                   " vim +PluginInstall +qall
+Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'saltstack/salt-vim'
+call vundle#end()
+filetype plugin indent on                                       " End 
