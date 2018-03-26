@@ -1,8 +1,8 @@
 [user]
-	email = xxx
+	email = vando 40 van 2E do
 	name = Facundo Bianco
 [core]
-	editor = jed
+	editor = vim
 	excludesfile = .gitignore
 	pager = less -R
 [push]
@@ -19,7 +19,6 @@
 	mm = merge
 	st = status -s
         up = pull
-	
 	dev = checkout dev
 	master = checkout master
 [color]
