@@ -1,0 +1,7 @@
+*~
+*.swo
+*.swp
+*save
+*save.[1-9]
+test*
+.DS_Store

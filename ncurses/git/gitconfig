@@ -1,0 +1,43 @@
+[user]
+        email = foo
+        name = bar
+[core]
+	editor = vim
+        pager = less -R
+	excludesfile = ~/.gitexcludes
+[push]
+        default = matching
+[alias]
+        aa = add -A
+        br = branch
+        ca = commit -a
+        cc = clone
+        ci = commit
+        cl = !git cc
+        co = checkout
+        go = !git ca && git push
+        ls = ls-files
+        mm = merge
+        rh = reset HEAD
+        st = status -s
+        up = pull
+        dev = checkout dev
+        master = checkout master
+[color]
+        ui = false
+	branch = auto
+	diff = auto
+	status = auto
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+[color "status"]
+	added = yellow
+	changed = white
+	untracked = cyan
