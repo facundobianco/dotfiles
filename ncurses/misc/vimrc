@@ -1,15 +1,56 @@
-set t_Co=256                                                    " 256-color mode
-syntax enable                                                   " Syntax highlighting
-set mouse=n                                                     " 
-set pastetoggle=<F3>                                            " Turn off autoindent to paste code
-set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab     " https://stackoverflow.com/a/1878983
+" Syntax highlighting
+set t_Co=256
+syntax enable
+" Turn off autoindent to paste code
+set mouse=n
+set pastetoggle=<F3>
+" tabs
+" https://stackoverflow.com/a/1878983
+set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
+" backup dir
+set bdir-=.
+set bdir+=~/.vimtmp
 
-set nocompatible                                                " Vundle begin
+" split
+nnoremap <C-W>- :sp<cr>
+nnoremap <C-W>\| :vsp<cr>
+nnoremap <C-W><C-Down> <C-W><C-J>
+nnoremap <C-W><C-Up> <C-W><C-K>
+nnoremap <C-W><C-Right> <C-W><C-L>
+nnoremap <C-W><C-Left> <C-W><C-H>
+set splitbelow
+set splitright
+
+" tabs
+nnoremap <leader>t :tabnew<cr>
+nnoremap <leader>n :tabn<cr>
+nnoremap <leader>p :tabp<cr>
+
+" CtrlP
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+"let g:ctrlp_dont_split = 'NERD'
+
+" NERDTree
+let g:NERDTreeDirArrowExpandable  = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+silent! map <F2> :NERDTreeToggle<CR>
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Vundle begin
+set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'                                   " vim +PluginInstall +qall
+" vim +PluginInstall +qall
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'saltstack/salt-vim'
+Plugin 'PotatoesMaster/i3-vim-syntax'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 call vundle#end()
-filetype plugin indent on                                       " End 
+filetype plugin indent on
