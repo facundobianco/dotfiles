@@ -3,7 +3,7 @@
         name = Facundo Bianco
 [core]
 	editor = vim
-        pager = less -R
+        pager = less -RMS
 	excludesfile = ~/.gitexcludes
 [push]
         default = matching
