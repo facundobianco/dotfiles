@@ -1,6 +1,6 @@
 [user]
-        email = foo
-        name = bar
+        email = vando@users.noreply.github.com
+        name = Facundo Bianco
 [core]
 	editor = vim
         pager = less -R
@@ -41,3 +41,5 @@
 	added = yellow
 	changed = white
 	untracked = cyan
+[github]
+        user = vando
