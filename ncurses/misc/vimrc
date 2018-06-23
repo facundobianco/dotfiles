@@ -7,11 +7,22 @@ set pastetoggle=<F3>
 " tabs
 " https://stackoverflow.com/a/1878983
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
-" backup dir
-set bdir-=.
-set bdir+=~/.vimtmp
+" backup / swap
+" The double tailing slash will store files using full paths to avoid clobbering
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swp//
 " shell
 set shellcmdflag+=i
+
+" Line numbering
+set nu
+set numberwidth=3
+set cpoptions+=n
+noremap <F4> :set invnumber<CR>
+highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+
+" syntax for files
+autocmd BufNewFile,BufRead ossec.conf set syntax=xml
 
 " split
 nnoremap <C-W>- :sp<cr>
@@ -33,18 +44,6 @@ let g:gist_show_privates = 1
 let g:gist_post_private = 1
 let g:gist_detect_filetype = 1
 let g:gist_clip_command = 'xclip -selection clipboard'
-
-" GnuPG
-let g:GPGPreferArmor=1
-let g:GPGEncrypted=1
-let g:GPGDefaultRecipients=["F22B8141"]
-" These options set that if nothing happens in an encrypted file for 12
-" seconds Vim will quit.
-augroup GPG
-    autocmd!
-    autocmd FileType gpg setlocal updatetime=12000
-    autocmd CursorHold *.\(gpg\|asc\|pgp\) quit
-augroup END
 
 " CtrlP
 let g:ctrlp_map = '<c-p>'
@@ -72,7 +71,6 @@ Plugin 'PotatoesMaster/i3-vim-syntax'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'jamessan/vim-gnupg'
 Plugin 'mattn/webapi-vim'
 Plugin 'mattn/gist-vim'
 Plugin 'Matt-Deacalion/vim-systemd-syntax'
