@@ -1,0 +1,7 @@
+# Lynx User Defaults File
+accept_all_cookies=on
+character_set=UNICODE (UTF-8)
+emacs_keys=off
+file_editor=vim
+vi_keys=on
+user_mode=ADVANCED
