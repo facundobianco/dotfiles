@@ -1,17 +1,22 @@
 " Syntax highlighting
 set t_Co=256
 syntax enable
+
 " Turn off autoindent to paste code
 set mouse=n
 set pastetoggle=<F3>
+
 " tabs
 " https://stackoverflow.com/a/1878983
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
+
 " backup / swap
 " The double tailing slash will store files using full paths to avoid clobbering
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swp//
+
 " shell
+" :r !command <opt>
 set shellcmdflag+=i
 
 " Line numbering
@@ -19,44 +24,50 @@ set nu
 set numberwidth=3
 set cpoptions+=n
 noremap <F4> :set invnumber<CR>
-highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE
+
+" Statusline
+set laststatus=2
+highlight StatusLine   cterm=NONE ctermbg=DarkGrey ctermfg=Yellow
+highlight StatusLineNC cterm=NONE ctermbg=DarkGrey ctermfg=DarkGrey
+highlight VertSplit    cterm=NONE ctermbg=DarkGrey ctermfg=DarkGrey
+set statusline=
+set statusline+=\  
+set statusline+=\[%{mode()}\]
+set statusline+=\[%n%H%M%R%W\]
+set statusline+=\ %f
+set statusline+=%15((L\:\ %l\ C\:\ %c)%)
+set statusline+=\ %P 
+set statusline+=%= " right-align from now on
+set statusline+=\ %y
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+set statusline+=\ (%{&fileformat})
+set statusline+=\  
+
+" netrw
+map <F2> :Sex<CR>
+let g:netrw_banner = 0
 
 " syntax for files
 autocmd BufNewFile,BufRead ossec.conf set syntax=xml
+autocmd BufNewFile,BufRead *_nagios2.cfg set filetype=nagios
 
-" split
-nnoremap <C-W>- :sp<cr>
-nnoremap <C-W>\| :vsp<cr>
-nnoremap <C-W><C-Down> <C-W><C-J>
-nnoremap <C-W><C-Up> <C-W><C-K>
-nnoremap <C-W><C-Right> <C-W><C-L>
-nnoremap <C-W><C-Left> <C-W><C-H>
+" split (Ctrl-w s)
+" https://robots.thoughtbot.com/vim-splits-move-faster-and-more-naturally
 set splitbelow
 set splitright
 
 " tabs
-nnoremap <leader>t :tabnew<cr>
-nnoremap <leader>n :tabn<cr>
-nnoremap <leader>p :tabp<cr>
+" leader = \
+nnoremap <leader>t :tabnew<CR>
+nnoremap <leader>n :tabn<CR>
+nnoremap <leader>p :tabp<CR>
 
 " Gist
 let g:gist_show_privates = 1
 let g:gist_post_private = 1
 let g:gist_detect_filetype = 1
 let g:gist_clip_command = 'xclip -selection clipboard'
-
-" CtrlP
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-"let g:ctrlp_dont_split = 'NERD'
-
-" NERDTree
-let g:NERDTreeDirArrowExpandable  = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
-silent! map <F2> :NERDTreeToggle<CR>
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Vundle begin
 set nocompatible
@@ -68,11 +79,10 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'saltstack/salt-vim'
 Plugin 'PotatoesMaster/i3-vim-syntax'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'mattn/webapi-vim'
 Plugin 'mattn/gist-vim'
 Plugin 'Matt-Deacalion/vim-systemd-syntax'
+Plugin 'wellle/targets.vim'
+Plugin 'vim-scripts/nagios-syntax'
 call vundle#end()
 filetype plugin indent on
