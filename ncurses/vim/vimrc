@@ -19,11 +19,17 @@ set directory=~/.vim/swp//
 " :r !command <opt>
 set shellcmdflag+=i
 
+" display the hidden characters
+set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»
+highlight NonText ctermfg=DarkGrey
+highlight SpecialKey ctermfg=DarkGrey
+noremap <F4> :set list!<CR>
+
 " Line numbering
+" show/hide: set invnumber
 set nu
 set numberwidth=3
 set cpoptions+=n
-noremap <F4> :set invnumber<CR>
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE
 
 " Statusline
