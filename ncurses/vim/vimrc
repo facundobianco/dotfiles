@@ -2,8 +2,10 @@
 set t_Co=256
 syntax enable
 
-" Turn off autoindent to paste code
+" mouse
 set mouse=n
+
+" Turn off autoindent to paste code
 set pastetoggle=<F3>
 
 " tabs
@@ -11,9 +13,8 @@ set pastetoggle=<F3>
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 
 " backup / swap
-" The double tailing slash will store files using full paths to avoid clobbering
-set backupdir=~/.vim/backup//
-set directory=~/.vim/swp//
+set nobackup
+set noswapfile
 
 " shell
 " :r !command <opt>
@@ -68,6 +69,13 @@ set splitright
 nnoremap <leader>t :tabnew<CR>
 nnoremap <leader>n :tabn<CR>
 nnoremap <leader>p :tabp<CR>
+highlight TabLineSel cterm=NONE ctermbg=DarkGrey ctermfg=Yellow
+highlight TabLine cterm=NONE ctermbg=DarkGrey ctermfg=Black
+highlight TabLineFill ctermfg=DarkGrey
+
+" wrapped text: jumps to the next row in the editor (instead of the next line)
+nnoremap <Down> gj
+nnoremap <Up> gk
 
 " Gist
 let g:gist_show_privates = 1
