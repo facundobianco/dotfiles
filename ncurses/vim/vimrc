@@ -6,7 +6,7 @@ syntax enable
 set mouse=n
 
 " Turn off autoindent to paste code
-set pastetoggle=<F3>
+set pastetoggle=<F4>
 
 " tabs
 " https://stackoverflow.com/a/1878983
@@ -24,7 +24,7 @@ set shellcmdflag+=i
 set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»
 highlight NonText ctermfg=DarkGrey
 highlight SpecialKey ctermfg=DarkGrey
-noremap <F4> :set list!<CR>
+noremap <F5> :set list!<CR>
 
 " Line numbering
 " show/hide: set invnumber
@@ -53,7 +53,9 @@ set statusline+=\
 
 " netrw
 map <F2> :Sex<CR>
-let g:netrw_banner = 0
+map <F3> :vnew +Ex<CR>
+let g:netrw_banner=0
+let g:netrw_altv=1
 
 " syntax for files
 autocmd BufNewFile,BufRead ossec.conf set syntax=xml
@@ -76,6 +78,14 @@ highlight TabLineFill ctermfg=DarkGrey
 " wrapped text: jumps to the next row in the editor (instead of the next line)
 nnoremap <Down> gj
 nnoremap <Up> gk
+
+" split lines
+" https://superuser.com/a/611420
+function! BreakHere()
+    s/^\(\s*\)\(.\{-}\)\(\s*\)\(\%#\)\(\s*\)\(.*\)/\1\2\r\1\4\6
+    call histdel("/", -1)
+endfunction
+nnoremap z :<C-u>call BreakHere()<CR>
 
 " Gist
 let g:gist_show_privates = 1
