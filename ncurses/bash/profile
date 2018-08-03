@@ -1,0 +1,29 @@
+# Based on Debian's shell profile
+
+# if running bash
+if [ -n "$BASH_VERSION" ]
+then
+    # include .bashrc if it exists
+    if [ -f "$HOME/.bashrc" ]
+    then
+    . "$HOME/.bashrc"
+    fi
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ]
+then
+    PATH="$HOME/bin:$PATH"
+fi
+if [ -d "$HOME/.local/bin" ]
+then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
+export GPG_TTY=`tty`
+export GPG_AGENT_INFO
+
+export LESSOPEN='| /usr/share/source-highlight/src-hilite-lesspipe.sh %s'
+export LESS='-RM'
+
+# vim syntax=sh

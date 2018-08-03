@@ -2,5 +2,12 @@
 
 if [ "$SHLVL" = 1 ]
 then
-    /usr/bin/clear
+    if [ -x /usr/bin/clear_console ] 
+    then
+        /usr/bin/clear_console -q 
+    else
+        /usr/bin/clear
+    fi
 fi
+
+# vim syntax=sh

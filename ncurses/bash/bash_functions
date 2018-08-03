@@ -1,0 +1,14 @@
+# vars
+SSHK='id_rsa_one id_rsa_two id_rsa_N'
+
+# func
+addkey(){ if [ `ssh-add -l > /dev/null 2>&1 ; echo $?` -eq 1 ]; then ssh-add -t 0 ~/.ssh/${SSHK}; echo "" ; fi ; }
+hgrep(){ grep ${1} /etc/hosts ; }
+md(){ pandoc ${1} | lynx -stdin ; } # https://tosbourn.com/view-markdown-files-terminal
+mkcd(){ mkdir -p -- ${1} && cd -P -- ${1} ; } 
+passgen(){ openssl rand -base64 ${1:-11} | sed "s/=/_/" ; }
+pysrvr(){ python -m SimpleHTTPServer ${1:-8080} ; }
+scp(){ addkey && /usr/bin/scp ${@} ; }
+ssh(){ addkey && /usr/bin/ssh ${@} ; }
+ 
+# vim: syntax=sh

@@ -1,0 +1,29 @@
+## Applications
+alias jcontrol='/usr/lib/jvm/java-8-oracle/jre/bin/jcontrol'
+alias rsync='rsync -zaPh'
+
+## Commands
+alias ctrl='xmodmap -e "add control  = Control_L  Control_R"'
+alias lgrep='ls|grep' 
+alias lst='tmux lsw -F "#{window_index}#{window_flags}#{window_name}"'
+alias myip='wget -qO - http://icanhazip.com'
+alias ok='echo OK'
+alias OK='ok'
+alias oneline='xargs -a'
+alias poweroff='sudo /sbin/poweroff'
+alias prs='ps aux --sort=-vsz,-rss|less -S'
+alias psc='ps h -o pid,cmd -C'
+alias pssh='ps -o pid,start_time,cmd -C ssh'
+alias rssh='rsync -4 --ignore-existing -e ssh'
+alias smile='mpv tv:// --tv-driver=v4l2 --tv-device=/dev/video0'
+alias urxvt-main='urxvt -name main -geometry 240x66+0-0 -e sh -c "tmux -q has && tmux a || tmux new"'
+alias xback='xbacklight -set'
+alias xclass='xprop | grep CLASS'
+alias xsel='xclip -i -selection clipboard'
+
+# Docker
+alias dgrep='di | grep'
+alias di='docker images'
+alias dps='docker ps'
+alias drm='docker rm `docker ps -aq -f status=paused -f status=exited -f status=dead`'
+alias drmi='docker rmi -f `docker images -q --filter "dangling=true"`'

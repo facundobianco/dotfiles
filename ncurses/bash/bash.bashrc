@@ -19,12 +19,13 @@ export PS1 PS2
 
 export LANG=en_US.UTF-8 
 export LC_CTYPE=en_US.UTF-8
-export EDITOR=jed
+export EDITOR=vim
 export HISTIGNORE="clear:exit:halt:ls:pwd:reboot:reset:resource:shutdown:cd:bc"
 export HISTCONTROL="ignoreboth:erasedups"
 export HISTFILESIZE="999999"
 
 set completion-ignore-case on 
+complete -cf man alias info which whereis
 shopt -s cdspell checkhash no_empty_cmd_completion hostcomplete
 
 complete -cf alias info man whereis which
@@ -48,8 +49,3 @@ else
     alias dff='df -h'
     alias ls='colorls -1AGhq'
 fi
-
-alias lst='tmux lsw -F "#{window_index}#{window_flags}#{window_name}"'
-mkcd(){ mkdir -p -- ${1} && cd -P -- ${1} ; }
-
-[ -d ${HOME}/bin ] && export PATH=$PATH:$HOME/bin
