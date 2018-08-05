@@ -5,8 +5,9 @@ syntax enable
 " mouse
 set mouse=n
 
-" Turn off autoindent to paste code
-set pastetoggle=<F4>
+" Clipboard
+set pastetoggle=<F3>
+nnoremap Y y$
 
 " tabs
 " https://stackoverflow.com/a/1878983
@@ -24,7 +25,7 @@ set shellcmdflag+=i
 set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»
 highlight NonText ctermfg=DarkGrey
 highlight SpecialKey ctermfg=DarkGrey
-noremap <F5> :set list!<CR>
+noremap <silent> <F4> :set list!<CR>
 
 " Line numbering
 " show/hide: set invnumber
@@ -52,10 +53,14 @@ set statusline+=\ (%{&fileformat})
 set statusline+=\  
 
 " netrw
-map <F2> :Sex<CR>
-map <F3> :vnew +Ex<CR>
+map <silent> <F2> :Lexplore<CR>
+autocmd BufEnter * if ( winnr("$") == 1 && &filetype ==# 'netrw' ) | q | endif
 let g:netrw_banner=0
 let g:netrw_altv=1
+let g:netrw_browse_split=2
+let g:netrw_altfile=1
+let g:netrw_winsize=-20
+let g:netrw_list_hide='^\./$,^\.git/$'
 
 " syntax for files
 autocmd BufNewFile,BufRead ossec.conf set syntax=xml
