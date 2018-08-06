@@ -17,8 +17,7 @@ set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 set nobackup
 set noswapfile
 
-" shell
-" :r !command <opt>
+" shell (:r !command <opt>)
 set shellcmdflag+=i
 
 " display the hidden characters
@@ -27,8 +26,7 @@ highlight NonText ctermfg=DarkGrey
 highlight SpecialKey ctermfg=DarkGrey
 noremap <silent> <F4> :set list!<CR>
 
-" Line numbering
-" show/hide: set invnumber
+" Line numbering (show/hide: set invnumber)
 set nu
 set numberwidth=3
 set cpoptions+=n
@@ -57,7 +55,7 @@ map <silent> <F2> :Lexplore<CR>
 autocmd BufEnter * if ( winnr("$") == 1 && &filetype ==# 'netrw' ) | q | endif
 let g:netrw_banner=0
 let g:netrw_winsize=-20
-let g:netrw_list_hide='^\./$,^\.git/$'
+let g:netrw_list_hide='^\.[^\.]*$'
 
 " syntax for files
 autocmd BufNewFile,BufRead ossec.conf set syntax=xml
@@ -68,8 +66,7 @@ autocmd BufNewFile,BufRead *_nagios2.cfg set filetype=nagios
 set splitbelow
 set splitright
 
-" tabs
-" leader = \
+" tabs (leader = \)
 nnoremap <leader>t :tabnew<CR>
 nnoremap <leader>n :tabn<CR>
 nnoremap <leader>p :tabp<CR>
@@ -81,13 +78,29 @@ highlight TabLineFill ctermfg=DarkGrey
 nnoremap <Down> gj
 nnoremap <Up> gk
 
+" quit easily
+cnoreabbrev <silent> qq qall!
+
 " split lines
 " https://superuser.com/a/611420
 function! BreakHere()
     s/^\(\s*\)\(.\{-}\)\(\s*\)\(\%#\)\(\s*\)\(.*\)/\1\2\r\1\4\6
     call histdel("/", -1)
 endfunction
+" BreakHere()
 nnoremap z :<C-u>call BreakHere()<CR>
+
+" modify selected text using combining diacritics
+" http://vim.wikia.com/wiki/Create_underlines,_overlines,_and_strikethroughs_using_combining_characters
+command! -range -nargs=0 Overline        call s:CombineSelection(<line1>, <line2>, '0305')
+command! -range -nargs=0 Underline       call s:CombineSelection(<line1>, <line2>, '0332')
+command! -range -nargs=0 DoubleUnderline call s:CombineSelection(<line1>, <line2>, '0333')
+command! -range -nargs=0 Strikethrough   call s:CombineSelection(<line1>, <line2>, '0336')
+" CombineSeleccion()
+function! s:CombineSelection(line1, line2, cp)
+  execute 'let char = "\u'.a:cp.'"'
+  execute a:line1.','.a:line2.'s/\%V[^[:cntrl:]]/&'.char.'/ge'
+endfunction
 
 " Gist
 let g:gist_show_privates = 1
@@ -100,7 +113,6 @@ set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" vim +PluginInstall +qall
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'saltstack/salt-vim'
