@@ -11,7 +11,11 @@ nnoremap Y y$
 
 " tabs
 " https://stackoverflow.com/a/1878983
-set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
+set tabstop=8
+set softtabstop=0
+set expandtab
+set shiftwidth=4
+set smarttab
 
 " backup / swap
 set nobackup
@@ -59,7 +63,7 @@ set statusline+=\
 noremap <silent> <F2> :Lexplore<CR>
 autocmd FileType netrw setl bufhidden=delete
 autocmd BufEnter * if ( winnr("$") == 1 && &filetype ==# 'netrw' ) | q | endif
-autocmd BufLeave * if ( &ft ==# 'netrw' ) | q | endif
+"autocmd BufLeave * if ( &ft ==# 'netrw' ) | q | endif
 let g:netrw_banner=0
 let g:netrw_winsize=-20
 let g:netrw_list_hide='^\.[^\.]*$'
@@ -136,6 +140,9 @@ set linebreak
 function! SortInLine()
     call setline('.', join(sort(split(getline('.'), ' ')), " "))
 endfunction
+
+" Ignore case when completing file names and directories
+set wildignorecase
 
 " Gist
 let g:gist_show_privates = 1
