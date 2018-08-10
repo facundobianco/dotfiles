@@ -9,9 +9,11 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
+
+#font pango:DejaVu Sans Mono 8, FontAwesome 9
+# font xft:dina 11
 font pango:DejaVu Sans Mono 8, FontAwesome 9
 
-# use Win key
 set $mod Mod4
 set $alt Mod1
 
@@ -22,55 +24,37 @@ floating_modifier $alt
 focus_follows_mouse no
 
 # start a terminal
-# bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec ~/bin/urxvt-main.sh
+bindsym $mod+Return exec urxvt -name main -geometry 240x66+0-0 -e sh -c "tmux -q has && tmux a || tmux new"
 
 # kill focused window
 bindsym $mod+q kill
 
+# menu
 bindsym $mod+d  exec dmenu_run
 bindsym $alt+F2 exec dmenu_run
 
-# change focus
-bindsym $mod+Left  focus left
-bindsym $mod+Down  focus down
-bindsym $mod+Up    focus up
-bindsym $mod+Right focus right
-
-bindsym $mod+Shift+Left  move left
-bindsym $mod+Shift+Right move right
-bindsym $mod+Shift+Down  move down
-bindsym $mod+Shift+Up    move up
-
-
-#bindsym $mod+Shift+Left  move workspace prev
-#bindsym $mod+Shift+Right move workspace next
-
-
+# volume
 bindsym XF86AudioLowerVolume exec amixer --quiet set Master 2%- unmute
 bindsym XF86AudioRaiseVolume exec amixer --quiet set Master 2%+ unmute
 bindsym XF86AudioMute        exec amixer --quiet set Master toggle
 bindsym $mod+m               exec amixer --quiet set Master toggle
 
+# bright
 bindsym XF86MonBrightnessUp   exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
-bindsym $mod+k exec /home/facundo/bin/xlock
-#bindsym Print exec scrot '%s.png' -e 'mv $f /home/facundo/down/captures/'
-bindsym Print exec mtpaint -s
+# apps
+bindsym $mod+k exec i3lock --nofork -ec 000000 -i ~/.config/xlock/lock_1920_2160.png
+bindsym Print  exec mtpaint -s
 bindsym $mod+c exec qalculate
 
-
-# bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
- 
-# split in horizontal orientation
+# split
 bindsym $mod+h split h
-
-# split in vertical orientation
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
+bindsym $mod+n floating disable, resize set 1920 1061, move position 0 19
 popup_during_fullscreen smart
 
 # change container layout (stacked, tabbed, toggle split)
@@ -87,8 +71,15 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
-# focus the child container
-#bindsym $mod+d focus child
+# change focus
+indsym $mod+Up focus parent
+bindsym $mod+Down focus left
+
+# move
+bindsym $mod+Shift+Left  move left
+bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+Down  move down
+bindsym $mod+Shift+Up    move up
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -124,11 +115,6 @@ bindsym $mod+Shift+q exec "i3-msg exit"
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
         bindsym Left  resize shrink width  10 px or 10 ppt
         bindsym Down  resize grow   height 10 px or 10 ppt
         bindsym Up    resize shrink height 10 px or 10 ppt
@@ -141,32 +127,28 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
+# http://christopherdecoster.com/posts/i3-wm/
+bindsym $mod+x exec /usr/local/bin/hotplug_monitor
+
+# Start i3bar to display a workspace bar (plus the system information i3status finds out, if available)
 bar {
         position       top
-	status_command py3status  -c /home/facundo/.i3/i3status.conf
-	
+	status_command py3status  -c /home/vando/.i3/i3status.conf
 }
 
-
 exec  nm-applet
-exec  /opt/extras.ubuntu.com/calendar-indicator/bin/calendar-indicator
-exec  ~/bin/urxvt-main.sh
+exec  urxvt -name main -geometry 240x66+0-0 -e sh -c "tmux -q has && tmux a || tmux new"
 exec  google-chrome-unstable
+exec  slack
 
 workspace 1 output eDP1
 workspace 2 output HDMI1
 workspace 5 output HDMI1
 workspace 6 output eDP1
+
 bindsym $mod+Control+Down move workspace to output down
 bindsym $mod+Control+Up   move workspace to output up
 
-
-# -- hide all borders
-# new_window 0
-# hide_edge_borders none
- 
 new_window pixel 1
 hide_edge_borders smart
 
@@ -174,21 +156,28 @@ hide_edge_borders smart
 client.focused          #e2e23d #285577 #ffffff #2e9ef4   #285577
 
 # http://unix.stackexchange.com/questions/27855
+# https://faq.i3wm.org/question/3559
 for_window [class="Xfce4-notifyd"] floating enable; border none; focus mode_toggle
 for_window [class="^Qalculate$"] floating enable
 for_window [class="^Pavucontrol$"] floating enable
-# https://faq.i3wm.org/question/3559
-for_window [title="Hangouts"] move container to workspace 4
 for_window [window_role="pop-up"] floating enabled
 for_window [window_role="app"] floating enabled
 for_window [title="^About"] floating enabled
+for_window [class="^com-sun-javaws-Main$"] floating enabled
+for_window [class="^feh$"] floating enabled
+for_window [class="^X64$"] floating enabled
+for_window [class="^Filezilla$"] floating enabled
+for_window [class="^Lxappearance$"] floating enabled
 
 assign [class="^URxvt$" instance="^main$"] 1
 assign [class="^Google-chrome-unstable$"] 2
+assign [class="^Vivaldi-stable$"] 2
 assign [class="^skypeforlinux$"] 4
+assign [class="^Slack$"] 4
 assign [class="^TelegramDesktop$"] 4
 assign [class="^Mtpaint$"] 5
 assign [class="^Zathura$"] 5
+assign [class="^MComix$"] 5
 assign [class="^Spotify$"] 6
 assign [class="^Google Play Music Desktop Player$"] 6
 assign [class="^VLC media player$"] 7
