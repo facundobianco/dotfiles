@@ -5,7 +5,7 @@ syntax enable
 " mouse
 set mouse=n
 
-" Clipboard
+" Clipboard (into INSERT mode: C-R ")
 set pastetoggle=<F3>
 nnoremap Y y$
 
@@ -16,6 +16,7 @@ set softtabstop=0
 set expandtab
 set shiftwidth=4
 set smarttab
+set autoindent
 
 " backup / swap
 set nobackup
@@ -35,6 +36,12 @@ highlight NonText ctermfg=DarkGrey
 highlight SpecialKey ctermfg=DarkGrey
 noremap <silent> <F4> :set list!<CR>
 
+" Highlight unwanted spaces
+" http://vim.wikia.com/wiki/Highlight_unwanted_spaces
+highlight ExtraWhitespace ctermbg=red guibg=red
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+
 " Line numbering (show/hide: set invnumber)
 set nu
 set numberwidth=3
@@ -43,30 +50,34 @@ highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE
 
 " Statusline
 set laststatus=2
+" Statusline color
 highlight StatusLine   cterm=NONE ctermbg=DarkGrey ctermfg=Yellow
 highlight StatusLineNC cterm=NONE ctermbg=DarkGrey ctermfg=DarkGrey
 highlight VertSplit    cterm=NONE ctermbg=DarkGrey ctermfg=DarkGrey
+" Statusline content
 set statusline=
-set statusline+=\  
+set statusline+=\ 
 set statusline+=\[%{mode()}\]
 set statusline+=\[%n%H%M%R%W\]
 set statusline+=\ %f
 set statusline+=%15((L\:\ %l\ C\:\ %c)%)
-set statusline+=\ %P 
+set statusline+=\ %P
 set statusline+=%= " right-align from now on
 set statusline+=\ %y
 set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
 set statusline+=\ (%{&fileformat})
-set statusline+=\  
+set statusline+=\ 
 
 " netrw
 noremap <silent> <F2> :Lexplore<CR>
-autocmd FileType netrw setl bufhidden=delete
 autocmd BufEnter * if ( winnr("$") == 1 && &filetype ==# 'netrw' ) | q | endif
-"autocmd BufLeave * if ( &ft ==# 'netrw' ) | q | endif
 let g:netrw_banner=0
 let g:netrw_winsize=-20
+let g:netrw_browse_split=4
+let g:netrw_altv=1
 let g:netrw_list_hide='^\.[^\.]*$'
+let g:netrw_sort_options='i'
+let g:netrw_special_syntax=1
 
 " syntax for files
 autocmd BufNewFile,BufRead ossec.conf set syntax=xml
@@ -144,11 +155,51 @@ endfunction
 " Ignore case when completing file names and directories
 set wildignorecase
 
+" Ins-completion
+set completeopt=longest,menuone
+
+" Display output of shell commands in new window
+" http://vim.wikia.com/wiki/Display_output_of_shell_commands_in_new_window
+command! -complete=shellcmd -nargs=+ Shell call s:RunShellCommand(<q-args>)
+function! s:RunShellCommand(cmdline)
+  echo a:cmdline
+  let expanded_cmdline = a:cmdline
+  for part in split(a:cmdline, ' ')
+     if part[0] =~ '\v[%#<]'
+        let expanded_part = fnameescape(expand(part))
+        let expanded_cmdline = substitute(expanded_cmdline, part, expanded_part, '')
+     endif
+  endfor
+  botright new
+  setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile nowrap
+  execute '$read !'. expanded_cmdline
+  setlocal nomodifiable
+  1
+endfunction
+
 " Gist
 let g:gist_show_privates = 1
 let g:gist_post_private = 1
 let g:gist_detect_filetype = 1
 let g:gist_clip_command = 'xclip -selection clipboard'
+
+" GitGutter
+let g:gitgutter_enabled = 0
+let g:gitgutter_map_keys = 0
+" Open the Sign Column and enable GitGutter
+function! TurnGitGutterOnOff()
+    if ( &signcolumn ==# 'no' || &signcolumn ==# 'auto' )
+        set signcolumn=yes
+        set updatetime=250
+        GitGutterEnable
+    else
+        set signcolumn=no
+        set updatetime=4000
+        GitGutterDisable
+    endif
+endfunction
+" TurnGitGutterOnOff()
+noremap <silent> <F6> :call TurnGitGutterOnOff()<CR>
 
 " Vundle begin
 set nocompatible
@@ -159,10 +210,11 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'saltstack/salt-vim'
 Plugin 'PotatoesMaster/i3-vim-syntax'
-Plugin 'mattn/webapi-vim'
 Plugin 'mattn/gist-vim'
 Plugin 'Matt-Deacalion/vim-systemd-syntax'
 Plugin 'wellle/targets.vim'
 Plugin 'vim-scripts/nagios-syntax'
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
 call vundle#end()
 filetype plugin indent on
