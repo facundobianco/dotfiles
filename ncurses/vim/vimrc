@@ -28,7 +28,7 @@ set shellcmdflag+=i
 " search
 set incsearch
 set nohlsearch
-noremap <silent> <F5> :set hlsearch!<CR>
+noremap <silent> <F7> :set hlsearch!<CR>
 
 " display the hidden characters
 set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»
@@ -51,9 +51,9 @@ highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE
 " Statusline
 set laststatus=2
 " Statusline color
-highlight StatusLine   cterm=NONE ctermbg=235 ctermfg=229
-highlight StatusLineNC cterm=NONE ctermbg=235 ctermfg=238
-highlight VertSplit    cterm=NONE ctermbg=0   ctermfg=238
+highlight StatusLine   cterm=NONE ctermbg=235  ctermfg=229
+highlight StatusLineNC cterm=NONE ctermbg=235  ctermfg=238
+highlight VertSplit    cterm=NONE ctermbg=NONE ctermfg=238
 " Statusline content
 set statusline=
 set statusline+=\ 
@@ -135,9 +135,12 @@ augroup encrypted
 augroup END
 
 " Folding (zo = open / zc = close)
-set nofoldenable
+" https://gist.github.com/lestoni/8c74da455cce3d36eb68
+set foldlevel=0
 set foldnestmax=10
 set foldmethod=indent
+highlight Folded cterm=NONE ctermbg=NONE ctermfg=241
+nnoremap <expr> <F5> &foldlevel ? 'zM' :'zR'
 nnoremap <space> zo
 
 " match the next brace
@@ -162,19 +165,19 @@ set completeopt=longest,menuone
 " http://vim.wikia.com/wiki/Display_output_of_shell_commands_in_new_window
 command! -complete=shellcmd -nargs=+ Shell call s:RunShellCommand(<q-args>)
 function! s:RunShellCommand(cmdline)
-  echo a:cmdline
-  let expanded_cmdline = a:cmdline
-  for part in split(a:cmdline, ' ')
-     if part[0] =~ '\v[%#<]'
-        let expanded_part = fnameescape(expand(part))
-        let expanded_cmdline = substitute(expanded_cmdline, part, expanded_part, '')
-     endif
-  endfor
-  botright new
-  setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile nowrap
-  execute '$read !'. expanded_cmdline
-  setlocal nomodifiable
-  1
+    echo a:cmdline
+    let expanded_cmdline = a:cmdline
+    for part in split(a:cmdline, ' ')
+       if part[0] =~ '\v[%#<]'
+          let expanded_part = fnameescape(expand(part))
+          let expanded_cmdline = substitute(expanded_cmdline, part, expanded_part, '')
+       endif
+    endfor
+    botright new
+    setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile nowrap
+    execute '$read !'. expanded_cmdline
+    setlocal nomodifiable
+    1
 endfunction
 
 " Gist
@@ -201,6 +204,10 @@ endfunction
 " TurnGitGutterOnOff()
 noremap <silent> <F6> :call TurnGitGutterOnOff()<CR>
 
+" Notes
+let g:notes_directories = ['~/.vim/notes']
+let g:notes_suffix = '.txt'
+
 " Vundle begin
 set nocompatible
 filetype off
@@ -216,5 +223,7 @@ Plugin 'wellle/targets.vim'
 Plugin 'vim-scripts/nagios-syntax'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-notes'
 call vundle#end()
 filetype plugin indent on
