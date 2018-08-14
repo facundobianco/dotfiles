@@ -141,7 +141,7 @@ set foldnestmax=10
 set foldmethod=indent
 highlight Folded cterm=NONE ctermbg=NONE ctermfg=241
 nnoremap <expr> <F5> &foldlevel ? 'zM' :'zR'
-nnoremap <space> zo
+nnoremap <space> za
 
 " match the next brace
 nnoremap <tab> %
