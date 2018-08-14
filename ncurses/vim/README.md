@@ -4,7 +4,7 @@ This README describes the VIm configuration and has a basic command reference.
 
 ## Sreenshot
 
-![VIm](1532825806.png)
+![VIm](1534259167.png)
 
 
 ## Description

@@ -51,9 +51,9 @@ highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE
 " Statusline
 set laststatus=2
 " Statusline color
-highlight StatusLine   cterm=NONE ctermbg=DarkGrey ctermfg=Yellow
-highlight StatusLineNC cterm=NONE ctermbg=DarkGrey ctermfg=DarkGrey
-highlight VertSplit    cterm=NONE ctermbg=DarkGrey ctermfg=DarkGrey
+highlight StatusLine   cterm=NONE ctermbg=235 ctermfg=229
+highlight StatusLineNC cterm=NONE ctermbg=235 ctermfg=238
+highlight VertSplit    cterm=NONE ctermbg=0   ctermfg=238
 " Statusline content
 set statusline=
 set statusline+=\ 
