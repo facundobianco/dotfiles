@@ -1,10 +1,11 @@
 ## Applications
 alias jcontrol='/usr/lib/jvm/java-8-oracle/jre/bin/jcontrol'
 alias rsync='rsync -zaPh'
+alias diff='colordiff'
 
 ## Commands
 alias ctrl='xmodmap -e "add control  = Control_L  Control_R"'
-alias lgrep='ls|grep' 
+alias lgrep='ls|grep'
 alias lst='tmux lsw -F "#{window_index}#{window_flags}#{window_name}"'
 alias myip='wget -qO - http://icanhazip.com'
 alias ok='echo OK'
