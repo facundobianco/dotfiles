@@ -137,6 +137,7 @@ augroup END
 
 " Folding (zo = open / zc = close)
 " https://gist.github.com/lestoni/8c74da455cce3d36eb68
+set nofoldenable
 set foldlevel=0
 set foldnestmax=10
 set foldmethod=indent
