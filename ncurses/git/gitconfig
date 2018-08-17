@@ -1,10 +1,10 @@
 [user]
-        email = vando@users.noreply.github.com
+        email = vando@van.do
         name = Facundo Bianco
 [core]
-	editor = vim
+        editor = vim
         pager = less -RMS
-	excludesfile = ~/.gitexcludes
+        excludesfile = ~/.gitexcludes
 [push]
         default = matching
 [alias]
@@ -25,21 +25,21 @@
         master = checkout master
 [color]
         ui = false
-	branch = auto
-	diff = auto
-	status = auto
+        branch = auto
+        diff = auto
+        status = auto
 [color "branch"]
-	current = yellow reverse
-	local = yellow
-	remote = green
+        current = yellow reverse
+        local = yellow
+        remote = green
 [color "diff"]
-	meta = yellow bold
-	frag = magenta bold
-	old = red bold
-	new = green bold
+        meta = normal
+        frag = cyan
+        old = red
+        new = yellow
 [color "status"]
-	added = yellow
-	changed = white
-	untracked = cyan
+        added = yellow
+        changed = white
+        untracked = cyan
 [github]
         user = vando
