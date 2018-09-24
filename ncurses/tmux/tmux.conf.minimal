@@ -1,6 +1,7 @@
 # tmux minimal for Tilda
 set  -g  monitor-activity  off
 set  -g  status            off
+set  -g  mouse             on
 bind -n  C-Left            select-pane -L
 bind -n  C-Down            select-pane -D
 bind -n  C-Up              select-pane -U
