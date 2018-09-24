@@ -24,6 +24,6 @@ export GPG_TTY=`tty`
 export GPG_AGENT_INFO
 
 export LESSOPEN='| /usr/share/source-highlight/src-hilite-lesspipe.sh %s'
-export LESS='-RM'
+export LESS='-RMS'
 
 # vim syntax=sh
