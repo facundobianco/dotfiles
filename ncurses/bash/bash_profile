@@ -1,7 +1,7 @@
 # startup file for single user
 
 # Prompt
-export PS1='\[\e[0;33m\]\h:\W\[\e[0;31m\]$(__git_ps1 " (%s)")\[\e[0;33m\] \\$>\[\e[0m\] '
+export PS1='\[\e[0;32m\]\h:\W\[\e[0;33m\]$(__git_ps1 " (%s)")\[\e[0;32m\] \\$>\[\e[0m\] '
 export PS2='> '
 
 # LESS options
