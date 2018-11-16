@@ -32,6 +32,7 @@ noremap <silent> <F7> :set hlsearch!<CR>
 
 " display the hidden characters
 set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»
+set scrolloff=99
 highlight NonText ctermfg=DarkGrey
 highlight SpecialKey ctermfg=DarkGrey
 nnoremap <silent> <F4> :set list!<CR>
@@ -47,7 +48,7 @@ match ExtraWhitespace /\s\+$/
 set nu
 set numberwidth=3
 set cpoptions+=n
-highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE
+highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=235
 
 " Statusline
 set laststatus=2
