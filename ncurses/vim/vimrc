@@ -156,9 +156,6 @@ endfunction
 " TurnGitGutterOnOff()
 noremap <silent> <F6> :call TurnGitGutterOnOff()<CR>
 
-" Simplenote
-source ~/.vim/simplenote.vim
-
 " Vundle begin
 set nocompatible
 filetype off
@@ -174,6 +171,5 @@ Plugin 'wellle/targets.vim'
 Plugin 'vim-scripts/nagios-syntax'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'mrtazz/simplenote.vim'
 call vundle#end()
 filetype plugin indent on
