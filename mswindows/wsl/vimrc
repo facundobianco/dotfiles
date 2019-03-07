@@ -1,0 +1,187 @@
+" GUI & TTY options
+" GUI -> MS Windows || TTY -> Linux
+if has("gui_running")
+    au GUIEnter * simalt ~x
+    set guioptions=
+    set guifont=Consolas:h10:cDEFAULT
+    colorscheme wombat
+    set backspace=2
+    set clipboard=unnamed
+else
+    set t_Co=256
+    set shellcmdflag+=i
+endif
+
+" Syntax highlighting
+syntax enable
+
+" mouse
+if has("gui_running")
+    set mouse=a
+else
+    set mouse=n
+endif
+
+" Clipboard (into INSERT mode: C-R ")
+set pastetoggle=<F3>
+nnoremap Y y$
+
+" tabs
+" https://stackoverflow.com/a/1878983
+set tabstop=8 shiftwidth=4 softtabstop=0 smarttab expandtab autoindent
+
+" backup / swap
+set nobackup noswapfile
+
+" search
+set incsearch nohlsearch
+noremap <silent> <F7> :set hlsearch!<CR>
+
+" display the hidden characters
+set listchars=tab:!·,trail:_,extends:>,precedes:<,nbsp:~,space:.,eol:$
+set scrolloff=99
+highlight NonText    ctermfg=DarkGrey
+highlight SpecialKey ctermfg=DarkGrey
+nnoremap <silent> <F4> :set list!<CR>
+inoremap <silent> <F4> <C-O>:set list!<CR>
+
+" Highlight unwanted spaces
+" http://vim.wikia.com/wiki/Highlight_unwanted_spaces
+highlight ExtraWhitespace ctermbg=Red guibg=Red
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=Red guibg=Red
+match ExtraWhitespace /\s\+$/
+
+" Line numbering (show/hide: set invnumber)
+set nu numberwidth=3 cpoptions+=n
+
+" Visual colors
+highlight Visual cterm=NONE ctermbg=DarkGrey ctermfg=Black
+
+" Statusline
+set laststatus=2
+" Statusline color
+highlight StatusLine   cterm=NONE ctermbg=DarkGrey ctermfg=NONE
+highlight StatusLineNC cterm=NONE ctermbg=DarkGrey ctermfg=Black
+highlight VertSplit    cterm=NONE ctermbg=NONE     ctermfg=DarkGrey
+" Statusline content
+set statusline=
+set statusline+=\ 
+set statusline+=\[%{mode()}\]
+set statusline+=\[%n%H%M%R%W\]
+set statusline+=\ %f
+set statusline+=%15((L\:\ %l\ C\:\ %c)%)
+set statusline+=\ %P
+set statusline+=%= " right-align from now on
+set statusline+=\ %y
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+set statusline+=\ (%{&fileformat})
+set statusline+=\ 
+
+" netrw
+let g:netrw_banner=0
+let g:netrw_list_hide='^\.[^\.]*$'
+let g:netrw_sort_options='i'
+let g:netrw_special_syntax=1
+
+" tabs (leader = \)
+nnoremap <leader>t :tabnew<CR>
+nnoremap <leader>n :tabnext<CR>
+nnoremap <leader>p :tabprevious<CR>
+if has("gui_running")
+    set showtabline=2
+    set guioptions+=e
+    set guitablabel=\[%N\]\ %t\ %M
+    nnoremap <S-Left>  :tabprevious<CR>
+    nnoremap <S-Right> :tabnext<CR>
+    nnoremap <S-Down>  :tabnew<CR>
+endif
+
+" wrapped text: jumps to the next row in the editor (instead of the next line)
+nnoremap <Down> gj
+nnoremap <Up> gk
+
+" quit easily
+cnoreabbrev <silent> qq qall!
+
+" split lines
+" https://superuser.com/a/611420
+function! BreakHere()
+    s/^\(\s*\)\(.\{-}\)\(\s*\)\(\%#\)\(\s*\)\(.*\)/\1\2\r\1\4\6
+    call histdel("/", -1)
+endfunction
+" BreakHere()
+nnoremap j :<C-u>call BreakHere()<CR>
+
+" Folding (zo = open / zc = close)
+" https://gist.github.com/lestoni/8c74da455cce3d36eb68
+set nofoldenable foldlevel=0 foldnestmax=10 foldmethod=indent
+highlight Folded cterm=NONE ctermbg=NONE ctermfg=241
+nnoremap <expr> <F5> &foldlevel ? 'zM' :'zR'
+
+" match the next brace
+nnoremap <tab> %
+vnoremap <tab> %
+set wrap linebreak formatoptions=qrn1
+
+" Ignore case when completing file names and directories
+set wildignorecase
+
+" Ins-completion
+set completeopt=longest,menuone
+
+" GitGutter
+autocmd BufWritePost * GitGutter
+let g:gitgutter_enabled = 1
+let g:gitgutter_map_keys = 0
+let g:gitgutter_async = 0
+let g:gitgutter_terminal_reports_focus = 0
+" Open the Sign Column and enable GitGutter
+function! TurnGitGutterOnOff()
+    if ( &signcolumn ==# 'no' || &signcolumn ==# 'auto' )
+        set signcolumn=yes
+        set updatetime=250
+        GitGutterEnable
+    else
+        set signcolumn=no
+        set updatetime=4000
+        GitGutterDisable
+    endif
+endfunction
+" TurnGitGutterOnOff()
+noremap <silent> <F6> :call TurnGitGutterOnOff()<CR>
+
+" Ansible
+au BufRead,BufNewFile */playbooks/*.yml set filetype=yaml.ansible
+let g:ansible_yamlKeyName = 'yamlKey'
+
+" NERDtree
+autocmd VimEnter * if 0 == argc() | NERDTree | end
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let NERDTreeQuitOnOpen = 0
+let NERDTreeWinSize    = 23
+let NERDTreeMinimalUI  = 1
+let NERDTreeDirArrows  = 1
+let NERDTreeMouseMode =  3
+noremap <silent> <F2> :NERDTreeToggle<CR>
+
+" Vundle begin
+set nocompatible
+filetype off
+if has("gui_running")
+    " https://support.pointlogic.com/faq/troubleshooting/accessing-the-appdata-folder
+    set rtp+=%localappdata%/Vim/bundle/Vundle.vim
+    call vundle#begin('%localappdata%/Vim/bundle/')
+else
+    set rtp+=~/.vim/bundle/Vundle.vim
+    call vundle#begin()
+endif
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'stephpy/vim-yaml'
+Plugin 'pearofducks/ansible-vim'
+Plugin 'elzr/vim-json'
+Plugin 'PProvost/vim-ps1'
+Plugin 'scrooloose/nerdtree'
+Plugin 'gabrielelana/vim-markdown'
+call vundle#end()
+filetype plugin indent on

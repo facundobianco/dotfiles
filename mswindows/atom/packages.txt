@@ -1,0 +1,16 @@
+base16-ocean-dark-syntax-theme
+file-icons
+git-plus
+git-status
+highlight-selected
+intentions
+language-ansible
+language-powershell
+linter
+linter-js-yaml
+linter-ui-default
+markdown-writer
+minimap
+minimap-highlight-selected
+multi-cursor
+tree-view-git-status

@@ -1,0 +1,60 @@
+"*":
+  "block-cursor":
+    global:
+      blinkOff: {}
+      blinkOn:
+        backgroundColor: "#c0c0c0"
+  "bracket-matcher": {}
+  core:
+    autoHideMenuBar: true
+    disabledPackages: [
+      "line-number-color"
+      "line-diff-details"
+      "github"
+      "wrap-guide"
+      "block-cursor"
+      "autocomplete-plus"
+      "autocomplete-snippets"
+      "vim-mode-plus"
+      "block-selection-mode"
+      "git-control"
+    ]
+    projectHome: "C:\\Users\\facundo\\repos"
+    telemetryConsent: "limited"
+    themes: [
+      "tomorrow-ui"
+      "base16-tomorrow-dark-theme"
+    ]
+    uriHandlerRegistration: "always"
+  editor:
+    fontSize: 15
+    showIndentGuide: true
+    softWrap: true
+    tabLength: 4
+  "exception-reporting":
+    userId: "0aa99497-644f-41c6-9ace-9cd79cc15e2a"
+  "git-diff":
+    showIconsInEditorGutter: true
+  "git-plus":
+    general:
+      splitPane: "Right"
+  "line-number-color":
+    lineNumberBackground: "#8c7375"
+  "linter-ui-default":
+    panelHeight: 300
+    showPanel: true
+  minimap:
+    plugins:
+      "highlight-selected": true
+      "highlight-selectedDecorationsZIndex": 0
+  "one-dark-ui":
+    stickyHeaders: true
+    tabSizing: "Minimum"
+  "status-bar": {}
+  "tree-view-git-status":
+    gitFlow:
+      enabled: false
+    showCommitsAheadLabel: false
+    showCommitsBehindLabel: false
+  welcome:
+    showOnStartup: false
