@@ -1,0 +1,12 @@
+>!a::Send á
+>!+a::Send Á
+>!e::Send é
+>!+e::Send É
+>!i::Send í
+>!+i::Send Í
+>!o::Send ó
+>!+o::Send Ó
+>!u::Send ú
+>!+u::Send Ú
+>!n::Send ñ
+>!+n::Send Ñ
