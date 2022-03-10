@@ -79,6 +79,7 @@ let g:netrw_special_syntax=1
 " syntax for files
 autocmd BufNewFile,BufRead ossec.conf set syntax=xml
 autocmd BufNewFile,BufRead *_nagios2.cfg set filetype=nagios
+autocmd BufRead,BufNewFile ~/.kube/config set syntax=yaml
 
 " split (Ctrl-w s)
 " https://robots.thoughtbot.com/vim-splits-move-faster-and-more-naturally
@@ -131,45 +132,3 @@ set wildignorecase
 
 " Ins-completion
 set completeopt=longest,menuone
-
-" Gist
-let g:gist_show_privates = 1
-let g:gist_post_private = 1
-let g:gist_detect_filetype = 1
-let g:gist_clip_command = 'xclip -selection clipboard'
-
-" GitGutter
-let g:gitgutter_enabled = 0
-let g:gitgutter_map_keys = 0
-" Open the Sign Column and enable GitGutter
-function! TurnGitGutterOnOff()
-    if ( &signcolumn ==# 'no' || &signcolumn ==# 'auto' )
-        set signcolumn=yes
-        set updatetime=250
-        GitGutterEnable
-    else
-        set signcolumn=no
-        set updatetime=4000
-        GitGutterDisable
-    endif
-endfunction
-" TurnGitGutterOnOff()
-noremap <silent> <F6> :call TurnGitGutterOnOff()<CR>
-
-" Vundle begin
-set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'ekalinin/Dockerfile.vim'
-Plugin 'saltstack/salt-vim'
-Plugin 'PotatoesMaster/i3-vim-syntax'
-Plugin 'mattn/gist-vim'
-Plugin 'Matt-Deacalion/vim-systemd-syntax'
-Plugin 'wellle/targets.vim'
-Plugin 'vim-scripts/nagios-syntax'
-Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter'
-call vundle#end()
-filetype plugin indent on
