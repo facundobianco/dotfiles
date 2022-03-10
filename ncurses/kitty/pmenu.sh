@@ -8,6 +8,7 @@ APPS="
   cmus
   htop
   nvlc
+  mpsyt
 "
 
 CMND=`echo "${APPS}" | sed 's/ /\n/g' | sort | pmenu`
