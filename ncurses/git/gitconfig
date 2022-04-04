@@ -1,19 +1,23 @@
 [user]
         email = vando@van.do
         name = Facundo Bianco
+
 [core]
         editor = vim
         pager = less -RMS
         excludesfile = ~/.gitexcludes
+
 [push]
         default = matching
+
 [alias]
         aa = add -A
         br = branch
+        ci = commit
         ca = commit -a
         cc = clone
-        ci = commit
-        cl = !git cc
+        cl = clone
+        c1 = clone --depth=1
         co = checkout
         go = !git ca && git push
         ls = ls-files
@@ -22,24 +26,43 @@
         st = status -s
         up = pull
         dev = checkout dev
+        develop = checkout develop
+        main = checkout main
         master = checkout master
+
 [color]
         ui = false
         branch = auto
         diff = auto
         status = auto
+
 [color "branch"]
         current = yellow reverse
         local = yellow
         remote = green
+
 [color "diff"]
         meta = normal
         frag = cyan
         old = red
         new = yellow
+
 [color "status"]
         added = yellow
         changed = white
         untracked = cyan
-[github]
-        user = vando
+
+[pager]
+	branch = false
+	diff = false
+	show = false
+	log = false
+
+[credential]
+	helper = store
+
+[url "git@github.com:"]
+        insteadOf = https://github.com/
+
+[url "ssh://git@github.com/"]
+        insteadOf = https://github.com/
