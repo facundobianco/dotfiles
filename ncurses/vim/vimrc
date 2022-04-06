@@ -48,20 +48,20 @@ match ExtraWhitespace /\s\+$/
 set nu
 set numberwidth=3
 set cpoptions+=n
-highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=235
+highlight LineNr term=none cterm=NONE ctermbg=black ctermfg=grey
 
 " Statusline
 set laststatus=2
 " Statusline color
-highlight StatusLine   cterm=NONE ctermbg=235  ctermfg=229
-highlight StatusLineNC cterm=NONE ctermbg=235  ctermfg=238
-highlight VertSplit    cterm=NONE ctermbg=NONE ctermfg=238
+highlight StatusLine   term=none cterm=none ctermbg=black
+highlight StatusLineNC term=none cterm=none ctermbg=black
+highlight VertSplit    term=none cterm=none ctermbg=black
 " Statusline content
 set statusline=
 set statusline+=\ 
 set statusline+=\[%{mode()}\]
-set statusline+=\[%n%H%M%R%W\]
-set statusline+=\ %f
+" set statusline+=\[%n%H%M%R%W\]
+" set statusline+=\ %f
 set statusline+=%15((L\:\ %l\ C\:\ %c)%)
 set statusline+=\ %P
 set statusline+=%= " right-align from now on
@@ -87,12 +87,19 @@ set splitbelow
 set splitright
 
 " tabs (leader = \)
+set showtabline=2
 nnoremap <leader>t :tabnew<CR>
 nnoremap <leader>n :tabn<CR>
+nnoremap <leader><right> :tabn<CR>
 nnoremap <leader>p :tabp<CR>
-highlight TabLineSel cterm=NONE ctermbg=DarkGrey ctermfg=Yellow
-highlight TabLine cterm=NONE ctermbg=DarkGrey ctermfg=Black
-highlight TabLineFill ctermfg=DarkGrey
+nnoremap <leader><left> :tabp<CR>
+highlight TabLineSel  cterm=NONE ctermbg=black ctermfg=grey
+highlight TabLine     cterm=NONE ctermbg=black ctermfg=blue
+highlight TabLineFill ctermfg=black
+
+" windows
+nmap <C-h> <C-w>h
+nmap <C-l> <C-w>l
 
 " wrapped text: jumps to the next row in the editor (instead of the next line)
 nnoremap <Down> gj
@@ -108,7 +115,7 @@ function! BreakHere()
     call histdel("/", -1)
 endfunction
 " BreakHere()
-nnoremap j :<C-u>call BreakHere()<CR>
+" nnoremap j :<C-u>call BreakHere()<CR>
 
 " Folding (zo = open / zc = close)
 " https://gist.github.com/lestoni/8c74da455cce3d36eb68
@@ -132,3 +139,12 @@ set wildignorecase
 
 " Ins-completion
 set completeopt=longest,menuone
+
+" When vimrc is edited, reload it
+autocmd! bufwritepost vimrc source ~/.vimrc
+
+" Vundle
+source ~/.vim/vundle.vim
+
+" Functions
+source ~/.vim/func.vim
