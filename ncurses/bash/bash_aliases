@@ -1,7 +1,9 @@
 ## Applications
 alias jcontrol='/usr/lib/jvm/java-8-oracle/jre/bin/jcontrol'
 alias rsync='rsync -zaPh'
-alias diff='colordiff'
+alias bat="batcat"
+alias ssh='TERM=xterm ssh'
+alias ls='ls -1'
 
 ## Commands
 alias ctrl='xmodmap -e "add control  = Control_L  Control_R"'
@@ -21,6 +23,10 @@ alias urxvt-main='urxvt -name main -geometry 240x66+0-0 -e sh -c "tmux -q has &&
 alias xback='xbacklight -set'
 alias xclass='xprop | grep CLASS'
 alias xsel='xclip -i -selection clipboard'
+alias csv2json="python -c 'import csv, json, sys; print(json.dumps([dict(r) for r in csv.DictReader(sys.stdin)]))'"
+alias cdiff='colordiff'
+alias batdiff="git diff --name-only --diff-filter=d | xargs batcat"
+alias vundle-update="vim +PluginInstall +qall"
 
 # Docker
 alias dgrep='di | grep'
