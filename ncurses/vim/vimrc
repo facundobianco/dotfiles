@@ -2,6 +2,13 @@
 set t_Co=256
 syntax enable
 
+" leader
+let mapleader = ","
+let g:mapleader = ","
+
+" Fast editing of the .vimrc
+map <leader>e :e! ~/.vimrc<cr>
+
 " mouse
 set mouse=n
 
@@ -89,17 +96,15 @@ set splitright
 " tabs (leader = \)
 set showtabline=2
 nnoremap <leader>t :tabnew<CR>
-nnoremap <leader>n :tabn<CR>
 nnoremap <leader><right> :tabn<CR>
-nnoremap <leader>p :tabp<CR>
 nnoremap <leader><left> :tabp<CR>
 highlight TabLineSel  cterm=NONE ctermbg=black ctermfg=grey
 highlight TabLine     cterm=NONE ctermbg=black ctermfg=blue
 highlight TabLineFill ctermfg=black
 
 " windows
-nmap <C-h> <C-w>h
-nmap <C-l> <C-w>l
+nmap <leader>h :split<cr>
+nmap <leader>v :vsplit<cr>
 
 " wrapped text: jumps to the next row in the editor (instead of the next line)
 nnoremap <Down> gj
@@ -107,15 +112,6 @@ nnoremap <Up> gk
 
 " quit easily
 cnoreabbrev <silent> qq qall!
-
-" split lines
-" https://superuser.com/a/611420
-function! BreakHere()
-    s/^\(\s*\)\(.\{-}\)\(\s*\)\(\%#\)\(\s*\)\(.*\)/\1\2\r\1\4\6
-    call histdel("/", -1)
-endfunction
-" BreakHere()
-" nnoremap j :<C-u>call BreakHere()<CR>
 
 " Folding (zo = open / zc = close)
 " https://gist.github.com/lestoni/8c74da455cce3d36eb68

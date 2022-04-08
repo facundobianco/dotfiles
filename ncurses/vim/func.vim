@@ -55,7 +55,7 @@ endfu
 let g:loaded_tabline_vim = 1
 
 function! Tabline()
-  let s = ''
+  let s = '   '
   for i in range(tabpagenr('$'))
     let tab = i + 1
     let winnr = tabpagewinnr(tab)
@@ -83,3 +83,22 @@ endfunction
 
 set tabline=%!Tabline()
 
+" Exit paste mode when leave Insert mode
+" https://stackoverflow.com/a/36230409
+function Paste_from_clipboard()
+    set paste
+    startinsert
+endfunction
+
+autocmd InsertLeave * set nopaste
+
+map <Leader>i :call Paste_from_clipboard()<CR>
+
+" split lines
+" https://superuser.com/a/611420
+function! BreakHere()
+    s/^\(\s*\)\(.\{-}\)\(\s*\)\(\%#\)\(\s*\)\(.*\)/\1\2\r\1\4\6
+    call histdel("/", -1)
+endfunction
+" BreakHere()
+" nnoremap j :<C-u>call BreakHere()<CR>
