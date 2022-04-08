@@ -8,27 +8,26 @@
         excludesfile = ~/.gitexcludes
 
 [push]
-        default = matching
+        default = current
 
 [alias]
         aa = add -A
         br = branch
-        ci = commit
+        cb = checkout -b
         ca = commit -a
         cc = clone
         cl = clone
         c1 = clone --depth=1
+        ci = commit
         co = checkout
-        go = !git ca && git push
         ls = ls-files
+        lt = log -1
         mm = merge
         rh = reset HEAD
         st = status -s
         up = pull
-        dev = checkout dev
-        develop = checkout develop
-        main = checkout main
-        master = checkout master
+        pu = push -u
+        go = !git ca && git push -u
 
 [color]
         ui = false
@@ -37,9 +36,9 @@
         status = auto
 
 [color "branch"]
-        current = yellow reverse
-        local = yellow
-        remote = green
+        current = brightcyan
+        local = brightblue
+        remote = brightgreen
 
 [color "diff"]
         meta = normal
