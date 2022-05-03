@@ -3,6 +3,8 @@ hgrep(){ grep ${1} /etc/hosts ; }
 mkcd(){ mkdir -p -- ${1} && cd -P -- ${1} ; }
 passgen(){ openssl rand -base64 ${1:-11} | sed "s/=/_/" ; }
 pysrvr(){ python -m SimpleHTTPServer ${1:-8080} ; }
+nowrap(){ cut -c-$(tput cols); }
+percalc(){ bc <<<"${1}*${2}/100" ; }
 
 # kubectl
 kubectl-exec(){ kubectl exec -n ${2:-default} --stdin --tty ${1} -- ${3:-/bin/bash} ; }
