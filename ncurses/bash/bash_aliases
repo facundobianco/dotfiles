@@ -5,6 +5,7 @@ alias bat="batcat"
 alias ssh='TERM=xterm ssh'
 alias ls='ls -1'
 alias apt-upgrade='sudo apt update && sudo apt upgrade'
+alias watch='watch '
 
 ## Commands
 alias ctrl='xmodmap -e "add control  = Control_L  Control_R"'
@@ -39,3 +40,5 @@ alias drmi='docker rmi -f `docker images -q --filter "dangling=true"`'
 # K8S
 # https://github.com/ahmetb/kubectl-aliases
 [ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
+alias kcgc='kubectl config get-contexts'
+alias kcuc='kubectl config use-context'
