@@ -25,6 +25,7 @@
         mm = merge
         rh = reset HEAD
         st = status -s
+        pl = pull
         up = pull
         pu = push -u
         go = !git ca && git push -u
