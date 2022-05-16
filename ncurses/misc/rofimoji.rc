@@ -1,0 +1,4 @@
+action = copy
+clipboarder = xclip
+files = [emojis, hebrew]
+skin-tone = neutral
