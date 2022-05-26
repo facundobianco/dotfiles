@@ -1,68 +1,72 @@
 [user]
-        email = vando@van.do
-        name = Facundo Bianco
+  name = Facundo Bianco
+
+[include]
+  path = ~/.git-envs
 
 [core]
-        editor = vim
-        pager = less -RMS
-        excludesfile = ~/.gitexcludes
+  editor = vim
+  pager = less -RMS
+  excludesfile = ~/.gitexcludes
 
 [push]
-        default = current
+  default = current
 
 [alias]
-        aa = add -A
-        br = branch
-        cb = checkout -b
-        ca = commit -a
-        cc = clone
-        cl = clone
-        c1 = clone --depth=1
-        ci = commit
-        co = checkout
-        ls = ls-files
-        lt = log -1
-        mm = merge
-        rh = reset HEAD
-        st = status -s
-        pl = pull
-        up = pull
-        pu = push -u
-        go = !git ca && git push -u
+  aa = add --all
+  br = branch
+  cb = checkout --branch
+  ca = commit --all
+  cc = clone
+  cl = clone
+  c1 = clone --depth=1
+  ci = commit
+  co = checkout
+  df = diff
+  ls = ls-files
+  lt = log -1
+  mm = merge
+  rh = reset HEAD
+  sw = show
+  st = status --short
+  pl = pull
+  up = pull
+  pu = push --set-upstream
+  go = !git ca --message "Testing" && git pu
 
 [color]
-        ui = false
-        branch = auto
-        diff = auto
-        status = auto
+  ui = false
+  branch = auto
+  diff = auto
+  status = auto
 
 [color "branch"]
-        current = brightcyan
-        local = brightblue
-        remote = brightgreen
+  current = brightcyan
+  local = brightblue
+  remote = brightgreen
 
 [color "diff"]
-        meta = normal
-        frag = cyan
-        old = red
-        new = yellow
+  meta = normal
+  frag = cyan
+  old = red
+  new = yellow
 
 [color "status"]
-        added = yellow
-        changed = white
-        untracked = cyan
+  added = yellow
+  changed = white
+  untracked = cyan
 
 [pager]
-	branch = false
-	diff = false
-	show = false
-	log = false
+  branch = false
+  diff = false
+  show = false
+  log = false
 
 [credential]
-	helper = store
+  helper = store
 
 [url "git@github.com:"]
-        insteadOf = https://github.com/
+  insteadOf = https://github.com/
 
 [url "ssh://git@github.com/"]
-        insteadOf = https://github.com/
+  insteadOf = https://github.com/

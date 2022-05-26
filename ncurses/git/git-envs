@@ -1,0 +1,11 @@
+# Define email per environment
+# Verify with `git config -l | grep user`
+
+[includeIf "gitdir:~/Code/dotfiles/"]
+  path = ~/Code/.gitconfig
+
+[includeIf "gitdir:~/Code/mycluster/**"]
+  path = ~/Code/.gitconfig
+
+[includeIf "gitdir:~/Code/work/**"]
+  path = ~/Code/work/.gitconfig
