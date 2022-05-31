@@ -15,7 +15,7 @@
 [alias]
   aa = add --all
   br = branch
-  cb = checkout --branch
+  cb = checkout -b
   ca = commit --all
   cc = clone
   cl = clone
