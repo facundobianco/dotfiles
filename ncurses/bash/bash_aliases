@@ -4,7 +4,6 @@ alias rsync='rsync -zaPh'
 alias bat="batcat"
 alias ssh='TERM=xterm ssh'
 alias ls='ls -1'
-alias apt-upgrade='sudo apt update && sudo apt upgrade'
 alias watch='watch '
 
 ## Commands
@@ -26,9 +25,12 @@ alias xback='xbacklight -set'
 alias xclass='xprop | grep CLASS'
 alias xsel='xclip -i -selection clipboard'
 alias csv2json="python -c 'import csv, json, sys; print(json.dumps([dict(r) for r in csv.DictReader(sys.stdin)]))'"
-alias cdiff='colordiff'
+alias cdiff='colordiff -wtu '
 alias batdiff="git diff --name-only --diff-filter=d | xargs batcat"
 alias vundle-update="vim +PluginInstall +qall"
+alias apt-upgrade='sudo apt update && sudo apt upgrade'
+alias wget-v="wget --verbose --output-document=-"
+alias wget-nv="wget --quiet --output-document=-"
 
 # Docker
 alias dgrep='di | grep'
@@ -42,3 +44,4 @@ alias drmi='docker rmi -f `docker images -q --filter "dangling=true"`'
 [ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
 alias kcgc='kubectl config get-contexts'
 alias kcuc='kubectl config use-context'
+alias kcpn='kubectl cp --namespace '
