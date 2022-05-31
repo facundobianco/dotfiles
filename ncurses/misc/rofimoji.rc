@@ -1,4 +1,6 @@
-action = copy
+action = type
 clipboarder = xclip
 files = [emojis, hebrew]
 skin-tone = neutral
+max-recent = 0
+typer = xdotool
