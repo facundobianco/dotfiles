@@ -12,6 +12,11 @@ fi
 export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
 export LESS=' -R '
 
+# K3D autocomple
+if command -v k3d &> /dev/null; then
+  source <(k3d completion bash)
+fi
+
 # K8S autocomple
 if command -v kubectl &> /dev/null; then
   source <(kubectl completion bash)
