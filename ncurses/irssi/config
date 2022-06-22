@@ -7,11 +7,19 @@ servers = (
     ssl_verify = "yes";
     ssl_cacert = "/etc/ssl/cert.pem";
     autoconnect = "no";
-  }
+  },
   {
     address = "127.0.0.1";
     chatnet = "bitlbee";
     port = "6667";
+    autoconnect = "no";
+  },
+  {
+    address = "irc.cinemageddon.net";
+    chatnet = "cinemageddon";
+    port = "6667";
+    use_ssl = "no";
+    ssl_verify = "no";
     autoconnect = "no";
   }
 );
@@ -19,13 +27,11 @@ servers = (
 chatnets = {
   freenode = { type = "IRC"; };
   bitlbee  = { type = "IRC"; };
+  cinemageddon  = { type = "IRC"; };
 };
 
 channels = (
-  { name = "&bitlbee"; chatnet = "bitlbee"; autojoin = "yes"; },
-  { name = "#twitter_vando"; chatnet = "bitlbee"; autojoin = "yes"; }
-  { name = "#buenosaireslibre"; chatnet = "freenode"; autojoin = "yes"; },
-  { name = "#openbsderos"; chatnet = "freenode"; autojoin = "yes"; }
+  { name = "&bitlbee"; chatnet = "bitlbee"; autojoin = "no"; }
 );
 
 aliases = {
@@ -33,11 +39,13 @@ aliases = {
   sb           = "scrollback";
   wm           = "window move";
   cmd          = "exec - -out";
-  nick_recover = "msg NickServ GHOST $0 $1; wait 2000; msg NickServ RELEASE $0 $1; wait 2000; nick $0; wait 2000; msg NickServ IDENTIFY $1";
+  nick_release = "msg NickServ RELEASE $0 $1";
+  nick_identify = "msg NickServ IDENTIFY $1";
   x            = "echo noop";
 };
 
 statusbar = {
+
   items = {
     barstart         = "{sbstart}";
     barend           = "{sbend}";
@@ -52,8 +60,11 @@ statusbar = {
     inputlength_text = "Length:";
     inputlength      = "{sb $@L}";
   };
+
   default = {
+
     window = {
+      disabled = "no";
       type           = "window";
       placement      = "bottom";
       position       = "0";
@@ -70,7 +81,6 @@ statusbar = {
         barend           = { priority = "100"; alignment = "right"; };
       };
     };
-  };
 
     prompt = {
       type         = "root";
@@ -94,6 +104,7 @@ statusbar = {
         barend     = { priority = "100"; alignment = "right"; };
       };
     };
+  };
 };
 
 keyboard = (
@@ -131,8 +142,7 @@ settings = {
 
   "fe-common/core" = {
     emphasis = "yes";
-    theme = "minimal-grey";
-    bell_beeps = "no";
+    theme = "themes/solarized-universal";
     beep_msg_level = "MSGS HILIGHT CTCPS";
     activity_msg_level = "PUBLIC NOTICES CLIENTNOTICE CLIENTCRAP CLIENTERROR";
     activity_hide_level = "JOINS PARTS QUITS NICKS";
@@ -156,7 +166,7 @@ settings = {
     neat_right_mode = "OFF";
     neat_maxlength = "8";
     neat_melength = "-2";
-    # awl
+    # adv_windowlist
     awl_display_key = "%8%3$Q %0$H$C$S%n";
     awl_display_key_active = "%8%3$Q*%2$H$C$S%n";
     awl_display_nokey = "%8%3$N %0$H$C$S%n";
@@ -169,10 +179,10 @@ settings = {
     # hideauth
     hideauth_commands = "msg nickserv info";
   };
-  
+
   "irc/core" = {
     ctcp_version_reply = "irssi rulz!";
-    ctcp_userinfo_reply = "http://van.do";
+    ctcp_userinfo_reply = "http://bianco.site";
     part_message = "goodbye!";
     skip_motd = "yes";
   };
@@ -185,35 +195,21 @@ ignores = (
 );
 
 hilights = (
-  { text = "vando"; nick = "no"; word = "no"; fullword = "yes"; },
+  { text = "vando"; nick = "no"; word = "no"; fullword = "yes"; color = "%M"; },
   { text = "New request"; nick = "no"; word = "no"; fullword = "yes"; channels = ( "&bitlbee" ); }
 );
 
 logs = { };
 
 completions = {
-  ww = { value = "WIN"; auto = "yes"; };
-  yy = { value = "\\o/"; auto = "yes"; };
-  ft = { value = "FTW!"; auto = "yes"; };
-  af = { value = "AFAIK,"; auto = "no"; };
-  ll = { value = "<3"; auto = "yes"; };
-  uu = { value = "URL?"; auto = "yes"; };
   mm = { value = "/query"; auto = "yes"; };
-  tl = { value = "tl;dr"; auto = "yes"; };
-  tb = { value = "también"; auto = "yes"; };
-  dp = { value = "después"; auto = "yes"; };
-  hh = { value = "o/"; auto = "yes"; };
-  # For tw
+  qq = { value = "/quit"; auto = "yes"; };
   fv = { value = "favourite"; auto = "yes"; };
   rr = { value = "reply"; auto = "yes"; };
 };
 
 windows = {
   1 = { immortal = "yes"; name = "(status)"; level = "ALL"; };
-  2 = { items = ( { type = "CHANNEL"; chat_type = "IRC"; immortal = "yes"; name = "&bitlbee"; tag = "bitlbee"; } ); };
-  3 = { items = ( { type = "CHANNEL"; chat_type = "IRC"; immortal = "yes"; name = "#twitter_vando"; tag = "bitlbee"; } ); };
-  4 = { items = ( { type = "CHANNEL"; chat_type = "IRC"; immortal = "yes"; name = "#buenosaireslibre"; tag = "freenode"; } ); };
-  5 = { items = ( { type = "CHANNEL"; chat_type = "IRC"; immortal = "yes"; name = "#openbsderos"; tag = "freenode"; } ); }; 
 };
 
 mainwindows = { 1 = { first_line = "0"; lines = "63"; }; };

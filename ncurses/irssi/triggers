@@ -1,7 +1,0 @@
-#Triggers file version 1.0
--all -nocase -regexp '</?(a|b|body|div|em|font|i|s|u)( +\w+=".*?")*>' -replace '' 
-
--privmsgs -nocase -regexp '&amp;' -replace '&' 
--privmsgs -nocase -regexp '&gt;' -replace '>' 
--privmsgs -nocase -regexp '&lt;' -replace '<' 
--privmsgs -nocase -regexp '&quot;' -replace '"' 
