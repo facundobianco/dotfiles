@@ -17,6 +17,11 @@ if command -v k3d &> /dev/null; then
   source <(k3d completion bash)
 fi
 
+# minikube autocomple
+if command -v minikube &> /dev/null; then
+  source <(minikube completion bash)
+fi
+
 # K8S autocomple
 if command -v kubectl &> /dev/null; then
   source <(kubectl completion bash)
@@ -25,6 +30,11 @@ fi
 # FluxCD autocomple
 if command -v flux &> /dev/null; then
   source <(flux completion bash)
+fi
+
+# Velero autocomplete
+if command -v velero &> /dev/null; then
+  source <(velero completion bash)
 fi
 
 # brew avoid auto-update
