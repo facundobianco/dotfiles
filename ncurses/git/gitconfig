@@ -25,6 +25,7 @@
   df = diff
   ls = ls-files
   lt = log -1
+  ln = log -1 --name-only --oneline
   mm = merge
   rh = reset HEAD
   sw = show
