@@ -2,15 +2,12 @@
 set t_Co=256
 syntax enable
 
-" leader
-let mapleader = ","
-let g:mapleader = ","
-
 " Fast editing of the .vimrc
 map <leader>e :e! ~/.vimrc<cr>
 
 " mouse
-set mouse=n
+set mouse=
+set ttymouse=
 
 " Clipboard (into INSERT mode: C-R ")
 set pastetoggle=<F3>
@@ -55,6 +52,7 @@ match ExtraWhitespace /\s\+$/
 set nu
 set numberwidth=3
 set cpoptions+=n
+nnoremap <leader>n :set nu!<CR>
 highlight LineNr term=none cterm=NONE ctermbg=black ctermfg=grey
 
 " Statusline
@@ -93,7 +91,7 @@ autocmd BufRead,BufNewFile ~/.kube/config set syntax=yaml
 set splitbelow
 set splitright
 
-" tabs (leader = \)
+" tabs
 set showtabline=2
 nnoremap <leader>t :tabnew<CR>
 nnoremap <leader><right> :tabn<CR>
