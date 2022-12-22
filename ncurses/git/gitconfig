@@ -2,18 +2,19 @@
   name = Facundo Bianco
 
 [include]
-  path = ~/.git-envs
+  path = ~/.git/envs
 
 [core]
   editor = vim
   pager = less -RMS
-  excludesfile = ~/.gitexcludes
+  excludesfile = ~/.git/excludes
 
 [push]
   default = current
 
 [alias]
   aa = add --all
+  bc = branch --show-current
   br = branch
   cb = checkout -b
   ca = commit --all
@@ -23,6 +24,7 @@
   ci = commit
   co = checkout
   df = diff
+  lb = branch
   ls = ls-files
   lt = log -1
   ln = log -1 --name-only --oneline
