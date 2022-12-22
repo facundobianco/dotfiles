@@ -1,0 +1,12 @@
+# load configurations
+
+set completion-ignore-case on
+complete -cf man info which whereis
+shopt -s cdspell checkhash no_empty_cmd_completion hostcomplete
+
+[ -f ~/.bash/export ] && source ~/.bash/export
+[ -f ~/.bash/aliases ] && source ~/.bash/aliases
+[ -f ~/.bash/completion ] && source ~/.bash/completion
+[ -f ~/.bash/functions ] && source ~/.bash/functions
+
+# vim syntax=sh

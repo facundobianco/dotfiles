@@ -1,0 +1,35 @@
+# BASH
+if [ -f /usr/local/etc/profile.d/bash_completion.sh ] ; then
+  source /usr/local/etc/profile.d/bash_completion.sh
+fi
+
+# Git
+if [ -f ~/.git/git-completion.bash ] ; then
+  source ~/.git/git-completion.bash
+fi
+
+# K3D
+if command -v k3d &> /dev/null; then
+  source <(k3d completion bash)
+fi
+
+# minikube
+if command -v minikube &> /dev/null; then
+  source <(minikube completion bash)
+fi
+
+# K8S
+if command -v kubectl &> /dev/null; then
+  source <(kubectl completion bash)
+  [ -f ~/.kube/aliases ] && source ~/.kube/aliases
+fi
+
+# FluxCD
+if command -v flux &> /dev/null; then
+  source <(flux completion bash)
+fi
+
+# Velero
+if command -v velero &> /dev/null; then
+  source <(velero completion bash)
+fi

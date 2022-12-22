@@ -1,11 +1,18 @@
 ## Applications
-alias jcontrol='/usr/lib/jvm/java-8-oracle/jre/bin/jcontrol'
 alias rsync='rsync -zaPh'
-alias bat="batcat"
-alias ssh='TERM=xterm ssh'
-alias ls='ls -1Ahq --color=always --file-type --group-directories-first'
+alias ls='${PRFX:-}ls -1Ahq --color=always --file-type --group-directories-first'
 alias watch='watch '
 alias du='du -h'
+
+if [ `uname -s` = "Linux" ]
+then
+    alias dff='df -hx tmpfs | column -t'
+    alias ls='ls -1Ahq --color=always --file-type --group-directories-first'
+    alias prs='ps aux --sort=-vsz,-rss|less -S'
+    alias psc='ps h -o pid,cmd -C'
+    alias pssh='ps -o pid,start_time,cmd -C ssh'
+    alias psw='ps efww'
+fi
 
 ## Commands
 alias ctrl='xmodmap -e "add control  = Control_L  Control_R"'
@@ -17,10 +24,7 @@ alias ok='echo OK'
 alias OK='ok'
 alias oneline='xargs -a'
 alias poweroff='sudo /sbin/poweroff'
-alias prs='ps aux --sort=-vsz,-rss|less -S'
-alias psc='ps h -o pid,cmd -C'
-alias pssh='ps -o pid,start_time,cmd -C ssh'
-alias psw='ps efww'
+
 alias rssh='rsync -4 --ignore-existing -e ssh'
 alias smile='mpv tv:// --tv-driver=v4l2 --tv-device=/dev/video0'
 alias urxvt-main='urxvt -name main -geometry 240x66+0-0 -e sh -c "tmux -q has && tmux a || tmux new"'
@@ -36,6 +40,7 @@ alias wget-v="wget --verbose --output-document=-"
 alias wget-nv="wget --quiet --output-document=-"
 alias flux-logs="flux logs -f --since=1m"
 alias dff='df -hx tmpfs | column -t'
+alias epoch='date +%s'
 
 # Docker
 alias dgrep='di | grep'
@@ -45,9 +50,10 @@ alias drm='docker rm `docker ps -aq -f status=paused -f status=exited -f status=
 alias drmi='docker rmi -f `docker images -q --filter "dangling=true"`'
 
 # K8S
-# https://github.com/ahmetb/kubectl-aliases
-[ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
+[ -f ~/.kube/aliases ] && source ~/.kube/aliases
 alias kcgc='kubectl config get-contexts'
 alias kcuc='kubectl config use-context'
 alias kcdc='kubectl config delete-context'
 alias kcpn='kubectl cp --namespace '
+
+# vim syntax=sh

@@ -1,0 +1,58 @@
+# Bash config
+export LANG=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
+export EDITOR=vim
+export HISTIGNORE="clear:exit:ls:pwd:reset:resource"
+export HISTCONTROL="ignoreboth:erasedups"
+export HISTFILESIZE="999999"
+
+# PS1
+# https://scriptim.github.io/bash-prompt-generator
+if [ `uname -s` == "Linux" ]; then
+  export PS1='\[\e[0;2;3;38m\]🐧:\W $> \[\e[0m\]'
+  export PS2='> '
+  export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
+fi
+
+if [ `uname -s` == "Darwin" ]; then
+  export ITERM2_SQUELCH_MARK=0
+  export PS1='\[\e[0;2;38m\]⌘:\W $> \[\e[0m\]'
+fi
+
+if [ "$TERM_PROGRAM" = "platformio-ide-terminal" ]; then
+  export PS1="\W> "
+fi
+
+if [ "$TERM" = "xterm-kitty" ]; then
+  export PROMPT_COMMAND="echo -ne '\033]0;🐱 kiTTY\007'"
+fi
+
+# Linux config
+if [ `uname -s` == "Linux" ]; then
+  export LESS='-RMS'
+  export LESSOPEN='|pygmentize -g %s' # export LESSOPEN="|lesspipe.sh %s"
+  export LESS_TERMCAP_mb=$'\E[0;31m'
+  export LESS_TERMCAP_md=$'\E[0;38;5;74m'
+  export LESS_TERMCAP_me=$'\E[0m'
+  export LESS_TERMCAP_se=$'\E[0m'
+  export LESS_TERMCAP_so=$'\E[38;5;246m'
+  export LESS_TERMCAP_ue=$'\E[0m'
+  export LESS_TERMCAP_us=$'\E[04;38;5;146m'
+fi
+
+# OS Config
+if [ `uname -s` == "Darwin" ]; then
+  export PRFX=g
+  export LESS=' -R '
+  export BASH_SILENCE_DEPRECATION_WARNING=1
+  export HOMEBREW_NO_AUTO_UPDATE=1
+fi
+
+# bc
+export BC_ENV_ARGS="-q -l $HOME/.bcrc"
+
+# GPG
+export GPG_TTY=`tty`
+export GPG_AGENT_INFO
+
+# vim syntax=sh
