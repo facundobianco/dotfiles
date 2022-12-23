@@ -4,8 +4,8 @@ if [ -f /usr/local/etc/profile.d/bash_completion.sh ] ; then
 fi
 
 # Git
-if [ -f ~/.git/git-completion.bash ] ; then
-  source ~/.git/git-completion.bash
+if [ -f ~/.git/completion ] ; then
+  source ~/.git/completion
 fi
 
 # K3D
