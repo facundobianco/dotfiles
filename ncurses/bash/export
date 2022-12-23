@@ -45,6 +45,8 @@ if [ `uname -s` == "Darwin" ]; then
   export PRFX=g
   export LESS=' -R '
   export BASH_SILENCE_DEPRECATION_WARNING=1
+  export PATH=/opt/homebrew/bin:$PATH
+  export PATH=/opt/homebrew/sbin:$PATH
   export HOMEBREW_NO_AUTO_UPDATE=1
 fi
 
