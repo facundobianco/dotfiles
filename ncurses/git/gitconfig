@@ -1,8 +1,10 @@
 [user]
   name = Facundo Bianco
+  useConfigOnly = true
 
 [include]
   path = ~/.git/envs
+  path = ~/.git/envs-work
 
 [core]
   editor = vim
