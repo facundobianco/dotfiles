@@ -5,6 +5,7 @@
 [include]
   path = ~/.git/envs
   path = ~/.git/envs-work
+  path = ~/.git/envs-untracked
 
 [core]
   editor = vim
