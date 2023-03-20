@@ -10,14 +10,14 @@ mkdir -p ~/.bash ~/.git ~/.kube
 ln -sf ${VDIR}/bash/profile ~/.profile
 find ${VDIR}/bash -type f \( ! -iname profile \) -exec ln -sf {} ~/.bash/ \;
 wget -O ~/.kube/aliases \
-  https://github.com/ahmetb/kubectl-aliases/blob/master/.kubectl_aliases
+  https://raw.githubusercontent.com/ahmetb/kubectl-aliases/master/.kubectl_aliases
 
 # git
 ln -sf ${VDIR}/git/gitconfig ~/.gitconfig
 ln -sf ${VDIR}/git/excludes ~/.git/excludes
 ln -sf ${VDIR}/git/envs ~/.git/envs
 wget -O ~/.git/completion \
-  https://github.com/git/git/blob/master/contrib/completion/git-completion.bash
+  https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
 if [ ! -s ~/Code/.gitconfig ]
 then
   echo "[user]" > ~/Code/.gitconfig
