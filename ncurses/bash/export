@@ -9,7 +9,7 @@ export HISTFILESIZE="999999"
 # PS1
 # https://scriptim.github.io/bash-prompt-generator
 if [ `uname -s` == "Linux" ]; then
-  export PS1='\[\e[0;2;3;38m\]🐧:\W $> \[\e[0m\]'
+  export PS1='\[\e[0;2;3;38m\]LINUX:\W $> \[\e[0m\]'
   export PS2='> '
   export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
 fi
@@ -24,7 +24,7 @@ if [ "$TERM_PROGRAM" = "platformio-ide-terminal" ]; then
 fi
 
 if [ "$TERM" = "xterm-kitty" ]; then
-  export PROMPT_COMMAND="echo -ne '\033]0;🐱 kiTTY\007'"
+  export PROMPT_COMMAND="echo -ne '\033]0;kiTTY\007'"
 fi
 
 # Linux config
