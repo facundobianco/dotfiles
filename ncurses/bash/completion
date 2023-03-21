@@ -3,6 +3,10 @@ if [ -f /usr/local/etc/profile.d/bash_completion.sh ] ; then
   source /usr/local/etc/profile.d/bash_completion.sh
 fi
 
+if [ -f /home/linuxbrew/.linuxbrew/etc/bash_completion.d/ ] ; then
+  find /home/linuxbrew/.linuxbrew/etc/bash_completion.d -type f -exec source {} \;
+fi
+
 # Git
 if [ -f ~/.git/completion ] ; then
   source ~/.git/completion
