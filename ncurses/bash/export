@@ -9,7 +9,7 @@ export HISTFILESIZE="999999"
 # PS1
 # https://scriptim.github.io/bash-prompt-generator
 if [ `uname -s` == "Linux" ]; then
-  export PS1='\[\e[0;2;3;38m\]LINUX:\W $> \[\e[0m\]'
+  export PS1='\[\e[0;2;3;33m\]LINUX:\W $> \[\e[0m\]'
   export PS2='> '
   export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
 fi

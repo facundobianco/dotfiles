@@ -4,7 +4,7 @@ alias ls='${PRFX:-}ls -1Ahq --color=always --file-type --group-directories-first
 alias watch='watch '
 alias du='du -h'
 
-if [ `uname -s` = "Linux" ]
+if [ `uname -s` == "Linux" ]
 then
     alias dff='df -hx tmpfs | column -t'
     alias ls='ls -1Ahq --color=always --file-type --group-directories-first'
@@ -12,6 +12,11 @@ then
     alias psc='ps h -o pid,cmd -C'
     alias pssh='ps -o pid,start_time,cmd -C ssh'
     alias psw='ps efww'
+fi
+
+if [ `uname -s` == "Darwin" ]
+then
+    alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 fi
 
 ## Commands
