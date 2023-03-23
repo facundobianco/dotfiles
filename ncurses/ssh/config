@@ -1,0 +1,37 @@
+# -- ALL
+
+Host *
+  ServerAliveInterval 60
+  ForwardAgent yes
+
+Host 172.16.3.* 192.168.1.* 192.168.0.* github.com gitlab.com
+  StrictHostKeyChecking no
+  UserKnownHostsFile /dev/null
+  LogLevel ERROR
+
+# 2 keys & 2 projects (or more) in Github
+# https://yooniks9.medium.com/27dcb3d37382
+
+# -- PERSONAL
+
+Host me.github.com github.com
+  HostName github.com
+  User git
+  IdentityFile %d/.ssh/id_rsa
+  IdentitiesOnly yes
+
+Host me.gitlab.com gitlab.com
+  HostName gitlab.com
+  User git
+  IdentityFile %d/.ssh/id_rsa
+  IdentitiesOnly yes
+
+# -- WORK
+
+Host work.github.com github.com
+  HostName github.com
+  User git
+  IdentityFile %d/.ssh/id_rsa_work
+  IdentitiesOnly yes
+
+# vim syntax=sshconfig ts=2 sw=2 expandtab

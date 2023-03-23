@@ -29,4 +29,5 @@ if [ `uname -s` == "Darwin" ]
 then
   # avoid last login msg
   touch ~/.hushlogin
+  ln -s ${VDIR}/ssh/tailscale.sh ~/.ssh/tailscale.sh
 fi
