@@ -8,16 +8,6 @@
 	<false/>
 	<key>AlternateMouseScroll</key>
 	<true/>
-	<key>AppleAntiAliasingThreshold</key>
-	<integer>1</integer>
-	<key>ApplePressAndHoldEnabled</key>
-	<false/>
-	<key>AppleScrollAnimationEnabled</key>
-	<integer>0</integer>
-	<key>AppleSmoothFixedFontsSizeThreshold</key>
-	<integer>1</integer>
-	<key>AppleWindowTabbingMode</key>
-	<string>manual</string>
 	<key>Default Bookmark Guid</key>
 	<string>B578DA4D-651A-4216-970A-04DF9ABA2A14</string>
 	<key>DimBackgroundWindows</key>
@@ -115,6 +105,17 @@
 			<key>Text</key>
 			<string></string>
 		</dict>
+		<key>0xf700-0x320000-0x7e</key>
+		<dict>
+			<key>Action</key>
+			<integer>20</integer>
+			<key>Label</key>
+			<string></string>
+			<key>Text</key>
+			<string></string>
+			<key>Version</key>
+			<integer>1</integer>
+		</dict>
 		<key>0xf701-0x300000-0x7d</key>
 		<dict>
 			<key>Action</key>
@@ -126,6 +127,17 @@
 			<key>Version</key>
 			<integer>1</integer>
 		</dict>
+		<key>0xf701-0x320000-0x7d</key>
+		<dict>
+			<key>Action</key>
+			<integer>21</integer>
+			<key>Label</key>
+			<string></string>
+			<key>Text</key>
+			<string></string>
+			<key>Version</key>
+			<integer>1</integer>
+		</dict>
 		<key>0xf702-0x300000</key>
 		<dict>
 			<key>Action</key>
@@ -133,12 +145,16 @@
 			<key>Text</key>
 			<string></string>
 		</dict>
-		<key>0xf702-0x320000</key>
+		<key>0xf702-0x320000-0x7b</key>
 		<dict>
 			<key>Action</key>
-			<integer>33</integer>
+			<integer>18</integer>
+			<key>Label</key>
+			<string></string>
 			<key>Text</key>
 			<string></string>
+			<key>Version</key>
+			<integer>1</integer>
 		</dict>
 		<key>0xf703-0x300000</key>
 		<dict>
@@ -147,12 +163,16 @@
 			<key>Text</key>
 			<string></string>
 		</dict>
-		<key>0xf703-0x320000</key>
+		<key>0xf703-0x320000-0x7c</key>
 		<dict>
 			<key>Action</key>
-			<integer>34</integer>
+			<integer>19</integer>
+			<key>Label</key>
+			<string></string>
 			<key>Text</key>
 			<string></string>
+			<key>Version</key>
+			<integer>1</integer>
 		</dict>
 		<key>0xf729-0x100000</key>
 		<dict>
@@ -383,13 +403,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.41457033157348633</real>
+				<real>0.689361572265625</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.34185762777528661</real>
+				<real>0.5522572973602603</real>
 				<key>Red Component</key>
-				<real>0.057066204565671796</real>
+				<real>0.016304175369441509</real>
 			</dict>
 			<key>Ansi 9 Color</key>
 			<dict>
@@ -498,6 +518,8 @@
 			<string>Default</string>
 			<key>Disable Window Resizing</key>
 			<true/>
+			<key>Enable Triggers in Interactive Apps</key>
+			<false/>
 			<key>Flashing Bell</key>
 			<false/>
 			<key>Foreground Color</key>
