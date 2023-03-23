@@ -19,10 +19,6 @@ if [ `uname -s` == "Darwin" ]; then
   export PS1='\[\e[0;2;38m\]⌘:\W $> \[\e[0m\]'
 fi
 
-if [ "$TERM_PROGRAM" = "platformio-ide-terminal" ]; then
-  export PS1="\W> "
-fi
-
 if [ "$TERM" = "xterm-kitty" ]; then
   export PROMPT_COMMAND="echo -ne '\033]0;kiTTY\007'"
 fi

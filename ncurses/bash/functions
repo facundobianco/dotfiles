@@ -6,5 +6,6 @@ yt-pl(){ youtube-dl -citk --format mp4 --yes-playlist --write-sub --sub-lang "${
 
 # bc
 percalc(){ bc <<<"${1}*${2}/100" ; }
+iclcalc(){ bc <<<"${1}*${2}/100+${2}" ; }
 
 # vim: syntax=sh
