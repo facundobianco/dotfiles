@@ -8,4 +8,13 @@ yt-pl(){ youtube-dl -citk --format mp4 --yes-playlist --write-sub --sub-lang "${
 percalc(){ bc <<<"${1}*${2}/100" ; }
 iclcalc(){ bc <<<"${1}*${2}/100+${2}" ; }
 
+# AWS
+sts-deco(){
+  aws sts decode-authorization-message \
+    --output yaml --encoded-message \
+    "${1}" | \
+  sed -n "s/DecodedMessage: '\([^']*\)'/\1/p" | \
+  jq
+}
+
 # vim: syntax=sh
