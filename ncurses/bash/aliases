@@ -17,6 +17,7 @@ fi
 if [ `uname -s` == "Darwin" ]
 then
     alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
+    alias iterm2-reset="printf '\e[?2004l'"
 fi
 
 ## Commands
