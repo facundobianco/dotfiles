@@ -967,7 +967,7 @@
 							<key>knobs</key>
 							<dict>
 								<key>base: compression resistance</key>
-								<integer>1</integer>
+								<real>1</real>
 								<key>base: priority</key>
 								<real>5</real>
 								<key>iTermStatusBarGitComponentPollingIntervalKey</key>
@@ -1005,7 +1005,7 @@
 					</dict>
 					<dict>
 						<key>class</key>
-						<string>iTermStatusBarJobComponent</string>
+						<string>iTermStatusBarWorkingDirectoryComponent</string>
 						<key>configuration</key>
 						<dict>
 							<key>knobs</key>
@@ -1018,44 +1018,8 @@
 								<real>+infinity</real>
 								<key>minwidth</key>
 								<integer>0</integer>
-								<key>shared text color</key>
-								<dict>
-									<key>Alpha Component</key>
-									<real>1</real>
-									<key>Blue Component</key>
-									<real>0.63</real>
-									<key>Color Space</key>
-									<string>sRGB</string>
-									<key>Green Component</key>
-									<real>0.90000000000000002</real>
-									<key>Red Component</key>
-									<real>0.80145</real>
-								</dict>
-							</dict>
-							<key>layout advanced configuration dictionary value</key>
-							<dict>
-								<key>algorithm</key>
-								<integer>0</integer>
-								<key>auto-rainbow style</key>
-								<integer>1</integer>
-								<key>font</key>
-								<string>.AppleSystemUIFont 12</string>
-								<key>remove empty components</key>
-								<false/>
-							</dict>
-						</dict>
-					</dict>
-					<dict>
-						<key>class</key>
-						<string>iTermStatusBarCPUUtilizationComponent</string>
-						<key>configuration</key>
-						<dict>
-							<key>knobs</key>
-							<dict>
-								<key>base: compression resistance</key>
-								<integer>1</integer>
-								<key>base: priority</key>
-								<real>5</real>
+								<key>path</key>
+								<string>path</string>
 								<key>shared text color</key>
 								<dict>
 									<key>Alpha Component</key>
@@ -1085,7 +1049,7 @@
 					</dict>
 					<dict>
 						<key>class</key>
-						<string>iTermStatusBarMemoryUtilizationComponent</string>
+						<string>iTermStatusBarJobComponent</string>
 						<key>configuration</key>
 						<dict>
 							<key>knobs</key>
@@ -1094,44 +1058,10 @@
 								<integer>1</integer>
 								<key>base: priority</key>
 								<real>5</real>
-								<key>shared text color</key>
-								<dict>
-									<key>Alpha Component</key>
-									<real>1</real>
-									<key>Blue Component</key>
-									<real>0.90000000000000002</real>
-									<key>Color Space</key>
-									<string>sRGB</string>
-									<key>Green Component</key>
-									<real>0.63</real>
-									<key>Red Component</key>
-									<real>0.65564999999999996</real>
-								</dict>
-							</dict>
-							<key>layout advanced configuration dictionary value</key>
-							<dict>
-								<key>algorithm</key>
+								<key>maxwidth</key>
+								<real>+infinity</real>
+								<key>minwidth</key>
 								<integer>0</integer>
-								<key>auto-rainbow style</key>
-								<integer>1</integer>
-								<key>font</key>
-								<string>.AppleSystemUIFont 12</string>
-								<key>remove empty components</key>
-								<false/>
-							</dict>
-						</dict>
-					</dict>
-					<dict>
-						<key>class</key>
-						<string>iTermStatusBarSearchFieldComponent</string>
-						<key>configuration</key>
-						<dict>
-							<key>knobs</key>
-							<dict>
-								<key>base: compression resistance</key>
-								<integer>1</integer>
-								<key>base: priority</key>
-								<real>5</real>
 								<key>shared text color</key>
 								<dict>
 									<key>Alpha Component</key>
@@ -1220,10 +1150,14 @@
 	<false/>
 	<key>SplitPaneDimmingAmount</key>
 	<real>0.45031338738006288</real>
+	<key>StatusBarPosition</key>
+	<integer>1</integer>
 	<key>StretchTabsToFillBar</key>
 	<false/>
 	<key>TabStyleWithAutomaticOption</key>
 	<integer>6</integer>
+	<key>TabViewType</key>
+	<integer>0</integer>
 	<key>TabsHaveCloseButton</key>
 	<false/>
 	<key>TerminalVMargin</key>
