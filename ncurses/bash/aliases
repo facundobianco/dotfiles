@@ -3,6 +3,7 @@ alias rsync='rsync -zaPh'
 alias ls='${PRFX:-}ls -1Ahq --color=always --file-type --group-directories-first'
 alias watch='watch '
 alias du='du -h'
+alias t='trans'
 
 if [ `uname -s` == "Linux" ]
 then
@@ -25,12 +26,12 @@ alias ctrl='xmodmap -e "add control  = Control_L  Control_R"'
 alias ll='ls -l'
 alias lgrep='ls|grep'
 alias lst='tmux lsw -F "#{window_index}#{window_flags}#{window_name}"'
-alias myip='wget -qO - http://icanhazip.com'
+alias myip='wget -q4O - http://icanhazip.com'
+alias p25='ping -c25 google.com'
 alias ok='echo OK'
 alias OK='ok'
 alias oneline='xargs -a'
 alias poweroff='sudo /sbin/poweroff'
-
 alias rssh='rsync -4 --ignore-existing -e ssh'
 alias smile='mpv tv:// --tv-driver=v4l2 --tv-device=/dev/video0'
 alias urxvt-main='urxvt -name main -geometry 240x66+0-0 -e sh -c "tmux -q has && tmux a || tmux new"'
