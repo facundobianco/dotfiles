@@ -9,7 +9,7 @@
 
 [core]
   editor = vim
-  pager = less -RMS
+  pager = delta
   excludesfile = ~/.git/excludes
 
 [push]
@@ -27,6 +27,7 @@
   ci = commit
   co = checkout
   df = diff
+  dl = diff HEAD^ HEAD
   lb = branch
   ls = ls-files
   lt = log -1
@@ -64,9 +65,23 @@
 
 [pager]
   branch = false
-  diff = false
-  show = false
-  log = false
+  log    = false
+
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  syntax-theme = TwoDark # bat --list-themes
+  navigate     = true
+  light        = false
+  line-numbers = true
+  side-by-side = true
+
+[merge]
+  conflictstyle = diff3
+
+[diff]
+  colorMoved = default
 
 [credential]
   helper = store

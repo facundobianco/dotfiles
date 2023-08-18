@@ -4,5 +4,8 @@
 [includeIf "gitdir:~/Code/vando/**"]
   path = ~/Code/.gitconfig
 
+[includeIf "gitdir:~/Developer/facundobianco/**"]
+  path = ~/Developer/.gitconfig
+
 [includeIf "gitdir:~/.password-store/**"]
   path = ~/Code/.gitconfig
