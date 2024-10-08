@@ -8,5 +8,6 @@ shopt -s cdspell checkhash no_empty_cmd_completion hostcomplete
 [ -f ~/.bash/aliases ] && source ~/.bash/aliases
 [ -f ~/.bash/completion ] && source ~/.bash/completion
 [ -f ~/.bash/functions ] && source ~/.bash/functions
+[ -f ~/.bash/bashmarks.sh ] && source ~/.bash/bashmarks.sh
 
 # vim syntax=sh

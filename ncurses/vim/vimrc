@@ -10,6 +10,8 @@ set mouse=
 set ttymouse=
 
 " Clipboard (into INSERT mode: C-R ")
+" Uncomment to share clipboard whit OS
+" set clipboard=unnamed
 set pastetoggle=<F3>
 nnoremap Y y$
 

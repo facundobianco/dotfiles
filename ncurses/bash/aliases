@@ -19,6 +19,7 @@ if [ `uname -s` == "Darwin" ]
 then
     alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
     alias iterm2-reset="printf '\e[?2004l'"
+    alias yt-dl='/usr/bin/python3 /opt/homebrew/bin/youtube-dl'
 fi
 
 ## Commands

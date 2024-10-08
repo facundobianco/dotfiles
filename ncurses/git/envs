@@ -9,3 +9,9 @@
 
 [includeIf "gitdir:~/.password-store/**"]
   path = ~/Code/.gitconfig
+
+[includeIf "gitdir:~/Documents/Obsidian/vault-in-git/**"]
+  path = ~/Code/.gitconfig
+
+[includeIf "gitdir:~/Developer/testing/**"]
+  path = ~/Developer/.gitconfig
